@@ -1,0 +1,534 @@
+[gd_scene load_steps=30 format=3 uid="uid://cxpx3l3rtydyq"]
+
+[ext_resource type="Texture2D" uid="uid://c4pgt4fxcr2pl" path="res://bg_1_1.png" id="1_fg34x"]
+[ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
+[ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
+[ext_resource type="PackedScene" uid="uid://bumex5xpd0j6f" path="res://godette.tscn" id="2_nvmpq"]
+[ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://diamond.png" id="2_rvjnl"]
+[ext_resource type="Script" path="res://EmotePicker.gd" id="3_1hrje"]
+[ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
+[ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
+[ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
+[ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
+[ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://choices_theme.tres" id="9_n6w1j"]
+[ext_resource type="Script" path="res://NameIcon.gd" id="10_nh0wb"]
+[ext_resource type="Script" path="res://NextIcon.gd" id="11_ll6jk"]
+
+[sub_resource type="Animation" id="Animation_5pwqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg11:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_solfx"]
+resource_name = "scroll"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg11:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-800, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b23f3"]
+_data = {
+"RESET": SubResource("Animation_5pwqy"),
+"scroll": SubResource("Animation_solfx")
+}
+
+[sub_resource type="Gradient" id="Gradient_n6vbk"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rrprb"]
+gradient = SubResource("Gradient_n6vbk")
+
+[sub_resource type="Gradient" id="Gradient_id1a3"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uksqt"]
+gradient = SubResource("Gradient_id1a3")
+
+[sub_resource type="Animation" id="Animation_i8uyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kgtpt"]
+resource_name = "spin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1, 0.1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.1, 0.1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xm3xt"]
+_data = {
+"RESET": SubResource("Animation_i8uyt"),
+"spin": SubResource("Animation_kgtpt")
+}
+
+[sub_resource type="Animation" id="Animation_v7qel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextIcon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(617.5, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_yy5st"]
+resource_name = "next"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NextIcon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(617.5, 205), Vector2(618, 213)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6xh4b"]
+_data = {
+"RESET": SubResource("Animation_v7qel"),
+"next": SubResource("Animation_yy5st")
+}
+
+[sub_resource type="Animation" id="Animation_54xqn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Godette:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godette:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(629, 465)]
+}
+
+[sub_resource type="Animation" id="Animation_14ue7"]
+resource_name = "zoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Godette:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godette:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(629, 465), Vector2(610, 917)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m7o0"]
+_data = {
+"RESET": SubResource("Animation_54xqn"),
+"zoom": SubResource("Animation_14ue7")
+}
+
+[node name="DialogView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hisby")
+
+[node name="Bg11" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2299.0
+offset_bottom = 720.0
+texture = ExtResource("1_fg34x")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg11"]
+root_node = NodePath("../..")
+autoplay = "scroll"
+libraries = {
+"": SubResource("AnimationLibrary_b23f3")
+}
+
+[node name="EmotePicker" type="OptionButton" parent="." node_paths=PackedStringArray("character")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 133.0
+offset_bottom = 60.0
+script = ExtResource("3_1hrje")
+character = NodePath("../Godette")
+
+[node name="ZoomButton" type="Button" parent="." node_paths=PackedStringArray("zoom_animation")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 85.0
+offset_right = 131.0
+offset_bottom = 116.0
+toggle_mode = true
+text = "Zoom In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../AnimationPlayer")
+
+[node name="Godette" parent="." instance=ExtResource("2_nvmpq")]
+position = Vector2(629, 465)
+scale = Vector2(0.2, 0.2)
+
+[node name="DialogBox" type="Control" parent="." node_paths=PackedStringArray("showname_label", "dialog_label")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -235.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_kwgg7")
+showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
+dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
+
+[node name="GradientLeft" type="TextureRect" parent="DialogBox"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 70.0
+offset_right = 55.0
+offset_bottom = -30.0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_rrprb")
+expand_mode = 1
+
+[node name="GradientRight" type="TextureRect" parent="DialogBox"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = 70.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_uksqt")
+expand_mode = 1
+
+[node name="Dialog" type="PanelContainer" parent="DialogBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_oupsu")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox/Dialog"]
+layout_mode = 2
+theme_override_constants/margin_left = 49
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 24
+
+[node name="ReferenceRect" type="ReferenceRect" parent="DialogBox/Dialog/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/Dialog/MarginContainer"]
+layout_mode = 2
+text = "Wahahooey bababooey."
+scroll_active = false
+scroll_following = true
+visible_characters_behavior = 1
+
+[node name="Showname" type="PanelContainer" parent="DialogBox"]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 57.0
+theme = ExtResource("1_oupsu")
+script = ExtResource("7_2g07e")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox/Showname"]
+layout_mode = 2
+theme_override_constants/margin_right = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox/Showname/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="DialogBox/Showname/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+
+[node name="NameIcon" type="TextureRect" parent="DialogBox/Showname/MarginContainer/HBoxContainer/Control"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22, 22)
+texture = ExtResource("2_rvjnl")
+expand_mode = 1
+script = ExtResource("10_nh0wb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_xm3xt")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/Showname/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Hello there!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.0
+
+[node name="NextIcon" type="TextureRect" parent="DialogBox"]
+custom_minimum_size = Vector2(45, 22)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = -30.0
+offset_right = 22.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_q33wo")
+expand_mode = 1
+script = ExtResource("11_ll6jk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/NextIcon"]
+root_node = NodePath("../..")
+autoplay = "next"
+libraries = {
+"": SubResource("AnimationLibrary_6xh4b")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m7o0")
+}
+
+[node name="ChoiceList" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -404.0
+offset_top = -181.0
+offset_right = -32.0
+offset_bottom = 183.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_n6w1j")
+alignment = 1
+
+[node name="Option1" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+text = "Text Option 1"
+alignment = 0
+
+[node name="Option2" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+text = "Text Option 2"
+alignment = 0
+
+[node name="Option3" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+text = "Text Option 3"
+alignment = 0
+
+[node name="Option4" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.454902, 0.454902, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.454902, 0.454902, 1, 1)
+theme_override_colors/font_hover_color = Color(0.454902, 0.454902, 1, 1)
+theme_override_colors/font_focus_color = Color(0.454902, 0.454902, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.454902, 0.454902, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.454902, 0.454902, 1, 0.501961)
+text = "Text Option 4 (Memory)"
+alignment = 0
+
+[node name="Option5" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+text = "Text Option 5"
+alignment = 0
+
+[node name="Option6" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Text Option 6"
+alignment = 0
+
+[node name="Option7" type="Button" parent="ChoiceList/VBoxContainer"]
+layout_mode = 2
+text = "Text Option 7"
+alignment = 0
+
+[node name="DelaySpinBox" type="SpinBox" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 213.0
+offset_right = 336.0
+offset_bottom = 244.0
+step = 0.001
+value = 0.02
+suffix = "ms/symbol"
+
+[node name="MsgEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 130.0
+offset_right = 322.0
+offset_bottom = 210.0
+placeholder_text = "Type out msg"
+
+[node name="SetButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 213.0
+offset_right = 75.0
+offset_bottom = 244.0
+text = "Set"
+
+[node name="AddButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 213.0
+offset_right = 131.0
+offset_bottom = 244.0
+text = "Add"
+
+[connection signal="item_selected" from="EmotePicker" to="EmotePicker" method="_on_item_selected"]
+[connection signal="toggled" from="ZoomButton" to="ZoomButton" method="_on_toggled"]
+[connection signal="message_add" from="DialogBox" to="DialogBox/NextIcon" method="_on_dialog_box_message_add"]
+[connection signal="message_end" from="DialogBox" to="DialogBox/NextIcon" method="_on_dialog_box_message_end"]
+[connection signal="message_set" from="DialogBox" to="DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
+[connection signal="message_set" from="DialogBox" to="DialogBox/NextIcon" method="_on_dialog_box_message_set"]
+[connection signal="finished" from="DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="DialogBox/Showname" method="_on_rich_text_label_finished"]
+[connection signal="pressed" from="SetButton" to="." method="_on_set_button_pressed"]
+[connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]

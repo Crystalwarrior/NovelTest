@@ -1,0 +1,225 @@
+[gd_scene load_steps=26 format=3 uid="uid://bumex5xpd0j6f"]
+
+[ext_resource type="Texture2D" uid="uid://n8xr2c3va6pv" path="res://Godette/body.png" id="1_4evmc"]
+[ext_resource type="Script" path="res://godette.gd" id="1_x23ug"]
+[ext_resource type="Texture2D" uid="uid://b8hddtah7tq63" path="res://Godette/smile.png" id="2_ltfxh"]
+[ext_resource type="Texture2D" uid="uid://doh1h0mt6j6vw" path="res://Godette/Anger.png" id="2_shdnb"]
+[ext_resource type="Texture2D" uid="uid://lw2cd3g4rpvc" path="res://Godette/Annoyance.png" id="4_wn0p1"]
+[ext_resource type="Texture2D" uid="uid://dxdparesfulyl" path="res://Godette/Grin.png" id="5_u5w85"]
+[ext_resource type="Texture2D" uid="uid://dxptjigsoo5hm" path="res://Godette/Joy.png" id="6_pos7w"]
+[ext_resource type="Texture2D" uid="uid://q1wkv168ntv5" path="res://Godette/Laugh.png" id="7_b8ti5"]
+[ext_resource type="Texture2D" uid="uid://c1ftjhnn5t1tj" path="res://Godette/Sad.png" id="8_tprtd"]
+[ext_resource type="Texture2D" uid="uid://duw2xq4igg6kt" path="res://Godette/Shocked.png" id="9_kniri"]
+[ext_resource type="Texture2D" uid="uid://caa0viyuy26ac" path="res://Godette/Sleepy.png" id="10_ne23b"]
+[ext_resource type="Texture2D" uid="uid://guifhnq774s5" path="res://Godette/Smug.png" id="11_mff7v"]
+[ext_resource type="Texture2D" uid="uid://cttbreejw2dcf" path="res://Godette/Surprised.png" id="12_7uxnx"]
+
+[sub_resource type="Animation" id="Animation_hi6yq"]
+resource_name = "anger"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_shdnb")]
+}
+
+[sub_resource type="Animation" id="Animation_djfg8"]
+resource_name = "annoyance"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_wn0p1")]
+}
+
+[sub_resource type="Animation" id="Animation_yjwwl"]
+resource_name = "grin"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_u5w85")]
+}
+
+[sub_resource type="Animation" id="Animation_ioljp"]
+resource_name = "joy"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_pos7w")]
+}
+
+[sub_resource type="Animation" id="Animation_hfc4n"]
+resource_name = "laugh"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_b8ti5")]
+}
+
+[sub_resource type="Animation" id="Animation_2wxpj"]
+resource_name = "sad"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_tprtd")]
+}
+
+[sub_resource type="Animation" id="Animation_otir5"]
+resource_name = "shocked"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_kniri")]
+}
+
+[sub_resource type="Animation" id="Animation_jbxqk"]
+resource_name = "sleepy"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ne23b")]
+}
+
+[sub_resource type="Animation" id="Animation_i4wnl"]
+resource_name = "smile"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ltfxh")]
+}
+
+[sub_resource type="Animation" id="Animation_jomsv"]
+resource_name = "smug"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_mff7v")]
+}
+
+[sub_resource type="Animation" id="Animation_81l3b"]
+resource_name = "surprised"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_7uxnx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l4x7"]
+_data = {
+"anger": SubResource("Animation_hi6yq"),
+"annoyance": SubResource("Animation_djfg8"),
+"grin": SubResource("Animation_yjwwl"),
+"joy": SubResource("Animation_ioljp"),
+"laugh": SubResource("Animation_hfc4n"),
+"sad": SubResource("Animation_2wxpj"),
+"shocked": SubResource("Animation_otir5"),
+"sleepy": SubResource("Animation_jbxqk"),
+"smile": SubResource("Animation_i4wnl"),
+"smug": SubResource("Animation_jomsv"),
+"surprised": SubResource("Animation_81l3b")
+}
+
+[node name="Godette" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
+script = ExtResource("1_x23ug")
+emote_switcher = NodePath("EmoteSwitcher")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(-476, -1817)
+texture = ExtResource("1_4evmc")
+centered = false
+
+[node name="Face" type="Sprite2D" parent="."]
+position = Vector2(-262, -1430)
+texture = ExtResource("2_ltfxh")
+centered = false
+
+[node name="EmoteSwitcher" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6l4x7")
+}
