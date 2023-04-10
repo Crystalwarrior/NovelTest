@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cxpx3l3rtydyq"]
+[gd_scene load_steps=39 format=3 uid="uid://cxpx3l3rtydyq"]
 
 [ext_resource type="Texture2D" uid="uid://c4pgt4fxcr2pl" path="res://bg_1_1.png" id="1_fg34x"]
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
@@ -129,7 +129,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Godette:scale")
+tracks/0/path = NodePath("SpriteFadeGroup/Godette:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -141,7 +141,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Godette:position")
+tracks/1/path = NodePath("SpriteFadeGroup/Godette:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -156,7 +156,7 @@ resource_name = "zoom"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Godette:scale")
+tracks/0/path = NodePath("SpriteFadeGroup/Godette:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -168,7 +168,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Godette:position")
+tracks/1/path = NodePath("SpriteFadeGroup/Godette:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -182,6 +182,60 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_54xqn"),
 "zoom": SubResource("Animation_14ue7")
+}
+
+[sub_resource type="Gradient" id="Gradient_sm7d0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cbgxl"]
+frequency = 0.003
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yxg3j"]
+width = 960
+height = 540
+seamless = true
+seamless_blend_skirt = 0.5
+color_ramp = SubResource("Gradient_sm7d0")
+noise = SubResource("FastNoiseLite_cbgxl")
+
+[sub_resource type="Animation" id="Animation_833ad"]
+resource_name = "scroll"
+length = 30.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-960, -540)]
+}
+
+[sub_resource type="Animation" id="Animation_dprj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pt7bs"]
+_data = {
+"RESET": SubResource("Animation_dprj7"),
+"scroll": SubResource("Animation_833ad")
 }
 
 [sub_resource type="Animation" id="Animation_5pwqy"]
@@ -222,6 +276,42 @@ _data = {
 "scroll": SubResource("Animation_solfx")
 }
 
+[sub_resource type="Animation" id="Animation_pxgu4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lvuqq"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j45ek"]
+_data = {
+"RESET": SubResource("Animation_pxgu4"),
+"fade": SubResource("Animation_lvuqq")
+}
+
 [node name="DialogView" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -240,7 +330,7 @@ offset_top = 40.0
 offset_right = 133.0
 offset_bottom = 60.0
 script = ExtResource("3_1hrje")
-character = NodePath("../../Godette")
+character = NodePath("../../SpriteFadeGroup/Godette")
 
 [node name="ZoomButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
 offset_left = 216.0
@@ -251,6 +341,17 @@ toggle_mode = true
 text = "Zoom In/Out"
 script = ExtResource("3_2f4ou")
 zoom_animation = NodePath("../AnimationPlayer")
+
+[node name="FadeButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 216.0
+offset_top = 51.0
+offset_right = 323.0
+offset_bottom = 82.0
+toggle_mode = true
+text = "Fade In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../../SpriteFadeGroup/AnimationPlayer")
+animation_to_play = "fade"
 
 [node name="DialogBox" type="Control" parent="HUD" node_paths=PackedStringArray("showname_label", "dialog_label")]
 layout_mode = 3
@@ -519,6 +620,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="NoiseBg" type="TextureRect" parent="."]
+modulate = Color(1, 0, 1, 1)
+layout_mode = 0
+offset_right = 2240.0
+offset_bottom = 1260.0
+texture = SubResource("NoiseTexture2D_yxg3j")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NoiseBg"]
+autoplay = "scroll"
+libraries = {
+"": SubResource("AnimationLibrary_pt7bs")
+}
+
 [node name="Bg11" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
@@ -534,13 +649,20 @@ libraries = {
 "": SubResource("AnimationLibrary_b23f3")
 }
 
-[node name="Godette" parent="." instance=ExtResource("2_nvmpq")]
-visible = false
+[node name="SpriteFadeGroup" type="CanvasGroup" parent="."]
+
+[node name="Godette" parent="SpriteFadeGroup" instance=ExtResource("2_nvmpq")]
 position = Vector2(629, 465)
 scale = Vector2(0.2, 0.2)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteFadeGroup"]
+libraries = {
+"": SubResource("AnimationLibrary_j45ek")
+}
+
 [connection signal="item_selected" from="HUD/EmotePicker" to="HUD/EmotePicker" method="_on_item_selected"]
 [connection signal="toggled" from="HUD/ZoomButton" to="HUD/ZoomButton" method="_on_toggled"]
+[connection signal="toggled" from="HUD/FadeButton" to="HUD/FadeButton" method="_on_toggled"]
 [connection signal="message_add" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_add"]
 [connection signal="message_end" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
@@ -548,3 +670,5 @@ scale = Vector2(0.2, 0.2)
 [connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
 [connection signal="pressed" from="HUD/SetButton" to="HUD" method="_on_set_button_pressed"]
 [connection signal="pressed" from="HUD/AddButton" to="HUD" method="_on_add_button_pressed"]
+
+[editable path="SpriteFadeGroup/Godette"]
