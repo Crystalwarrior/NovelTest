@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 
 func _on_set_button_pressed():

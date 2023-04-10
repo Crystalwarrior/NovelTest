@@ -14,44 +14,6 @@
 [ext_resource type="Script" path="res://NameIcon.gd" id="10_nh0wb"]
 [ext_resource type="Script" path="res://NextIcon.gd" id="11_ll6jk"]
 
-[sub_resource type="Animation" id="Animation_5pwqy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bg11:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_solfx"]
-resource_name = "scroll"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bg11:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-800, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b23f3"]
-_data = {
-"RESET": SubResource("Animation_5pwqy"),
-"scroll": SubResource("Animation_solfx")
-}
-
 [sub_resource type="Gradient" id="Gradient_n6vbk"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
@@ -222,6 +184,44 @@ _data = {
 "zoom": SubResource("Animation_14ue7")
 }
 
+[sub_resource type="Animation" id="Animation_5pwqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg11:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_solfx"]
+resource_name = "scroll"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg11:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-800, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b23f3"]
+_data = {
+"RESET": SubResource("Animation_5pwqy"),
+"scroll": SubResource("Animation_solfx")
+}
+
 [node name="DialogView" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -230,33 +230,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("1_hisby")
 
-[node name="Bg11" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 2299.0
-offset_bottom = 720.0
-texture = ExtResource("1_fg34x")
-stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg11"]
-root_node = NodePath("../..")
-autoplay = "scroll"
-libraries = {
-"": SubResource("AnimationLibrary_b23f3")
-}
-
-[node name="EmotePicker" type="OptionButton" parent="." node_paths=PackedStringArray("character")]
-layout_mode = 0
+[node name="EmotePicker" type="OptionButton" parent="HUD" node_paths=PackedStringArray("character")]
 offset_left = 24.0
 offset_top = 40.0
 offset_right = 133.0
 offset_bottom = 60.0
 script = ExtResource("3_1hrje")
-character = NodePath("../Godette")
+character = NodePath("../../Godette")
 
-[node name="ZoomButton" type="Button" parent="." node_paths=PackedStringArray("zoom_animation")]
-layout_mode = 0
+[node name="ZoomButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
 offset_left = 216.0
 offset_top = 91.0
 offset_right = 323.0
@@ -266,12 +252,8 @@ text = "Zoom In/Out"
 script = ExtResource("3_2f4ou")
 zoom_animation = NodePath("../AnimationPlayer")
 
-[node name="Godette" parent="." instance=ExtResource("2_nvmpq")]
-position = Vector2(629, 465)
-scale = Vector2(0.2, 0.2)
-
-[node name="DialogBox" type="Control" parent="." node_paths=PackedStringArray("showname_label", "dialog_label")]
-layout_mode = 1
+[node name="DialogBox" type="Control" parent="HUD" node_paths=PackedStringArray("showname_label", "dialog_label")]
+layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -283,7 +265,8 @@ script = ExtResource("5_kwgg7")
 showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
 dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
 
-[node name="GradientLeft" type="TextureRect" parent="DialogBox"]
+[node name="GradientLeft" type="TextureRect" parent="HUD/DialogBox"]
+visible = false
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -294,7 +277,8 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_rrprb")
 expand_mode = 1
 
-[node name="GradientRight" type="TextureRect" parent="DialogBox"]
+[node name="GradientRight" type="TextureRect" parent="HUD/DialogBox"]
+visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -308,7 +292,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_uksqt")
 expand_mode = 1
 
-[node name="Dialog" type="PanelContainer" parent="DialogBox"]
+[node name="Dialog" type="PanelContainer" parent="HUD/DialogBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -318,42 +302,41 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_oupsu")
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogBox/Dialog"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/DialogBox/Dialog"]
 layout_mode = 2
-theme_override_constants/margin_left = 49
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 48
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 24
 
-[node name="ReferenceRect" type="ReferenceRect" parent="DialogBox/Dialog/MarginContainer"]
+[node name="ReferenceRect" type="ReferenceRect" parent="HUD/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/Dialog/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
 text = "Wahahooey bababooey."
 scroll_active = false
-scroll_following = true
 visible_characters_behavior = 1
 
-[node name="Showname" type="PanelContainer" parent="DialogBox"]
+[node name="Showname" type="PanelContainer" parent="HUD/DialogBox"]
 layout_mode = 0
 offset_right = 244.0
 offset_bottom = 57.0
 theme = ExtResource("1_oupsu")
 script = ExtResource("7_2g07e")
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogBox/Showname"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/DialogBox/Showname"]
 layout_mode = 2
 theme_override_constants/margin_right = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox/Showname/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/DialogBox/Showname/MarginContainer"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="DialogBox/Showname/MarginContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="HUD/DialogBox/Showname/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 
-[node name="NameIcon" type="TextureRect" parent="DialogBox/Showname/MarginContainer/HBoxContainer/Control"]
+[node name="NameIcon" type="TextureRect" parent="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 1
 anchors_preset = 8
@@ -361,8 +344,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 45.0
-offset_bottom = 45.0
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(22, 22)
@@ -370,18 +355,18 @@ texture = ExtResource("2_rvjnl")
 expand_mode = 1
 script = ExtResource("10_nh0wb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon"]
 libraries = {
 "": SubResource("AnimationLibrary_xm3xt")
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/Showname/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/DialogBox/Showname/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Hello there!"
 fit_content = true
 autowrap_mode = 0
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -390,7 +375,7 @@ grow_horizontal = 2
 grow_vertical = 2
 border_width = 2.0
 
-[node name="NextIcon" type="TextureRect" parent="DialogBox"]
+[node name="NextIcon" type="TextureRect" parent="HUD/DialogBox"]
 custom_minimum_size = Vector2(45, 22)
 layout_mode = 1
 anchors_preset = 7
@@ -398,30 +383,31 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 617.5
-offset_top = 205.0
-offset_right = 662.5
-offset_bottom = 227.0
+offset_left = -22.5
+offset_top = -30.0
+offset_right = 22.5
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
 expand_mode = 1
 script = ExtResource("11_ll6jk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/NextIcon"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/DialogBox/NextIcon"]
 root_node = NodePath("../..")
 autoplay = "next"
 libraries = {
 "": SubResource("AnimationLibrary_6xh4b")
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_7m7o0")
 }
 
-[node name="ChoiceList" type="Control" parent="."]
-layout_mode = 1
+[node name="ChoiceList" type="Control" parent="HUD"]
+layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -434,7 +420,7 @@ offset_bottom = 183.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceList"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ChoiceList"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -444,22 +430,22 @@ grow_vertical = 2
 theme = ExtResource("9_n6w1j")
 alignment = 1
 
-[node name="Option1" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option1" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 text = "Text Option 1"
 alignment = 0
 
-[node name="Option2" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option2" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 text = "Text Option 2"
 alignment = 0
 
-[node name="Option3" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option3" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 text = "Text Option 3"
 alignment = 0
 
-[node name="Option4" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option4" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.454902, 0.454902, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.454902, 0.454902, 1, 1)
@@ -470,24 +456,23 @@ theme_override_colors/font_disabled_color = Color(0.454902, 0.454902, 1, 0.50196
 text = "Text Option 4 (Memory)"
 alignment = 0
 
-[node name="Option5" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option5" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 text = "Text Option 5"
 alignment = 0
 
-[node name="Option6" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option6" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 disabled = true
 text = "Text Option 6"
 alignment = 0
 
-[node name="Option7" type="Button" parent="ChoiceList/VBoxContainer"]
+[node name="Option7" type="Button" parent="HUD/ChoiceList/VBoxContainer"]
 layout_mode = 2
 text = "Text Option 7"
 alignment = 0
 
-[node name="DelaySpinBox" type="SpinBox" parent="."]
-layout_mode = 0
+[node name="DelaySpinBox" type="SpinBox" parent="HUD"]
 offset_left = 137.0
 offset_top = 213.0
 offset_right = 336.0
@@ -496,44 +481,70 @@ step = 0.001
 value = 0.02
 suffix = "ms/symbol"
 
-[node name="MsgEdit" type="TextEdit" parent="."]
-layout_mode = 0
+[node name="MsgEdit" type="TextEdit" parent="HUD"]
 offset_left = 24.0
 offset_top = 130.0
 offset_right = 322.0
 offset_bottom = 210.0
 placeholder_text = "Type out msg"
+wrap_mode = 1
 
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 0
+[node name="LineEdit" type="LineEdit" parent="HUD"]
 offset_left = 25.0
 offset_top = 91.0
 offset_right = 210.0
 offset_bottom = 122.0
 placeholder_text = "Showname"
 
-[node name="SetButton" type="Button" parent="."]
-layout_mode = 0
+[node name="SetButton" type="Button" parent="HUD"]
 offset_left = 24.0
 offset_top = 213.0
 offset_right = 75.0
 offset_bottom = 244.0
 text = "Set"
 
-[node name="AddButton" type="Button" parent="."]
-layout_mode = 0
+[node name="AddButton" type="Button" parent="HUD"]
 offset_left = 80.0
 offset_top = 213.0
 offset_right = 131.0
 offset_bottom = 244.0
 text = "Add"
 
-[connection signal="item_selected" from="EmotePicker" to="EmotePicker" method="_on_item_selected"]
-[connection signal="toggled" from="ZoomButton" to="ZoomButton" method="_on_toggled"]
-[connection signal="message_add" from="DialogBox" to="DialogBox/NextIcon" method="_on_dialog_box_message_add"]
-[connection signal="message_end" from="DialogBox" to="DialogBox/NextIcon" method="_on_dialog_box_message_end"]
-[connection signal="message_set" from="DialogBox" to="DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
-[connection signal="message_set" from="DialogBox" to="DialogBox/NextIcon" method="_on_dialog_box_message_set"]
-[connection signal="finished" from="DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="DialogBox/Showname" method="_on_rich_text_label_finished"]
-[connection signal="pressed" from="SetButton" to="." method="_on_set_button_pressed"]
-[connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bg11" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 2299.0
+offset_bottom = 720.0
+texture = ExtResource("1_fg34x")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg11"]
+root_node = NodePath("../..")
+autoplay = "scroll"
+libraries = {
+"": SubResource("AnimationLibrary_b23f3")
+}
+
+[node name="Godette" parent="." instance=ExtResource("2_nvmpq")]
+visible = false
+position = Vector2(629, 465)
+scale = Vector2(0.2, 0.2)
+
+[connection signal="item_selected" from="HUD/EmotePicker" to="HUD/EmotePicker" method="_on_item_selected"]
+[connection signal="toggled" from="HUD/ZoomButton" to="HUD/ZoomButton" method="_on_toggled"]
+[connection signal="message_add" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_add"]
+[connection signal="message_end" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_end"]
+[connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
+[connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_set"]
+[connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
+[connection signal="pressed" from="HUD/SetButton" to="HUD" method="_on_set_button_pressed"]
+[connection signal="pressed" from="HUD/AddButton" to="HUD" method="_on_add_button_pressed"]
