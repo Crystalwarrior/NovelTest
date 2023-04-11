@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxpx3l3rtydyq"]
+[gd_scene load_steps=38 format=3 uid="uid://cxpx3l3rtydyq"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
@@ -112,6 +112,67 @@ _data = {
 "next": SubResource("Animation_yy5st")
 }
 
+[sub_resource type="Animation" id="Animation_sx2iy"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0, 485), Vector2(0, 725)]
+}
+
+[sub_resource type="Animation" id="Animation_iwfo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 485)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ba8a"]
+_data = {
+"RESET": SubResource("Animation_iwfo2"),
+"fade": SubResource("Animation_sx2iy")
+}
+
 [sub_resource type="Animation" id="Animation_54xqn"]
 length = 0.001
 tracks/0/type = "value"
@@ -170,6 +231,67 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_54xqn"),
 "zoom": SubResource("Animation_14ue7")
+}
+
+[sub_resource type="Animation" id="Animation_ajusi"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(876, 179), Vector2(1300, 179)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3wpy4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(876, 179)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w67ud"]
+_data = {
+"RESET": SubResource("Animation_3wpy4"),
+"fade": SubResource("Animation_ajusi")
 }
 
 [sub_resource type="Gradient" id="Gradient_28cra"]
@@ -283,6 +405,28 @@ script = ExtResource("3_2f4ou")
 zoom_animation = NodePath("../../SpriteFadeGroup/AnimationPlayer")
 animation_to_play = "fade"
 
+[node name="ChatFadeButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 24.0
+offset_top = 251.0
+offset_right = 131.0
+offset_bottom = 282.0
+toggle_mode = true
+text = "Chat Fade In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../DialogBox/AnimationPlayer")
+animation_to_play = "fade"
+
+[node name="ChoiceFadeButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 168.0
+offset_top = 251.0
+offset_right = 308.0
+offset_bottom = 282.0
+toggle_mode = true
+text = "Choice Fade In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../ChoiceList/AnimationPlayer")
+animation_to_play = "fade"
+
 [node name="DialogBox" type="Control" parent="HUD" node_paths=PackedStringArray("showname_label", "dialog_label")]
 layout_mode = 3
 anchors_preset = 12
@@ -290,6 +434,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -235.0
+offset_bottom = -0.000183105
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_kwgg7")
@@ -389,9 +534,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -22.5
-offset_top = -30.0
+offset_top = -29.9998
 offset_right = 22.5
-offset_bottom = -8.0
+offset_bottom = -7.99982
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
@@ -403,6 +548,11 @@ root_node = NodePath("../..")
 autoplay = "next"
 libraries = {
 "": SubResource("AnimationLibrary_6xh4b")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/DialogBox"]
+libraries = {
+"": SubResource("AnimationLibrary_4ba8a")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
@@ -420,7 +570,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -404.0
 offset_top = -181.0
-offset_right = -32.0
+offset_right = -32.0002
 offset_bottom = 183.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -476,6 +626,11 @@ alignment = 0
 layout_mode = 2
 text = "Text Option 7"
 alignment = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ChoiceList"]
+libraries = {
+"": SubResource("AnimationLibrary_w67ud")
+}
 
 [node name="DelaySpinBox" type="SpinBox" parent="HUD"]
 offset_left = 137.0
@@ -540,6 +695,8 @@ libraries = {
 [connection signal="item_selected" from="HUD/EmotePicker" to="HUD/EmotePicker" method="_on_item_selected"]
 [connection signal="toggled" from="HUD/ZoomButton" to="HUD/ZoomButton" method="_on_toggled"]
 [connection signal="toggled" from="HUD/FadeButton" to="HUD/FadeButton" method="_on_toggled"]
+[connection signal="toggled" from="HUD/ChatFadeButton" to="HUD/ChatFadeButton" method="_on_toggled"]
+[connection signal="toggled" from="HUD/ChoiceFadeButton" to="HUD/ChoiceFadeButton" method="_on_toggled"]
 [connection signal="message_add" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_add"]
 [connection signal="message_end" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
