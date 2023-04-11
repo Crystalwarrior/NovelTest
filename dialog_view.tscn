@@ -1,6 +1,5 @@
-[gd_scene load_steps=46 format=3 uid="uid://cxpx3l3rtydyq"]
+[gd_scene load_steps=32 format=3 uid="uid://cxpx3l3rtydyq"]
 
-[ext_resource type="Texture2D" uid="uid://c4pgt4fxcr2pl" path="res://bg_1_1.png" id="1_fg34x"]
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
 [ext_resource type="PackedScene" uid="uid://bumex5xpd0j6f" path="res://godette.tscn" id="2_nvmpq"]
@@ -14,18 +13,6 @@
 [ext_resource type="Script" path="res://NameIcon.gd" id="10_nh0wb"]
 [ext_resource type="Script" path="res://NextIcon.gd" id="11_ll6jk"]
 [ext_resource type="Shader" path="res://ebg.gdshader" id="12_nrdjh"]
-
-[sub_resource type="Gradient" id="Gradient_n6vbk"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rrprb"]
-gradient = SubResource("Gradient_n6vbk")
-
-[sub_resource type="Gradient" id="Gradient_id1a3"]
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_uksqt"]
-gradient = SubResource("Gradient_id1a3")
 
 [sub_resource type="Animation" id="Animation_i8uyt"]
 length = 0.001
@@ -187,141 +174,37 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_28cra"]
 offsets = PackedFloat32Array(0, 0.497143, 1)
-colors = PackedColorArray(1, 0, 0.117647, 1, 0.396078, 0, 0, 0.47451, 1, 0, 0.117647, 1)
+colors = PackedColorArray(1, 0, 0.117647, 1, 0, 0, 0, 1, 1, 0, 0.117647, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_5cbb8"]
 gradient = SubResource("Gradient_28cra")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
 shader = ExtResource("12_nrdjh")
-shader_parameter/screen_height = 640.0
-shader_parameter/amplitude = 0.25
-shader_parameter/frequency = 10.0
-shader_parameter/speed = 0.5
+shader_parameter/screen_height = 720.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 0.01
 shader_parameter/amplitude_vertical = 0.0
 shader_parameter/frequency_vertical = 0.0
 shader_parameter/speed_vertical = 0.0
-shader_parameter/scroll_direction = Vector2(3, 3)
+shader_parameter/scroll_direction = Vector2(1, 1)
 shader_parameter/scrolling_speed = 0.01
 shader_parameter/enable_palette_cycling = true
 shader_parameter/enable_scan_lines = false
-shader_parameter/palette_speed = 0.1
+shader_parameter/palette_speed = 0.025
 shader_parameter/palette = SubResource("GradientTexture1D_5cbb8")
 
-[sub_resource type="Gradient" id="Gradient_nflir"]
-offsets = PackedFloat32Array(0, 0.491429, 1)
-colors = PackedColorArray(0.101961, 0, 0.117647, 1, 1, 0, 0, 0.501961, 0.101961, 0, 0.117647, 1)
+[sub_resource type="Gradient" id="Gradient_dl165"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1nw6b"]
-gradient = SubResource("Gradient_nflir")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h0e2a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykar6"]
-shader = ExtResource("12_nrdjh")
-shader_parameter/screen_height = 640.0
-shader_parameter/amplitude = 0.075
-shader_parameter/frequency = 10.0
-shader_parameter/speed = 0.5
-shader_parameter/amplitude_vertical = 0.0
-shader_parameter/frequency_vertical = 0.0
-shader_parameter/speed_vertical = 0.0
-shader_parameter/scroll_direction = Vector2(-3, -3)
-shader_parameter/scrolling_speed = 0.01
-shader_parameter/enable_palette_cycling = true
-shader_parameter/enable_scan_lines = false
-shader_parameter/palette_speed = 0.01
-shader_parameter/palette = SubResource("GradientTexture1D_1nw6b")
-
-[sub_resource type="Gradient" id="Gradient_sm7d0"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cbgxl"]
-frequency = 0.003
-domain_warp_enabled = true
-domain_warp_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yxg3j"]
-width = 960
-height = 540
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hdkkn"]
+width = 1280
+height = 720
 seamless = true
-seamless_blend_skirt = 0.5
-color_ramp = SubResource("Gradient_sm7d0")
-noise = SubResource("FastNoiseLite_cbgxl")
-
-[sub_resource type="Animation" id="Animation_833ad"]
-resource_name = "scroll"
-length = 30.0
-loop_mode = 1
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 30),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-960, -540)]
-}
-
-[sub_resource type="Animation" id="Animation_dprj7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pt7bs"]
-_data = {
-"RESET": SubResource("Animation_dprj7"),
-"scroll": SubResource("Animation_833ad")
-}
-
-[sub_resource type="Animation" id="Animation_5pwqy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bg11:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_solfx"]
-resource_name = "scroll"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bg11:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-800, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b23f3"]
-_data = {
-"RESET": SubResource("Animation_5pwqy"),
-"scroll": SubResource("Animation_solfx")
-}
+color_ramp = SubResource("Gradient_dl165")
+noise = SubResource("FastNoiseLite_h0e2a")
 
 [sub_resource type="Animation" id="Animation_pxgu4"]
 length = 0.001
@@ -413,33 +296,6 @@ script = ExtResource("5_kwgg7")
 showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
 dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
 
-[node name="GradientLeft" type="TextureRect" parent="HUD/DialogBox"]
-visible = false
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_top = 70.0
-offset_right = 55.0
-offset_bottom = -30.0
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_rrprb")
-expand_mode = 1
-
-[node name="GradientRight" type="TextureRect" parent="HUD/DialogBox"]
-visible = false
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = 70.0
-offset_bottom = -30.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_uksqt")
-expand_mode = 1
-
 [node name="Dialog" type="PanelContainer" parent="HUD/DialogBox"]
 layout_mode = 1
 anchors_preset = -1
@@ -452,9 +308,9 @@ theme = ExtResource("1_oupsu")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/DialogBox/Dialog"]
 layout_mode = 2
-theme_override_constants/margin_left = 0
+theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 0
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 24
 
 [node name="ReferenceRect" type="ReferenceRect" parent="HUD/DialogBox/Dialog/MarginContainer"]
@@ -468,7 +324,8 @@ visible_characters_behavior = 1
 
 [node name="Showname" type="PanelContainer" parent="HUD/DialogBox"]
 layout_mode = 0
-offset_right = 244.0
+offset_left = 12.0
+offset_right = 256.0
 offset_bottom = 57.0
 theme = ExtResource("1_oupsu")
 script = ExtResource("7_2g07e")
@@ -658,68 +515,16 @@ offset_right = 131.0
 offset_bottom = 244.0
 text = "Add"
 
-[node name="ebbg" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="blackback" type="ColorRect" parent="ebbg"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="1" type="TextureRect" parent="ebbg"]
+[node name="rednoise" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_l8tgr")
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_rvjnl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_hdkkn")
 stretch_mode = 1
-
-[node name="2" type="TextureRect" parent="ebbg"]
-material = SubResource("ShaderMaterial_ykar6")
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_rvjnl")
-stretch_mode = 1
-
-[node name="NoiseBg" type="TextureRect" parent="."]
-visible = false
-modulate = Color(1, 0, 1, 1)
-layout_mode = 0
-offset_right = 2240.0
-offset_bottom = 1260.0
-texture = SubResource("NoiseTexture2D_yxg3j")
-stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NoiseBg"]
-autoplay = "scroll"
-libraries = {
-"": SubResource("AnimationLibrary_pt7bs")
-}
-
-[node name="Bg11" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 2299.0
-offset_bottom = 720.0
-texture = ExtResource("1_fg34x")
-stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg11"]
-root_node = NodePath("../..")
-autoplay = "scroll"
-libraries = {
-"": SubResource("AnimationLibrary_b23f3")
-}
 
 [node name="SpriteFadeGroup" type="CanvasGroup" parent="."]
 
