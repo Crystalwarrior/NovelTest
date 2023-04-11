@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cxpx3l3rtydyq"]
+[gd_scene load_steps=46 format=3 uid="uid://cxpx3l3rtydyq"]
 
 [ext_resource type="Texture2D" uid="uid://c4pgt4fxcr2pl" path="res://bg_1_1.png" id="1_fg34x"]
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://choices_theme.tres" id="9_n6w1j"]
 [ext_resource type="Script" path="res://NameIcon.gd" id="10_nh0wb"]
 [ext_resource type="Script" path="res://NextIcon.gd" id="11_ll6jk"]
+[ext_resource type="Shader" path="res://ebg.gdshader" id="12_nrdjh"]
 
 [sub_resource type="Gradient" id="Gradient_n6vbk"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -183,6 +184,52 @@ _data = {
 "RESET": SubResource("Animation_54xqn"),
 "zoom": SubResource("Animation_14ue7")
 }
+
+[sub_resource type="Gradient" id="Gradient_28cra"]
+offsets = PackedFloat32Array(0, 0.497143, 1)
+colors = PackedColorArray(1, 0, 0.117647, 1, 0.396078, 0, 0, 0.47451, 1, 0, 0.117647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5cbb8"]
+gradient = SubResource("Gradient_28cra")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
+shader = ExtResource("12_nrdjh")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.25
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 0.5
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(3, 3)
+shader_parameter/scrolling_speed = 0.01
+shader_parameter/enable_palette_cycling = true
+shader_parameter/enable_scan_lines = false
+shader_parameter/palette_speed = 0.1
+shader_parameter/palette = SubResource("GradientTexture1D_5cbb8")
+
+[sub_resource type="Gradient" id="Gradient_nflir"]
+offsets = PackedFloat32Array(0, 0.491429, 1)
+colors = PackedColorArray(0.101961, 0, 0.117647, 1, 1, 0, 0, 0.501961, 0.101961, 0, 0.117647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1nw6b"]
+gradient = SubResource("Gradient_nflir")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykar6"]
+shader = ExtResource("12_nrdjh")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 0.5
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(-3, -3)
+shader_parameter/scrolling_speed = 0.01
+shader_parameter/enable_palette_cycling = true
+shader_parameter/enable_scan_lines = false
+shader_parameter/palette_speed = 0.01
+shader_parameter/palette = SubResource("GradientTexture1D_1nw6b")
 
 [sub_resource type="Gradient" id="Gradient_sm7d0"]
 
@@ -611,7 +658,15 @@ offset_right = 131.0
 offset_bottom = 244.0
 text = "Add"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ebbg" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="blackback" type="ColorRect" parent="ebbg"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -620,7 +675,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="1" type="TextureRect" parent="ebbg"]
+material = SubResource("ShaderMaterial_l8tgr")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_rvjnl")
+stretch_mode = 1
+
+[node name="2" type="TextureRect" parent="ebbg"]
+material = SubResource("ShaderMaterial_ykar6")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_rvjnl")
+stretch_mode = 1
+
 [node name="NoiseBg" type="TextureRect" parent="."]
+visible = false
 modulate = Color(1, 0, 1, 1)
 layout_mode = 0
 offset_right = 2240.0
