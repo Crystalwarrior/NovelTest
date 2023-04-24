@@ -12,10 +12,8 @@ func _ready():
 		var anim = animation_list[anim_index]
 		if state.autoplay == anim:
 			default_index = anim_index
-		state.play(anim)
 		add_item(anim)
 
 
 func _on_item_selected(index):
-	var state = character.emote_switcher
-	state.play(get_item_text(index))
+	character.set_emote(get_item_text(index))

@@ -1,13 +1,15 @@
-extends Node
+extends Control
 
+var finished = false
 
-func _on_set_button_pressed():
-	$DialogBox.set_showname($LineEdit.text)
-	$DialogBox.set_msg($MsgEdit.text)
-	$DialogBox.letter_delay = $DelaySpinBox.value
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		if finished:
+			finished = false
+			$CommandManager.start_timeline(0)
+		else:
+			$CommandManager.go_to_next_command()
 
-
-func _on_add_button_pressed():
-	$DialogBox.set_showname($LineEdit.text)
-	$DialogBox.add_msg($MsgEdit.text)
-	$DialogBox.letter_delay = $DelaySpinBox.value
+func _on_command_manager_timeline_finished():
+	finished = true

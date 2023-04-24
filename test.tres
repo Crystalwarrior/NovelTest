@@ -1,0 +1,186 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=24 format=3 uid="uid://cyf63rc3uolon"]
+
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_1jneg"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_nbhae"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="3_weqgt"]
+
+[sub_resource type="Resource" id="Resource_vquty"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_emote"
+args = ["smile"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/Godette")
+
+[sub_resource type="Resource" id="Resource_8mcwb"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "play_backwards"
+args = ["fade"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_vrnd8"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "play"
+args = ["zoom"]
+label = ""
+continue_at_end = true
+target = NodePath("AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_dy1jx"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_showname"
+args = ["Godette"]
+label = ""
+continue_at_end = true
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_v5bwo"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "play_backwards"
+args = ["fade"]
+label = ""
+continue_at_end = true
+target = NodePath("HUD/DialogBox/AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_asyjr"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_msg"
+args = [""]
+label = ""
+continue_at_end = true
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_bd8ui"]
+resource_local_to_scene = true
+script = ExtResource("3_weqgt")
+wait_time = 0.5
+label = ""
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_paxdu"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_emote"
+args = ["joy"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/Godette")
+
+[sub_resource type="Resource" id="Resource_v4w3b"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_msg"
+args = ["Hello there! This is a test."]
+label = ""
+continue_at_end = false
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_dpc07"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_emote"
+args = ["annoyance"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/Godette")
+
+[sub_resource type="Resource" id="Resource_vpf8p"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_msg"
+args = ["I am speaking to you... "]
+label = ""
+continue_at_end = true
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_dbgip"]
+resource_local_to_scene = true
+script = ExtResource("3_weqgt")
+wait_time = 1.0
+label = ""
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_wmf5x"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_emote"
+args = ["smile"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/Godette")
+
+[sub_resource type="Resource" id="Resource_u36g2"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "add_msg"
+args = ["Right now."]
+label = ""
+continue_at_end = false
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_t52ta"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_emote"
+args = ["grin"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/Godette")
+
+[sub_resource type="Resource" id="Resource_ahdl1"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "set_msg"
+args = ["Anyway, bye!"]
+label = ""
+continue_at_end = false
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_211bp"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "play"
+args = ["fade"]
+label = ""
+continue_at_end = true
+target = NodePath("HUD/DialogBox/AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_ciwy6"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "play_backwards"
+args = ["zoom"]
+label = ""
+continue_at_end = true
+target = NodePath("AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_jaxjc"]
+resource_local_to_scene = true
+script = ExtResource("2_nbhae")
+method = "play"
+args = ["fade"]
+label = ""
+continue_at_end = true
+target = NodePath("SpriteFadeGroup/AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_vklgs"]
+resource_local_to_scene = true
+script = ExtResource("3_weqgt")
+wait_time = 1.0
+label = ""
+continue_at_end = true
+target = NodePath("")
+
+[resource]
+script = ExtResource("1_1jneg")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_8mcwb"), SubResource("Resource_vrnd8"), SubResource("Resource_dy1jx"), SubResource("Resource_v5bwo"), SubResource("Resource_asyjr"), SubResource("Resource_bd8ui"), SubResource("Resource_paxdu"), SubResource("Resource_v4w3b"), SubResource("Resource_dpc07"), SubResource("Resource_vpf8p"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_u36g2"), SubResource("Resource_t52ta"), SubResource("Resource_ahdl1"), SubResource("Resource_211bp"), SubResource("Resource_ciwy6"), SubResource("Resource_jaxjc"), SubResource("Resource_vklgs")])

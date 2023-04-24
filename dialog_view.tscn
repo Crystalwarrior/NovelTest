@@ -1,10 +1,13 @@
-[gd_scene load_steps=38 format=3 uid="uid://cxpx3l3rtydyq"]
+[gd_scene load_steps=44 format=3 uid="uid://tbkenvmcfo2k"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
+[ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
 [ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
 [ext_resource type="PackedScene" uid="uid://bumex5xpd0j6f" path="res://godette.tscn" id="2_nvmpq"]
+[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://test.tres" id="2_pyy4s"]
 [ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://diamond.png" id="2_rvjnl"]
 [ext_resource type="Script" path="res://EmotePicker.gd" id="3_1hrje"]
+[ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
@@ -13,6 +16,7 @@
 [ext_resource type="Script" path="res://NameIcon.gd" id="10_nh0wb"]
 [ext_resource type="Script" path="res://NextIcon.gd" id="11_ll6jk"]
 [ext_resource type="Shader" path="res://ebg.gdshader" id="12_nrdjh"]
+[ext_resource type="Texture2D" uid="uid://cenohrxheffb2" path="res://raintex.png" id="14_htxqg"]
 
 [sub_resource type="Animation" id="Animation_i8uyt"]
 length = 0.001
@@ -112,6 +116,33 @@ _data = {
 "next": SubResource("Animation_yy5st")
 }
 
+[sub_resource type="Animation" id="Animation_iwfo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 485)]
+}
+
 [sub_resource type="Animation" id="Animation_sx2iy"]
 resource_name = "fade"
 length = 0.5
@@ -140,38 +171,106 @@ tracks/1/keys = {
 "values": [Vector2(0, 485), Vector2(0, 725)]
 }
 
-[sub_resource type="Animation" id="Animation_iwfo2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ba8a"]
+_data = {
+"RESET": SubResource("Animation_iwfo2"),
+"fade": SubResource("Animation_sx2iy")
+}
+
+[sub_resource type="Animation" id="Animation_3wpy4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(876, 179)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 485)]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ba8a"]
-_data = {
-"RESET": SubResource("Animation_iwfo2"),
-"fade": SubResource("Animation_sx2iy")
+[sub_resource type="Animation" id="Animation_ajusi"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(876, 179), Vector2(1300, 179)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w67ud"]
+_data = {
+"RESET": SubResource("Animation_3wpy4"),
+"fade": SubResource("Animation_ajusi")
+}
+
+[sub_resource type="Gradient" id="Gradient_28cra"]
+offsets = PackedFloat32Array(0, 0.497143, 1)
+colors = PackedColorArray(1, 0, 0.117647, 1, 0, 0, 0, 1, 1, 0, 0.117647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5cbb8"]
+gradient = SubResource("Gradient_28cra")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
+shader = ExtResource("12_nrdjh")
+shader_parameter/screen_height = 720.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 0.01
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(1, 1)
+shader_parameter/scrolling_speed = 0.01
+shader_parameter/enable_palette_cycling = true
+shader_parameter/enable_scan_lines = false
+shader_parameter/palette_speed = 0.025
+shader_parameter/palette = SubResource("GradientTexture1D_5cbb8")
+
+[sub_resource type="Gradient" id="Gradient_dl165"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h0e2a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hdkkn"]
+width = 1280
+height = 720
+seamless = true
+color_ramp = SubResource("Gradient_dl165")
+noise = SubResource("FastNoiseLite_h0e2a")
 
 [sub_resource type="Animation" id="Animation_54xqn"]
 length = 0.001
@@ -233,101 +332,6 @@ _data = {
 "zoom": SubResource("Animation_14ue7")
 }
 
-[sub_resource type="Animation" id="Animation_ajusi"]
-resource_name = "fade"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Vector2(876, 179), Vector2(1300, 179)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3wpy4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(876, 179)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w67ud"]
-_data = {
-"RESET": SubResource("Animation_3wpy4"),
-"fade": SubResource("Animation_ajusi")
-}
-
-[sub_resource type="Gradient" id="Gradient_28cra"]
-offsets = PackedFloat32Array(0, 0.497143, 1)
-colors = PackedColorArray(1, 0, 0.117647, 1, 0, 0, 0, 1, 1, 0, 0.117647, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5cbb8"]
-gradient = SubResource("Gradient_28cra")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
-shader = ExtResource("12_nrdjh")
-shader_parameter/screen_height = 720.0
-shader_parameter/amplitude = 0.075
-shader_parameter/frequency = 5.0
-shader_parameter/speed = 0.01
-shader_parameter/amplitude_vertical = 0.0
-shader_parameter/frequency_vertical = 0.0
-shader_parameter/speed_vertical = 0.0
-shader_parameter/scroll_direction = Vector2(1, 1)
-shader_parameter/scrolling_speed = 0.01
-shader_parameter/enable_palette_cycling = true
-shader_parameter/enable_scan_lines = false
-shader_parameter/palette_speed = 0.025
-shader_parameter/palette = SubResource("GradientTexture1D_5cbb8")
-
-[sub_resource type="Gradient" id="Gradient_dl165"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_h0e2a"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hdkkn"]
-width = 1280
-height = 720
-seamless = true
-color_ramp = SubResource("Gradient_dl165")
-noise = SubResource("FastNoiseLite_h0e2a")
-
 [sub_resource type="Animation" id="Animation_pxgu4"]
 length = 0.001
 tracks/0/type = "value"
@@ -364,6 +368,62 @@ _data = {
 "fade": SubResource("Animation_lvuqq")
 }
 
+[sub_resource type="Shader" id="Shader_gibmv"]
+code = "/* 
+Earthbound battle backgrounds shader with scrolling effect and palette cycling like in the original game.
+@retr0_dev
+	
+Apply the shader to a TextureRect or a Sprite. Use a texture with some shapes in a transparent background for best results.
+You can then use a ColorRect or another method to paint the background.
+You can use the shader on multiple TextureRects and obtain a double-buffer effect tweaking the values for each one, remember to Make Unique the shader material.
+*/
+shader_type canvas_item;
+
+uniform float screen_height = 640.0;
+uniform float amplitude = 0.075;
+uniform float frequency = 10.0;
+uniform float speed = 2.0;
+uniform float amplitude_vertical = 0.0;
+uniform float frequency_vertical = 0.0;
+uniform float speed_vertical = 0.0;
+uniform vec2 scroll_direction = vec2(0.0, 0.0);
+uniform float scrolling_speed = 0.08;
+uniform bool enable_palette_cycling = false;
+uniform bool enable_scan_lines = true;
+uniform sampler2D palette;
+uniform float palette_speed = 0.1;
+
+void fragment()
+{
+	float diff_x = amplitude * sin((frequency * UV.y) + (speed * TIME));
+	float diff_y = amplitude_vertical * sin((frequency_vertical * UV.y)  + (speed_vertical * TIME));
+	vec2 scroll = scroll_direction * TIME * scrolling_speed;
+	vec4 tex = texture(TEXTURE, vec2(UV.x + diff_x, UV.y + diff_y) + scroll);
+	float palette_swap = mod(tex.r - TIME * palette_speed, 1.0);
+	
+	if (enable_palette_cycling)
+	{
+		COLOR = vec4(texture(palette, vec2(palette_swap, 0)).rgb, tex.a);
+	}
+	else COLOR = tex;
+	if (enable_scan_lines) COLOR = mix(vec4(0.0), COLOR, float(int(UV.y * screen_height) % 2));
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyv7f"]
+shader = SubResource("Shader_gibmv")
+shader_parameter/screen_height = 720.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(30, -120)
+shader_parameter/scrolling_speed = 0.01
+shader_parameter/enable_palette_cycling = false
+shader_parameter/enable_scan_lines = false
+shader_parameter/palette_speed = 0.1
+
 [node name="DialogView" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -372,60 +432,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("1_hisby")
 
-[node name="EmotePicker" type="OptionButton" parent="HUD" node_paths=PackedStringArray("character")]
-offset_left = 24.0
-offset_top = 40.0
-offset_right = 133.0
-offset_bottom = 60.0
-script = ExtResource("3_1hrje")
-character = NodePath("../../SpriteFadeGroup/Godette")
+[node name="CommandManager" type="Node" parent="."]
+script = ExtResource("1_msqdo")
+timeline = ExtResource("2_pyy4s")
 
-[node name="ZoomButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
-offset_left = 216.0
-offset_top = 91.0
-offset_right = 323.0
-offset_bottom = 122.0
-toggle_mode = true
-text = "Zoom In/Out"
-script = ExtResource("3_2f4ou")
-zoom_animation = NodePath("../AnimationPlayer")
-
-[node name="FadeButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
-offset_left = 216.0
-offset_top = 51.0
-offset_right = 323.0
-offset_bottom = 82.0
-toggle_mode = true
-text = "Fade In/Out"
-script = ExtResource("3_2f4ou")
-zoom_animation = NodePath("../../SpriteFadeGroup/AnimationPlayer")
-animation_to_play = "fade"
-
-[node name="ChatFadeButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
-offset_left = 24.0
-offset_top = 251.0
-offset_right = 131.0
-offset_bottom = 282.0
-toggle_mode = true
-text = "Chat Fade In/Out"
-script = ExtResource("3_2f4ou")
-zoom_animation = NodePath("../DialogBox/AnimationPlayer")
-animation_to_play = "fade"
-
-[node name="ChoiceFadeButton" type="Button" parent="HUD" node_paths=PackedStringArray("zoom_animation")]
-offset_left = 168.0
-offset_top = 251.0
-offset_right = 308.0
-offset_bottom = 282.0
-toggle_mode = true
-text = "Choice Fade In/Out"
-script = ExtResource("3_2f4ou")
-zoom_animation = NodePath("../ChoiceList/AnimationPlayer")
-animation_to_play = "fade"
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_1nckb")
 
 [node name="DialogBox" type="Control" parent="HUD" node_paths=PackedStringArray("showname_label", "dialog_label")]
 layout_mode = 3
@@ -434,7 +448,6 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -235.0
-offset_bottom = -0.000183105
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_kwgg7")
@@ -450,6 +463,7 @@ offset_top = 58.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_oupsu")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/DialogBox/Dialog"]
 layout_mode = 2
@@ -463,7 +477,7 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
-text = "Wahahooey bababooey."
+text = "Press \"Enter\" to progress a test timeline."
 scroll_active = false
 visible_characters_behavior = 1
 
@@ -534,9 +548,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -22.5
-offset_top = -29.9998
+offset_top = -30.0
 offset_right = 22.5
-offset_bottom = -7.99982
+offset_bottom = -7.99995
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
@@ -555,13 +569,8 @@ libraries = {
 "": SubResource("AnimationLibrary_4ba8a")
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_7m7o0")
-}
-
 [node name="ChoiceList" type="Control" parent="HUD"]
+visible = false
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -632,7 +641,65 @@ libraries = {
 "": SubResource("AnimationLibrary_w67ud")
 }
 
-[node name="DelaySpinBox" type="SpinBox" parent="HUD"]
+[node name="DebugStuff" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EmotePicker" type="OptionButton" parent="HUD/DebugStuff" node_paths=PackedStringArray("character")]
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 133.0
+offset_bottom = 60.0
+script = ExtResource("3_1hrje")
+character = NodePath("../../../SpriteFadeGroup/Godette")
+
+[node name="ZoomButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 216.0
+offset_top = 91.0
+offset_right = 323.0
+offset_bottom = 122.0
+toggle_mode = true
+text = "Zoom In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../../../AnimationPlayer")
+
+[node name="FadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 216.0
+offset_top = 51.0
+offset_right = 323.0
+offset_bottom = 82.0
+toggle_mode = true
+text = "Fade In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../../../SpriteFadeGroup/AnimationPlayer")
+animation_to_play = "fade"
+
+[node name="ChatFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 24.0
+offset_top = 251.0
+offset_right = 164.0
+offset_bottom = 282.0
+toggle_mode = true
+text = "Chat Fade In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../../DialogBox/AnimationPlayer")
+animation_to_play = "fade"
+
+[node name="ChoiceFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+offset_left = 168.0
+offset_top = 251.0
+offset_right = 324.0
+offset_bottom = 282.0
+toggle_mode = true
+text = "Choice Fade In/Out"
+script = ExtResource("3_2f4ou")
+zoom_animation = NodePath("../../ChoiceList/AnimationPlayer")
+animation_to_play = "fade"
+
+[node name="DelaySpinBox" type="SpinBox" parent="HUD/DebugStuff"]
 offset_left = 137.0
 offset_top = 213.0
 offset_right = 336.0
@@ -641,7 +708,7 @@ step = 0.001
 value = 0.02
 suffix = "ms/symbol"
 
-[node name="MsgEdit" type="TextEdit" parent="HUD"]
+[node name="MsgEdit" type="TextEdit" parent="HUD/DebugStuff"]
 offset_left = 24.0
 offset_top = 130.0
 offset_right = 322.0
@@ -649,21 +716,21 @@ offset_bottom = 210.0
 placeholder_text = "Type out msg"
 wrap_mode = 1
 
-[node name="LineEdit" type="LineEdit" parent="HUD"]
+[node name="LineEdit" type="LineEdit" parent="HUD/DebugStuff"]
 offset_left = 25.0
 offset_top = 91.0
 offset_right = 210.0
 offset_bottom = 122.0
 placeholder_text = "Showname"
 
-[node name="SetButton" type="Button" parent="HUD"]
+[node name="SetButton" type="Button" parent="HUD/DebugStuff"]
 offset_left = 24.0
 offset_top = 213.0
 offset_right = 75.0
 offset_bottom = 244.0
 text = "Set"
 
-[node name="AddButton" type="Button" parent="HUD"]
+[node name="AddButton" type="Button" parent="HUD/DebugStuff"]
 offset_left = 80.0
 offset_top = 213.0
 offset_right = 131.0
@@ -681,6 +748,11 @@ grow_vertical = 2
 texture = SubResource("NoiseTexture2D_hdkkn")
 stretch_mode = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m7o0")
+}
+
 [node name="SpriteFadeGroup" type="CanvasGroup" parent="."]
 
 [node name="Godette" parent="SpriteFadeGroup" instance=ExtResource("2_nvmpq")]
@@ -692,17 +764,30 @@ libraries = {
 "": SubResource("AnimationLibrary_j45ek")
 }
 
-[connection signal="item_selected" from="HUD/EmotePicker" to="HUD/EmotePicker" method="_on_item_selected"]
-[connection signal="toggled" from="HUD/ZoomButton" to="HUD/ZoomButton" method="_on_toggled"]
-[connection signal="toggled" from="HUD/FadeButton" to="HUD/FadeButton" method="_on_toggled"]
-[connection signal="toggled" from="HUD/ChatFadeButton" to="HUD/ChatFadeButton" method="_on_toggled"]
-[connection signal="toggled" from="HUD/ChoiceFadeButton" to="HUD/ChoiceFadeButton" method="_on_toggled"]
+[node name="raintex" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_yyv7f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_htxqg")
+stretch_mode = 1
+
+[connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
 [connection signal="message_add" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_add"]
 [connection signal="message_end" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
-[connection signal="pressed" from="HUD/SetButton" to="HUD" method="_on_set_button_pressed"]
-[connection signal="pressed" from="HUD/AddButton" to="HUD" method="_on_add_button_pressed"]
+[connection signal="item_selected" from="HUD/DebugStuff/EmotePicker" to="HUD/DebugStuff/EmotePicker" method="_on_item_selected"]
+[connection signal="toggled" from="HUD/DebugStuff/ZoomButton" to="HUD/DebugStuff/ZoomButton" method="_on_toggled"]
+[connection signal="toggled" from="HUD/DebugStuff/FadeButton" to="HUD/DebugStuff/FadeButton" method="_on_toggled"]
+[connection signal="toggled" from="HUD/DebugStuff/ChatFadeButton" to="HUD/DebugStuff/ChatFadeButton" method="_on_toggled"]
+[connection signal="toggled" from="HUD/DebugStuff/ChoiceFadeButton" to="HUD/DebugStuff/ChoiceFadeButton" method="_on_toggled"]
+[connection signal="pressed" from="HUD/DebugStuff/SetButton" to="HUD" method="_on_set_button_pressed"]
+[connection signal="pressed" from="HUD/DebugStuff/AddButton" to="HUD" method="_on_add_button_pressed"]
 
 [editable path="SpriteFadeGroup/Godette"]
