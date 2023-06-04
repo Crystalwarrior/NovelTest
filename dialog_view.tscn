@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
 [ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
 [ext_resource type="PackedScene" uid="uid://bumex5xpd0j6f" path="res://godette.tscn" id="2_nvmpq"]
-[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://test.tres" id="2_pyy4s"]
 [ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://diamond.png" id="2_rvjnl"]
 [ext_resource type="Script" path="res://EmotePicker.gd" id="3_1hrje"]
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
+[ext_resource type="Resource" uid="uid://fudt3kt6arda" path="res://gamer.tres" id="3_qkv81"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
 [ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
 [ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://choices_theme.tres" id="9_n6w1j"]
@@ -436,7 +436,7 @@ script = ExtResource("1_hisby")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
-timeline = ExtResource("2_pyy4s")
+timeline = ExtResource("3_qkv81")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_1nckb")
@@ -484,10 +484,11 @@ visible_characters_behavior = 1
 [node name="Showname" type="PanelContainer" parent="HUD/DialogBox"]
 layout_mode = 0
 offset_left = 12.0
-offset_right = 256.0
+offset_right = 363.0
 offset_bottom = 57.0
 theme = ExtResource("1_oupsu")
 script = ExtResource("7_2g07e")
+showname = "Showname is Here"
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/DialogBox/Showname"]
 layout_mode = 2
@@ -526,7 +527,7 @@ libraries = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/DialogBox/Showname/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Hello there!"
+text = "Showname is Here"
 fit_content = true
 autowrap_mode = 0
 
@@ -649,6 +650,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="EmotePicker" type="OptionButton" parent="HUD/DebugStuff" node_paths=PackedStringArray("character")]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 40.0
 offset_right = 133.0
@@ -657,6 +659,7 @@ script = ExtResource("3_1hrje")
 character = NodePath("../../../SpriteFadeGroup/Godette")
 
 [node name="ZoomButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+layout_mode = 0
 offset_left = 216.0
 offset_top = 91.0
 offset_right = 323.0
@@ -667,6 +670,7 @@ script = ExtResource("3_2f4ou")
 zoom_animation = NodePath("../../../AnimationPlayer")
 
 [node name="FadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+layout_mode = 0
 offset_left = 216.0
 offset_top = 51.0
 offset_right = 323.0
@@ -678,6 +682,7 @@ zoom_animation = NodePath("../../../SpriteFadeGroup/AnimationPlayer")
 animation_to_play = "fade"
 
 [node name="ChatFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 251.0
 offset_right = 164.0
@@ -689,6 +694,7 @@ zoom_animation = NodePath("../../DialogBox/AnimationPlayer")
 animation_to_play = "fade"
 
 [node name="ChoiceFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+layout_mode = 0
 offset_left = 168.0
 offset_top = 251.0
 offset_right = 324.0
@@ -700,6 +706,7 @@ zoom_animation = NodePath("../../ChoiceList/AnimationPlayer")
 animation_to_play = "fade"
 
 [node name="DelaySpinBox" type="SpinBox" parent="HUD/DebugStuff"]
+layout_mode = 0
 offset_left = 137.0
 offset_top = 213.0
 offset_right = 336.0
@@ -709,6 +716,7 @@ value = 0.02
 suffix = "ms/symbol"
 
 [node name="MsgEdit" type="TextEdit" parent="HUD/DebugStuff"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 130.0
 offset_right = 322.0
@@ -717,6 +725,7 @@ placeholder_text = "Type out msg"
 wrap_mode = 1
 
 [node name="LineEdit" type="LineEdit" parent="HUD/DebugStuff"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 91.0
 offset_right = 210.0
@@ -724,6 +733,7 @@ offset_bottom = 122.0
 placeholder_text = "Showname"
 
 [node name="SetButton" type="Button" parent="HUD/DebugStuff"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 213.0
 offset_right = 75.0
@@ -731,6 +741,7 @@ offset_bottom = 244.0
 text = "Set"
 
 [node name="AddButton" type="Button" parent="HUD/DebugStuff"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 213.0
 offset_right = 131.0
@@ -777,10 +788,7 @@ texture = ExtResource("14_htxqg")
 stretch_mode = 1
 
 [connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
-[connection signal="message_add" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_add"]
-[connection signal="message_end" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
-[connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/NextIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
 [connection signal="item_selected" from="HUD/DebugStuff/EmotePicker" to="HUD/DebugStuff/EmotePicker" method="_on_item_selected"]
 [connection signal="toggled" from="HUD/DebugStuff/ZoomButton" to="HUD/DebugStuff/ZoomButton" method="_on_toggled"]

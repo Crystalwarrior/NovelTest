@@ -50,4 +50,3 @@ func add_msg(text):
 	dialog_label.text += text
 	message_add.emit()
 	start_processing()
-
