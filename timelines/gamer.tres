@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=9 format=3 uid="uid://fudt3kt6arda"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=10 format=3 uid="uid://n2a4eflanj3d"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_j1rd4"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_r8p3y"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="2_olgfs"]
-[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://test.tres" id="3_jggnj"]
+[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="3_jggnj"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="4_pj4wa"]
 
 [sub_resource type="Resource" id="Resource_vt2mm"]
@@ -13,6 +13,15 @@ comment = "gamer"
 bookmark = ""
 continue_at_end = true
 target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_27hu2"]
+resource_local_to_scene = true
+script = ExtResource("4_pj4wa")
+method = "set_flag"
+args = ["passed", false]
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_xe146"]
 resource_local_to_scene = true
@@ -36,4 +45,4 @@ target = NodePath("HUD/DialogBox")
 
 [resource]
 script = ExtResource("1_r8p3y")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vt2mm"), SubResource("Resource_xe146"), SubResource("Resource_fg0nk")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vt2mm"), SubResource("Resource_27hu2"), SubResource("Resource_xe146"), SubResource("Resource_fg0nk")])

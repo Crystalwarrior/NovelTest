@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://tbkenvmcfo2k"]
+[gd_scene load_steps=44 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://EmotePicker.gd" id="3_1hrje"]
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
+[ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="3_4tb1k"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
-[ext_resource type="Resource" uid="uid://fudt3kt6arda" path="res://gamer.tres" id="3_qkv81"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
 [ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
 [ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://choices_theme.tres" id="9_n6w1j"]
@@ -436,7 +436,7 @@ script = ExtResource("1_hisby")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
-timeline = ExtResource("3_qkv81")
+timeline = ExtResource("3_4tb1k")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_1nckb")
@@ -787,6 +787,8 @@ grow_vertical = 2
 texture = ExtResource("14_htxqg")
 stretch_mode = 1
 
+[connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
+[connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
 [connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
