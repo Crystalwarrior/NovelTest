@@ -50,3 +50,23 @@ func add_msg(text):
 	dialog_label.text += text
 	message_add.emit()
 	start_processing()
+
+
+func get_savedict() -> Dictionary:
+	var save_dict = {
+		"letter_delay": letter_delay,
+		"showname": showname_label.text,
+		"dialog": dialog_label.text,
+	}
+	return save_dict
+
+
+func load_savedict(save_dict: Dictionary):
+	for key in save_dict.keys():
+		var value = save_dict[key]
+		if key == "showname":
+			showname_label.text = value
+		if key == "dialog":
+			set_msg(value)
+		if key == "letter_delay":
+			set(key, value)

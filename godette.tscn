@@ -205,7 +205,7 @@ _data = {
 "surprised": SubResource("Animation_81l3b")
 }
 
-[node name="Godette" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
+[node name="Godette" type="CanvasGroup" node_paths=PackedStringArray("emote_switcher")]
 script = ExtResource("1_x23ug")
 emote_switcher = NodePath("EmoteSwitcher")
 

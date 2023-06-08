@@ -13,7 +13,7 @@ method = "set_emote"
 args = ["smile"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/Godette")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_dy1jx"]
 resource_local_to_scene = true
@@ -55,7 +55,7 @@ play_backwards = true
 wait_until_finished = false
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/AnimationPlayer")
+target = NodePath("Godette/AnimationPlayer")
 
 [sub_resource type="Resource" id="Resource_rcaj6"]
 resource_local_to_scene = true
@@ -84,7 +84,7 @@ method = "set_emote"
 args = ["joy"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/Godette")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_v4w3b"]
 resource_local_to_scene = true
@@ -112,7 +112,7 @@ method = "set_emote"
 args = ["annoyance"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/Godette")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_vpf8p"]
 resource_local_to_scene = true
@@ -138,7 +138,7 @@ method = "set_emote"
 args = ["smile"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/Godette")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_u36g2"]
 resource_local_to_scene = true
@@ -156,7 +156,7 @@ method = "set_emote"
 args = ["grin"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/Godette")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_ahdl1"]
 resource_local_to_scene = true
@@ -201,7 +201,7 @@ play_backwards = false
 wait_until_finished = false
 bookmark = ""
 continue_at_end = true
-target = NodePath("SpriteFadeGroup/AnimationPlayer")
+target = NodePath("Godette/AnimationPlayer")
 
 [sub_resource type="Resource" id="Resource_vklgs"]
 resource_local_to_scene = true
