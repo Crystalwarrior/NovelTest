@@ -37,3 +37,23 @@ func set_flag(flag: String, value: Variant):
 func increment_flag():
 	flag1 += 1
 
+
+func get_savedict() -> Dictionary:
+	var save_dict = {
+		"nodepath": get_path(),
+		"timeline": $CommandManager.timeline.get_path(),
+		"current_command_idx": $CommandManager.current_command_idx,
+	}
+	return save_dict
+
+
+func load_savedict(save_dict: Dictionary):
+	if $CommandManager.current_command:
+		$CommandManager._disconnect_command_signals($CommandManager.current_command)
+	for key in save_dict.keys():
+		if key == "timeline":
+			$CommandManager.timeline = load(save_dict[key])
+		if key == "current_command_idx":
+			$CommandManager.set(key, save_dict[key])
+	$CommandManager.start_timeline($CommandManager.current_command_idx)
+
