@@ -4,9 +4,12 @@ var finished = false
 
 var waiting_on_input = true
 
-var flag1 = 0
+var flags = {}:
+	set(value):
+		flags = value
+		flags_modified.emit(flags)
 
-var flags = {}
+signal flags_modified(flags)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,10 +35,7 @@ func _on_command_manager_command_finished(command):
 
 func set_flag(flag: String, value: Variant):
 	flags[flag] = value
-
-
-func increment_flag():
-	flag1 += 1
+	flags_modified.emit(flags)
 
 
 func get_savedict() -> Dictionary:
@@ -43,6 +43,7 @@ func get_savedict() -> Dictionary:
 		"nodepath": get_path(),
 		"timeline": $CommandManager.timeline.get_path(),
 		"current_command_idx": $CommandManager.current_command_idx,
+		"flags": flags,
 	}
 	return save_dict
 
@@ -54,6 +55,8 @@ func load_savedict(save_dict: Dictionary):
 		if key == "timeline":
 			$CommandManager.timeline = load(save_dict[key])
 		if key == "current_command_idx":
-			$CommandManager.set(key, save_dict[key])
+			$CommandManager.current_command_idx = save_dict[key]
+		if key == "flags":
+			flags = save_dict[key]
 	$CommandManager.start_timeline($CommandManager.current_command_idx)
 

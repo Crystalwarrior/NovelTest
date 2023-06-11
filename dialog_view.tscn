@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=47 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
@@ -18,6 +18,8 @@
 [ext_resource type="Shader" path="res://ebg.gdshader" id="12_nrdjh"]
 [ext_resource type="Script" path="res://DebugStuff.gd" id="13_k2m8m"]
 [ext_resource type="Texture2D" uid="uid://cenohrxheffb2" path="res://raintex.png" id="14_htxqg"]
+[ext_resource type="Script" path="res://FlagLabel.gd" id="16_mahkt"]
+[ext_resource type="Texture2D" uid="uid://bfd1q5mjsyc1r" path="res://bus stop evening.jpg" id="17_aw10o"]
 
 [sub_resource type="Animation" id="Animation_i8uyt"]
 length = 0.001
@@ -773,7 +775,30 @@ offset_bottom = 31.0
 grow_horizontal = 2
 text = "LOAD GAME"
 
+[node name="FlagLabelContainer" type="PanelContainer" parent="HUD/DebugStuff"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -404.0
+offset_bottom = 179.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/DebugStuff/FlagLabelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/DebugStuff/FlagLabelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Initialized flags will be displayed here:"
+horizontal_alignment = 1
+
+[node name="FlagLabel" type="RichTextLabel" parent="HUD/DebugStuff/FlagLabelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("16_mahkt")
+
 [node name="rednoise" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_l8tgr")
 layout_mode = 1
 anchors_preset = 15
@@ -783,6 +808,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_hdkkn")
 stretch_mode = 1
+
+[node name="BusStopEvening" type="Sprite2D" parent="."]
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("17_aw10o")
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -799,7 +829,6 @@ libraries = {
 }
 
 [node name="raintex" type="TextureRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_yyv7f")
 layout_mode = 1
 anchors_preset = 15
@@ -810,6 +839,7 @@ grow_vertical = 2
 texture = ExtResource("14_htxqg")
 stretch_mode = 1
 
+[connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
 [connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
 [connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
 [connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]

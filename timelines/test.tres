@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=29 format=3 uid="uid://cyf63rc3uolon"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=34 format=3 uid="uid://cyf63rc3uolon"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_rg0e0"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="2_rvkqb"]
@@ -95,12 +95,58 @@ bookmark = ""
 continue_at_end = false
 target = NodePath("HUD/DialogBox")
 
-[sub_resource type="Resource" id="Resource_ivjfl"]
+[sub_resource type="Resource" id="Resource_73bfc"]
+resource_local_to_scene = true
+script = ExtResource("4_e13oh")
+condition = "not flags[\"passed\"]"
+use_bookmark = true
+command_bookmark = "speaking"
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
+[sub_resource type="Resource" id="Resource_8jns8"]
+resource_local_to_scene = true
+script = ExtResource("1_rg0e0")
+method = "set_emote"
+args = ["surprised"]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Godette")
+
+[sub_resource type="Resource" id="Resource_oxj6d"]
+resource_local_to_scene = true
+script = ExtResource("1_rg0e0")
+method = "set_msg"
+args = ["Oh, this is not your first time here!"]
+bookmark = ""
+continue_at_end = false
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_5vorc"]
+resource_local_to_scene = true
+script = ExtResource("1_rg0e0")
+method = "set_emote"
+args = ["smile"]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Godette")
+
+[sub_resource type="Resource" id="Resource_crlk6"]
+resource_local_to_scene = true
+script = ExtResource("1_rg0e0")
+method = "add_msg"
+args = ["Guess I'll be brief."]
+bookmark = ""
+continue_at_end = false
+target = NodePath("HUD/DialogBox")
+
+[sub_resource type="Resource" id="Resource_yu1hv"]
 resource_local_to_scene = true
 script = ExtResource("4_e13oh")
 condition = "flags[\"passed\"]"
-use_bookmark = false
-command_index = 16
+use_bookmark = true
+command_bookmark = "end"
 bookmark = ""
 continue_at_end = true
 target = NodePath(".")
@@ -110,7 +156,7 @@ resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["annoyance"]
-bookmark = ""
+bookmark = "speaking"
 continue_at_end = true
 target = NodePath("Godette")
 
@@ -154,7 +200,7 @@ resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["grin"]
-bookmark = ""
+bookmark = "end"
 continue_at_end = true
 target = NodePath("Godette")
 
@@ -233,4 +279,4 @@ target = NodePath("")
 [resource]
 resource_name = "test.tres"
 script = ExtResource("5_i110d")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_dy1jx"), SubResource("Resource_asyjr"), SubResource("Resource_mun2r"), SubResource("Resource_i4nse"), SubResource("Resource_rcaj6"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_v4w3b"), SubResource("Resource_ivjfl"), SubResource("Resource_dpc07"), SubResource("Resource_vpf8p"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_u36g2"), SubResource("Resource_t52ta"), SubResource("Resource_ahdl1"), SubResource("Resource_ryf8x"), SubResource("Resource_uv0ts"), SubResource("Resource_8g28f"), SubResource("Resource_vklgs"), SubResource("Resource_r2n13"), SubResource("Resource_xns57")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_dy1jx"), SubResource("Resource_asyjr"), SubResource("Resource_mun2r"), SubResource("Resource_i4nse"), SubResource("Resource_rcaj6"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_v4w3b"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_oxj6d"), SubResource("Resource_5vorc"), SubResource("Resource_crlk6"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_vpf8p"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_u36g2"), SubResource("Resource_t52ta"), SubResource("Resource_ahdl1"), SubResource("Resource_ryf8x"), SubResource("Resource_uv0ts"), SubResource("Resource_8g28f"), SubResource("Resource_vklgs"), SubResource("Resource_r2n13"), SubResource("Resource_xns57")])
