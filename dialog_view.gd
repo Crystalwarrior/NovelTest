@@ -40,7 +40,6 @@ func set_flag(flag: String, value: Variant):
 
 func get_savedict() -> Dictionary:
 	var save_dict = {
-		"nodepath": get_path(),
 		"timeline": $CommandManager.timeline.get_path(),
 		"current_command_idx": $CommandManager.current_command_idx,
 		"flags": flags,

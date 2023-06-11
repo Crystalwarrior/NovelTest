@@ -12,6 +12,8 @@ signal message_end()
 var process_charcters: bool = false
 var process_counter: float = 0.0
 
+var last_animation = ""
+var last_animation_speed = 1.0
 
 func _process(delta):
 	if process_charcters:
@@ -57,6 +59,7 @@ func get_savedict() -> Dictionary:
 		"letter_delay": letter_delay,
 		"showname": showname_label.text,
 		"dialog": dialog_label.text,
+		"animation": [last_animation, last_animation_speed],
 	}
 	return save_dict
 
@@ -70,3 +73,10 @@ func load_savedict(save_dict: Dictionary):
 			set_msg(value)
 		if key == "letter_delay":
 			set(key, value)
+		if key == "animation":
+			$AnimationPlayer.play(value[0], -1, value[1], value[1] < 0)
+
+
+func _on_animation_player_animation_started(anim_name):
+	last_animation = $AnimationPlayer.current_animation
+	last_animation_speed = $AnimationPlayer.get_playing_speed()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=41 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
@@ -275,102 +275,6 @@ seamless = true
 color_ramp = SubResource("Gradient_dl165")
 noise = SubResource("FastNoiseLite_h0e2a")
 
-[sub_resource type="Animation" id="Animation_54xqn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Godette:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.2, 0.2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Godette:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(629, 465)]
-}
-
-[sub_resource type="Animation" id="Animation_14ue7"]
-resource_name = "zoom"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Godette:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.5, 0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Godette:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(629, 465), Vector2(610, 917)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m7o0"]
-_data = {
-"RESET": SubResource("Animation_54xqn"),
-"zoom": SubResource("Animation_14ue7")
-}
-
-[sub_resource type="Animation" id="Animation_daahl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1bxh5"]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_57mbe"]
-_data = {
-"RESET": SubResource("Animation_daahl"),
-"fade": SubResource("Animation_1bxh5")
-}
-
 [sub_resource type="Shader" id="Shader_gibmv"]
 code = "/* 
 Earthbound battle backgrounds shader with scrolling effect and palette cycling like in the original game.
@@ -451,6 +355,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -235.0
+offset_right = 2560.0
+offset_bottom = -0.00012207
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_kwgg7")
@@ -551,10 +457,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -30.0
-offset_right = 22.5
-offset_bottom = -7.99995
+offset_left = -1302.5
+offset_top = -29.9999
+offset_right = -1257.5
+offset_bottom = -7.99982
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
@@ -672,7 +578,7 @@ offset_bottom = 122.0
 toggle_mode = true
 text = "Zoom In/Out"
 script = ExtResource("3_2f4ou")
-zoom_animation = NodePath("../../../AnimationPlayer")
+zoom_animation = NodePath("")
 
 [node name="FadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
 layout_mode = 0
@@ -814,19 +720,7 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("17_aw10o")
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7m7o0")
-}
-
 [node name="Godette" parent="." groups=["save"] instance=ExtResource("2_nvmpq")]
-position = Vector2(629, 465)
-scale = Vector2(0.2, 0.2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Godette"]
-libraries = {
-"": SubResource("AnimationLibrary_57mbe")
-}
 
 [node name="raintex" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_yyv7f")
@@ -845,6 +739,7 @@ stretch_mode = 1
 [connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
+[connection signal="animation_started" from="HUD/DialogBox/AnimationPlayer" to="HUD/DialogBox" method="_on_animation_player_animation_started"]
 [connection signal="item_selected" from="HUD/DebugStuff/EmotePicker" to="HUD/DebugStuff/EmotePicker" method="_on_item_selected"]
 [connection signal="toggled" from="HUD/DebugStuff/ZoomButton" to="HUD/DebugStuff/ZoomButton" method="_on_toggled"]
 [connection signal="toggled" from="HUD/DebugStuff/FadeButton" to="HUD/DebugStuff/FadeButton" method="_on_toggled"]
@@ -854,5 +749,3 @@ stretch_mode = 1
 [connection signal="pressed" from="HUD/DebugStuff/AddButton" to="HUD" method="_on_add_button_pressed"]
 [connection signal="pressed" from="HUD/DebugStuff/SaveButton" to="HUD/DebugStuff" method="_on_save_button_pressed"]
 [connection signal="pressed" from="HUD/DebugStuff/LoadButton" to="HUD/DebugStuff" method="_on_load_button_pressed"]
-
-[editable path="Godette"]
