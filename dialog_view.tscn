@@ -343,7 +343,7 @@ script = ExtResource("1_hisby")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
-timeline = ExtResource("3_4tb1k")
+current_timeline = ExtResource("3_4tb1k")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_1nckb")
@@ -459,7 +459,7 @@ anchor_bottom = 1.0
 offset_left = -22.5
 offset_top = -30.0002
 offset_right = 22.5
-offset_bottom = -8.00006
+offset_bottom = -7.99997
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
@@ -733,9 +733,11 @@ texture = ExtResource("14_htxqg")
 stretch_mode = 1
 
 [connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
+[connection signal="wait_for_input" from="." to="HUD/DialogBox/NextIcon" method="_on_dialog_view_wait_for_input"]
 [connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
 [connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
 [connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
+[connection signal="message_end" from="HUD/DialogBox" to="." method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/DialogBox" to="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/DialogBox/Showname" method="_on_rich_text_label_finished"]
 [connection signal="animation_started" from="HUD/DialogBox/AnimationPlayer" to="HUD/DialogBox" method="_on_animation_player_animation_started"]
