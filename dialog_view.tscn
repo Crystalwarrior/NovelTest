@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=42 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cenohrxheffb2" path="res://raintex.png" id="14_htxqg"]
 [ext_resource type="Script" path="res://FlagLabel.gd" id="16_mahkt"]
 [ext_resource type="Texture2D" uid="uid://bfd1q5mjsyc1r" path="res://bus stop evening.jpg" id="17_aw10o"]
+[ext_resource type="Script" path="res://TestimonyIndicator.gd" id="17_eyo7d"]
 
 [sub_resource type="Animation" id="Animation_i8uyt"]
 length = 0.001
@@ -459,7 +460,7 @@ anchor_bottom = 1.0
 offset_left = -22.5
 offset_top = -30.0002
 offset_right = 22.5
-offset_bottom = -7.99997
+offset_bottom = -7.99995
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
@@ -701,6 +702,32 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("16_mahkt")
+
+[node name="TestimonyIndicator" type="PanelContainer" parent="HUD"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -224.0
+offset_right = 20.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("17_eyo7d")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TestimonyIndicator"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Container" type="HBoxContainer" parent="HUD/TestimonyIndicator/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="rednoise" type="TextureRect" parent="."]
 visible = false
