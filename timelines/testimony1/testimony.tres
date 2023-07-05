@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=19 format=3 uid="uid://dvf52xqp8wb2m"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=24 format=3 uid="uid://dvf52xqp8wb2m"]
 
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_1wb3m"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_f6432"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_tgknj"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="3_rx5r2"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="4_i05au"]
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_3bh32"]
+[ext_resource type="Resource" uid="uid://rw30rmmxowxo" path="res://timelines/testimony1/press1.tres" id="5_nqp0g"]
 
 [sub_resource type="Resource" id="Resource_kbedy"]
 resource_local_to_scene = true
-script = ExtResource("1_f6432")
+script = ExtResource("1_6ycm4")
 comment = "Initialize the testimony and provide the bookmarks to use for each statement."
 bookmark = ""
 continue_at_end = true
@@ -15,7 +16,7 @@ target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_f68tl"]
 resource_local_to_scene = true
-script = ExtResource("2_tgknj")
+script = ExtResource("2_pvprn")
 method = "start_testimony"
 args = [PackedStringArray("st1", "st2", "st3", "st4")]
 bookmark = ""
@@ -24,15 +25,24 @@ target = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_nc42f"]
 resource_local_to_scene = true
-script = ExtResource("1_f6432")
+script = ExtResource("1_6ycm4")
 comment = "Statement 1"
 bookmark = "st1"
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_gdpos"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "set_press"
+args = [ExtResource("5_nqp0g")]
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
 [sub_resource type="Resource" id="Resource_b7vup"]
 resource_local_to_scene = true
-script = ExtResource("2_tgknj")
+script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["surprised"]
 bookmark = ""
@@ -41,7 +51,7 @@ target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_0iffn"]
 resource_local_to_scene = true
-script = ExtResource("3_rx5r2")
+script = ExtResource("4_i05au")
 showname = "Godette"
 dialog = "When I arrived at the scene, there Tim was, laying face-first in the pool of his own blood!"
 additive = false
@@ -53,15 +63,24 @@ target = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_rympe"]
 resource_local_to_scene = true
-script = ExtResource("1_f6432")
+script = ExtResource("1_6ycm4")
 comment = "Statement 2"
 bookmark = "st2"
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_qfxjq"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "set_press"
+args = [ExtResource("5_nqp0g")]
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
 [sub_resource type="Resource" id="Resource_0fja7"]
 resource_local_to_scene = true
-script = ExtResource("2_tgknj")
+script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["sleepy"]
 bookmark = ""
@@ -70,7 +89,7 @@ target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_phpuj"]
 resource_local_to_scene = true
-script = ExtResource("3_rx5r2")
+script = ExtResource("4_i05au")
 showname = "Godette"
 dialog = "I was horrified and didn't know what to do! I ran towards Tim, but I slipped on his blood and fell right on top of him..."
 additive = false
@@ -82,15 +101,24 @@ target = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_iwcqc"]
 resource_local_to_scene = true
-script = ExtResource("1_f6432")
+script = ExtResource("1_6ycm4")
 comment = "Statement 3"
 bookmark = "st3"
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_m5rlk"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "set_press"
+args = [ExtResource("5_nqp0g")]
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
 [sub_resource type="Resource" id="Resource_pbmvn"]
 resource_local_to_scene = true
-script = ExtResource("2_tgknj")
+script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["surprised"]
 bookmark = ""
@@ -99,7 +127,7 @@ target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_6li51"]
 resource_local_to_scene = true
-script = ExtResource("3_rx5r2")
+script = ExtResource("4_i05au")
 showname = "Godette"
 dialog = "I screamed out, all of a sudden I heard footsteps from behind the door fading away!"
 additive = false
@@ -111,15 +139,24 @@ target = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_635lm"]
 resource_local_to_scene = true
-script = ExtResource("1_f6432")
+script = ExtResource("1_6ycm4")
 comment = "Statement 4"
 bookmark = "st4"
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_gj7sm"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "set_press"
+args = [ExtResource("5_nqp0g")]
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
 [sub_resource type="Resource" id="Resource_rrg8v"]
 resource_local_to_scene = true
-script = ExtResource("2_tgknj")
+script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["anger"]
 bookmark = ""
@@ -128,7 +165,7 @@ target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_b5jqf"]
 resource_local_to_scene = true
-script = ExtResource("3_rx5r2")
+script = ExtResource("4_i05au")
 showname = "Godette"
 dialog = "At this point, everyone else rushed in behind me, and pinned me down as the culprit... But I didn't do it!"
 additive = false
@@ -139,5 +176,5 @@ continue_at_end = false
 target = NodePath(".")
 
 [resource]
-script = ExtResource("1_1wb3m")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])
+script = ExtResource("5_3bh32")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])

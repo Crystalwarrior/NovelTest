@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_j1rd4"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_r8p3y"]
-[ext_resource type="Resource" uid="uid://dvf52xqp8wb2m" path="res://timelines/testimony.tres" id="2_3sg8t"]
+[ext_resource type="Resource" uid="uid://dvf52xqp8wb2m" path="res://timelines/testimony1/testimony.tres" id="2_lti0d"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="2_olgfs"]
 [ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="3_jggnj"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="4_pj4wa"]
@@ -13,7 +13,7 @@ script = ExtResource("2_olgfs")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("2_3sg8t")
+timeline = ExtResource("2_lti0d")
 bookmark = ""
 continue_at_end = true
 target = NodePath("")

@@ -306,7 +306,7 @@ centered = false
 
 [node name="Face" type="Sprite2D" parent="."]
 position = Vector2(-262, -1430)
-texture = ExtResource("2_shdnb")
+texture = ExtResource("2_ltfxh")
 centered = false
 
 [node name="EmoteSwitcher" type="AnimationPlayer" parent="."]

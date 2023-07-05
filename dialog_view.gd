@@ -1,12 +1,19 @@
 extends Control
 
 @onready var dialogbox = $HUD/DialogBox
+@onready var command_manager: CommandManager = $CommandManager
+@onready var testimony_indicator = $HUD/TestimonyIndicator
+
 
 var finished = false
 var waiting_on_input = true
 
 var testimony: PackedStringArray = []
+var testimony_timeline: Timeline
 var current_testimony_index: int = 0
+
+var pause_testimony: bool = false
+var current_press: Timeline
 
 var flags = {}:
 	set(value):
@@ -19,30 +26,38 @@ signal flags_modified(flags)
 signal dialog_finished
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if testimony:
-		_process_testimony()
-	else:
+	if pause_testimony or testimony.is_empty():
 		_process_timeline()
+	else:
+		_process_testimony()
 
 
 func _process_testimony():
 	if Input.is_action_just_pressed("next"):
-		var target_index = (current_testimony_index + 1) % testimony.size()
-		print(target_index, ' - ', testimony[target_index])
-		_go_to_statement(target_index)
-	if Input.is_action_just_pressed("previous"):
-		var target_index = posmod(current_testimony_index - 1, testimony.size())
-		print(target_index, ' - ', testimony[target_index])
-		_go_to_statement(target_index)
+		_go_to_next_statement()
+	elif Input.is_action_just_pressed("previous"):
+		_go_to_previous_statement()
+	elif Input.is_action_just_pressed("press") and current_press:
+		press()
+
+
+func _go_to_next_statement():
+	var target_index = (current_testimony_index + 1) % testimony.size()
+	_go_to_statement(target_index)
+
+
+func _go_to_previous_statement():
+	var target_index = posmod(current_testimony_index - 1, testimony.size())
+	_go_to_statement(target_index)
 
 
 func _go_to_statement(index: int):
 	current_testimony_index = index
-	$HUD/TestimonyIndicator.select_statement(current_testimony_index)
+	testimony_indicator.select_statement(current_testimony_index)
 	var command_bookmark = testimony[current_testimony_index]
-	var target_command = $CommandManager.current_timeline.get_command_by_bookmark(command_bookmark)
-	var command_index = $CommandManager.current_timeline.get_command_idx(target_command)
-	$CommandManager.go_to_command(command_index)
+	var target_command = testimony_timeline.get_command_by_bookmark(command_bookmark)
+	var command_index = testimony_timeline.get_command_idx(target_command)
+	command_manager.go_to_command(command_index, testimony_timeline)
 
 
 func _process_timeline():
@@ -51,16 +66,26 @@ func _process_timeline():
 	if Input.is_action_just_pressed("next"):
 		if finished:
 			finished = false
-			$CommandManager.start_timeline()
+			command_manager.start_timeline()
 		else:
-			$CommandManager.go_to_next_command()
+			command_manager.go_to_next_command()
 
 
 func start_testimony(statements: PackedStringArray):
+	testimony_timeline = command_manager.current_timeline
 	testimony = statements
 	current_testimony_index = 0
-	$HUD/TestimonyIndicator.set_statements(testimony.size())
-	_go_to_statement(current_testimony_index)	
+	testimony_indicator.set_statements(testimony.size())
+	_go_to_statement(current_testimony_index)
+
+
+func set_press(timeline: Timeline):
+	current_press = timeline
+
+
+func press():
+	pause_testimony = true
+	command_manager.start_timeline(current_press)
 
 
 func dialog(showname: String = "", dialog: String = "", additive: bool = false, letter_delay: float = 0.02) -> void:
@@ -79,27 +104,31 @@ func set_flag(flag: String, value: Variant):
 
 func get_savedict() -> Dictionary:
 	var save_dict = {
-		"timeline": $CommandManager.current_timeline.get_path(),
-		"current_command_idx": $CommandManager.current_command_idx,
+		"timeline": command_manager.current_timeline.get_path(),
+		"current_command_idx": command_manager.current_command_idx,
 		"flags": flags,
 	}
 	return save_dict
 
 
 func load_savedict(save_dict: Dictionary):
-	if $CommandManager.current_command:
-		$CommandManager._disconnect_command_signals($CommandManager.current_command)
+	if command_manager.current_command:
+		command_manager._disconnect_command_signals(command_manager.current_command)
 	for key in save_dict.keys():
 		if key == "timeline":
-			$CommandManager.current_timeline = load(save_dict[key])
+			command_manager.current_timeline = load(save_dict[key])
 		if key == "current_command_idx":
-			$CommandManager.current_command_idx = save_dict[key]
+			command_manager.current_command_idx = save_dict[key]
 		if key == "flags":
 			flags = save_dict[key]
-	$CommandManager.start_timeline(null, $CommandManager.current_command_idx)
+	command_manager.start_timeline(null, command_manager.current_command_idx)
 
 
 func _on_command_manager_timeline_finished():
+	if pause_testimony:
+		pause_testimony = false
+		_go_to_next_statement()
+		return
 	finished = true
 
 
