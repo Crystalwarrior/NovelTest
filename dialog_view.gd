@@ -34,24 +34,24 @@ func _process(delta):
 
 func _process_testimony():
 	if Input.is_action_just_pressed("next"):
-		_go_to_next_statement()
+		go_to_next_statement()
 	elif Input.is_action_just_pressed("previous"):
-		_go_to_previous_statement()
+		go_to_previous_statement()
 	elif Input.is_action_just_pressed("press") and current_press:
 		press()
 
 
-func _go_to_next_statement():
+func go_to_next_statement():
 	var target_index = (current_testimony_index + 1) % testimony.size()
-	_go_to_statement(target_index)
+	go_to_statement(target_index)
 
 
-func _go_to_previous_statement():
+func go_to_previous_statement():
 	var target_index = posmod(current_testimony_index - 1, testimony.size())
-	_go_to_statement(target_index)
+	go_to_statement(target_index)
 
 
-func _go_to_statement(index: int):
+func go_to_statement(index: int):
 	current_testimony_index = index
 	testimony_indicator.select_statement(current_testimony_index)
 	var command_bookmark = testimony[current_testimony_index]
@@ -71,12 +71,26 @@ func _process_timeline():
 			command_manager.go_to_next_command()
 
 
-func start_testimony(statements: PackedStringArray):
+func set_statements(statements: PackedStringArray):
 	testimony_timeline = command_manager.current_timeline
 	testimony = statements
-	current_testimony_index = 0
 	testimony_indicator.set_statements(testimony.size())
-	_go_to_statement(current_testimony_index)
+
+
+func start_testimony(statements: PackedStringArray = []):
+	pause_testimony = false
+	current_testimony_index = 0
+	if not statements.is_empty():
+		set_statements(statements)
+	go_to_statement(current_testimony_index)
+
+
+func stop_testimony():
+	pause_testimony = false
+	testimony_timeline = null
+	testimony.clear()
+	current_testimony_index = 0
+	testimony_indicator.set_statements(0)
 
 
 func set_press(timeline: Timeline):
@@ -127,7 +141,7 @@ func load_savedict(save_dict: Dictionary):
 func _on_command_manager_timeline_finished():
 	if pause_testimony:
 		pause_testimony = false
-		_go_to_next_statement()
+		go_to_next_statement()
 		return
 	finished = true
 
