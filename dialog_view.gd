@@ -2,7 +2,7 @@ extends Control
 
 @onready var dialogbox = $HUD/DialogBox
 @onready var command_manager: CommandManager = $CommandManager
-@onready var testimony_indicator = $HUD/TestimonyIndicator
+@onready var testimony_indicator = $HUD/DialogBox/TestimonyIndicator
 
 
 var finished = false
@@ -13,7 +13,11 @@ var testimony_timeline: Timeline
 var current_testimony_index: int = 0
 
 var pause_testimony: bool = false
+var next_statement_on_pause: bool = false
 var current_press: Timeline
+var current_present: Timeline
+
+var last_presented_evidence: int = -1
 
 var flags = {}:
 	set(value):
@@ -24,20 +28,21 @@ signal wait_for_input(tog)
 signal flags_modified(flags)
 
 signal dialog_finished
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+
+
+func _unhandled_input(event):
 	if pause_testimony or testimony.is_empty():
-		_process_timeline()
+		_process_timeline(event)
 	else:
-		_process_testimony()
+		_process_testimony(event)
 
 
-func _process_testimony():
-	if Input.is_action_just_pressed("next"):
+func _process_testimony(event):
+	if event.is_action_pressed("next"):
 		go_to_next_statement()
-	elif Input.is_action_just_pressed("previous"):
+	elif event.is_action_pressed("previous"):
 		go_to_previous_statement()
-	elif Input.is_action_just_pressed("press") and current_press:
+	elif event.is_action_pressed("press") and current_press:
 		press()
 
 
@@ -60,10 +65,10 @@ func go_to_statement(index: int):
 	command_manager.go_to_command(command_index, testimony_timeline)
 
 
-func _process_timeline():
+func _process_timeline(event):
 	if not waiting_on_input:
 		return
-	if Input.is_action_just_pressed("next"):
+	if event.is_action_pressed("next"):
 		if finished:
 			finished = false
 			command_manager.start_timeline()
@@ -89,6 +94,8 @@ func stop_testimony():
 	pause_testimony = false
 	testimony_timeline = null
 	testimony.clear()
+	current_press = null
+	current_present = null
 	current_testimony_index = 0
 	testimony_indicator.set_statements(0)
 
@@ -97,8 +104,13 @@ func set_press(timeline: Timeline):
 	current_press = timeline
 
 
+func set_present(timeline: Timeline):
+	current_present = timeline
+
+
 func press():
 	pause_testimony = true
+	next_statement_on_pause = true
 	command_manager.start_timeline(current_press)
 
 
@@ -141,7 +153,10 @@ func load_savedict(save_dict: Dictionary):
 func _on_command_manager_timeline_finished():
 	if pause_testimony:
 		pause_testimony = false
-		go_to_next_statement()
+		if next_statement_on_pause:
+			go_to_next_statement()
+		else:
+			go_to_statement(current_testimony_index)
 		return
 	finished = true
 
@@ -158,3 +173,12 @@ func _on_command_manager_command_finished(command):
 
 func _on_dialog_box_message_end():
 	dialog_finished.emit()
+
+
+func _on_present_evidence(index):
+	if pause_testimony or current_present == null:
+		return
+	last_presented_evidence = index
+	pause_testimony = true
+	next_statement_on_pause = false
+	command_manager.start_timeline(current_present)

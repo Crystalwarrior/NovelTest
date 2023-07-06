@@ -1,22 +1,10 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=12 format=3 uid="uid://n2a4eflanj3d"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=10 format=3 uid="uid://n2a4eflanj3d"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_j1rd4"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_r8p3y"]
 [ext_resource type="Resource" uid="uid://dvf52xqp8wb2m" path="res://timelines/testimony1/testimony.tres" id="2_lti0d"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="2_olgfs"]
-[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="3_jggnj"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="4_pj4wa"]
-
-[sub_resource type="Resource" id="Resource_gfklc"]
-resource_local_to_scene = true
-script = ExtResource("2_olgfs")
-condition = ""
-use_bookmark = false
-command_index = 0
-timeline = ExtResource("2_lti0d")
-bookmark = ""
-continue_at_end = true
-target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_vt2mm"]
 resource_local_to_scene = true
@@ -44,17 +32,17 @@ bookmark = ""
 continue_at_end = true
 target = NodePath(".")
 
-[sub_resource type="Resource" id="Resource_xe146"]
+[sub_resource type="Resource" id="Resource_gfklc"]
 resource_local_to_scene = true
 script = ExtResource("2_olgfs")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("3_jggnj")
+timeline = ExtResource("2_lti0d")
 bookmark = ""
 continue_at_end = true
 target = NodePath("")
 
 [resource]
 script = ExtResource("1_r8p3y")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_gfklc"), SubResource("Resource_vt2mm"), SubResource("Resource_27hu2"), SubResource("Resource_6fyhw"), SubResource("Resource_xe146")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vt2mm"), SubResource("Resource_27hu2"), SubResource("Resource_6fyhw"), SubResource("Resource_gfklc")])

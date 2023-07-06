@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=15 format=3 uid="uid://bfsqwnnetrdkk"]
+
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="1_dnfd8"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="1_ebt7i"]
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="2_ft7a2"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_end.gd" id="3_tgtme"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="4_atjsy"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="4_cwyyc"]
+[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="5_pye1k"]
+
+[sub_resource type="Resource" id="Resource_83an4"]
+resource_local_to_scene = true
+script = ExtResource("1_ebt7i")
+condition = "last_presented_evidence == 2"
+use_bookmark = true
+command_bookmark = "correct"
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
+[sub_resource type="Resource" id="Resource_6lucd"]
+resource_local_to_scene = true
+script = ExtResource("1_dnfd8")
+showname = "Godette"
+dialog = "wtf are you presenting this for"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+bookmark = ""
+continue_at_end = false
+target = NodePath(".")
+
+[sub_resource type="Resource" id="Resource_4w8ct"]
+resource_local_to_scene = true
+script = ExtResource("3_tgtme")
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_x1fm6"]
+resource_local_to_scene = true
+script = ExtResource("4_cwyyc")
+comment = "if presented \"the right evidence\""
+bookmark = "correct"
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_8x1ci"]
+resource_local_to_scene = true
+script = ExtResource("4_atjsy")
+method = "stop_testimony"
+args = []
+bookmark = ""
+continue_at_end = true
+target = NodePath(".")
+
+[sub_resource type="Resource" id="Resource_fwoaj"]
+resource_local_to_scene = true
+script = ExtResource("1_dnfd8")
+showname = "Godette"
+dialog = "oh shit you presented the right evidence, great job"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+bookmark = ""
+continue_at_end = false
+target = NodePath(".")
+
+[sub_resource type="Resource" id="Resource_b3oaa"]
+resource_local_to_scene = true
+script = ExtResource("1_ebt7i")
+condition = ""
+use_bookmark = false
+command_index = 0
+timeline = ExtResource("5_pye1k")
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
+[resource]
+script = ExtResource("2_ft7a2")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_83an4"), SubResource("Resource_6lucd"), SubResource("Resource_4w8ct"), SubResource("Resource_x1fm6"), SubResource("Resource_8x1ci"), SubResource("Resource_fwoaj"), SubResource("Resource_b3oaa")])
