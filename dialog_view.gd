@@ -1,8 +1,8 @@
-extends Control
+extends Node
 
-@onready var dialogbox = $HUD/DialogBox
+@onready var dialogbox = $HUD/MainView/DialogBox
 @onready var command_manager: CommandManager = $CommandManager
-@onready var testimony_indicator = $HUD/DialogBox/TestimonyIndicator
+@onready var testimony_indicator = $HUD/MainView/DialogBox/TestimonyIndicator
 
 
 var finished = false

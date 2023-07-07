@@ -20,7 +20,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,7 +36,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,7 +52,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -68,7 +68,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -84,7 +84,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -100,7 +100,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -116,7 +116,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -132,7 +132,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -148,7 +148,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -164,7 +164,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -180,7 +180,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Face:texture")
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -210,38 +210,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("SpriteGroup:self_modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("SpriteGroup:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(629, 465)]
+"values": [Vector2(0.2, 0.2)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
+tracks/2/path = NodePath("SpriteGroup:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.2, 0.2)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1bxh5"]
@@ -249,14 +249,14 @@ resource_name = "fade"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
+tracks/0/path = NodePath("SpriteGroup:self_modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_02qr6"]
@@ -264,7 +264,7 @@ resource_name = "zoom"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("SpriteGroup:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -276,14 +276,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("SpriteGroup:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(629, 465), Vector2(610, 917)]
+"values": [Vector2(0, 0), Vector2(0, 453)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57mbe"]
@@ -293,19 +293,23 @@ _data = {
 "zoom": SubResource("Animation_02qr6")
 }
 
-[node name="Godette" type="CanvasGroup" node_paths=PackedStringArray("emote_switcher")]
-position = Vector2(629, 465)
-scale = Vector2(0.2, 0.2)
+[node name="Godette" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
 script = ExtResource("1_x23ug")
 emote_switcher = NodePath("EmoteSwitcher")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="SpriteGroup" type="CanvasGroup" parent="."]
+scale = Vector2(0.2, 0.2)
+metadata/_edit_group_ = true
+
+[node name="Body" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-476, -1817)
+scale = Vector2(1, 1)
 texture = ExtResource("1_4evmc")
 centered = false
 
-[node name="Face" type="Sprite2D" parent="."]
+[node name="Face" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-262, -1430)
+scale = Vector2(1, 1)
 texture = ExtResource("2_ltfxh")
 centered = false
 

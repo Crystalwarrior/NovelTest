@@ -22,7 +22,7 @@ method = "set_showname"
 args = ["Godette"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_asyjr"]
 resource_local_to_scene = true
@@ -31,7 +31,7 @@ method = "set_msg"
 args = [""]
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_i4nse"]
 resource_local_to_scene = true
@@ -40,7 +40,7 @@ animation = "fade"
 custom_blend = -1.0
 custom_speed = 2.0
 play_backwards = true
-wait_until_finished = true
+wait_until_finished = false
 bookmark = ""
 continue_at_end = true
 target = NodePath("Godette/AnimationPlayer")
@@ -67,7 +67,7 @@ play_backwards = true
 wait_until_finished = false
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/DialogBox/AnimationPlayer")
+target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
 
 [sub_resource type="Resource" id="Resource_0ehhs"]
 resource_local_to_scene = true
@@ -93,7 +93,7 @@ method = "set_msg"
 args = ["Hello there! This is a test."]
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_73bfc"]
 resource_local_to_scene = true
@@ -121,7 +121,7 @@ method = "set_msg"
 args = ["Oh, this is not your first time here!"]
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_5vorc"]
 resource_local_to_scene = true
@@ -139,7 +139,7 @@ method = "add_msg"
 args = ["Guess I'll be brief."]
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_yu1hv"]
 resource_local_to_scene = true
@@ -167,7 +167,7 @@ method = "set_msg"
 args = ["I am speaking to you... "]
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_dbgip"]
 resource_local_to_scene = true
@@ -193,7 +193,7 @@ method = "add_msg"
 args = ["Right now."]
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_t52ta"]
 resource_local_to_scene = true
@@ -211,7 +211,7 @@ method = "set_msg"
 args = ["Anyway, bye!"]
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/DialogBox")
+target = NodePath("HUD/MainView/DialogBox")
 
 [sub_resource type="Resource" id="Resource_ryf8x"]
 resource_local_to_scene = true
@@ -223,7 +223,7 @@ play_backwards = false
 wait_until_finished = false
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/DialogBox/AnimationPlayer")
+target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
 
 [sub_resource type="Resource" id="Resource_uv0ts"]
 resource_local_to_scene = true
@@ -232,7 +232,7 @@ animation = "zoom"
 custom_blend = -1.0
 custom_speed = 1.0
 play_backwards = true
-wait_until_finished = true
+wait_until_finished = false
 bookmark = ""
 continue_at_end = true
 target = NodePath("Godette/AnimationPlayer")

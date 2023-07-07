@@ -1,9 +1,12 @@
 extends Control
 
+
 var hollow_tex = preload("res://hollowcircle.png")
 var full_tex = preload("res://fullcircle.png")
 
+
 @onready var container = $MarginContainer/Container
+
 
 func set_statements(number: int):
 	for child in container.get_children():
@@ -15,7 +18,8 @@ func set_statements(number: int):
 		indicator.texture = hollow_tex
 		indicator.name = str(i)
 		container.add_child(indicator)
-	set_visible(container.get_child_count() > 0)
+	set_visible(number > 0)
+
 
 func select_statement(idx: int):
 	for child in container.get_children():
