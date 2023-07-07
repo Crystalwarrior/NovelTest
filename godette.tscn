@@ -303,13 +303,11 @@ metadata/_edit_group_ = true
 
 [node name="Body" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-476, -1817)
-scale = Vector2(1, 1)
 texture = ExtResource("1_4evmc")
 centered = false
 
 [node name="Face" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-262, -1430)
-scale = Vector2(1, 1)
 texture = ExtResource("2_ltfxh")
 centered = false
 
