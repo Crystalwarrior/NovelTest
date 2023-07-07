@@ -114,13 +114,13 @@ func press():
 	command_manager.start_timeline(current_press)
 
 
-func dialog(showname: String = "", dialog: String = "", additive: bool = false, letter_delay: float = 0.02) -> void:
+func dialog(showname: String = "", text: String = "", additive: bool = false, letter_delay: float = 0.02) -> void:
 	dialogbox.letter_delay = letter_delay
 	dialogbox.set_showname(showname)
 	if additive:
-		dialogbox.add_msg(dialog)
+		dialogbox.add_msg(text)
 	else:
-		dialogbox.set_msg(dialog)
+		dialogbox.set_msg(text)
 
 
 func set_flag(flag: String, value: Variant):
@@ -161,12 +161,12 @@ func _on_command_manager_timeline_finished():
 	finished = true
 
 
-func _on_command_manager_command_started(command):
+func _on_command_manager_command_started(_command):
 	waiting_on_input = false
 	wait_for_input.emit(false)
 
 
-func _on_command_manager_command_finished(command):
+func _on_command_manager_command_finished(_command):
 	waiting_on_input = true
 	wait_for_input.emit(true)
 

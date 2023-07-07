@@ -19,7 +19,7 @@ func _process(delta):
 	if process_charcters:
 		process_counter += delta
 		if process_counter >= letter_delay:
-			var count: int = process_counter / letter_delay
+			var count: int = int(process_counter / letter_delay)
 			while (letter_delay == 0 or count > 0) and process_charcters:
 				next_letter()
 				count -= 1
@@ -77,6 +77,6 @@ func load_savedict(save_dict: Dictionary):
 			$AnimationPlayer.play(value[0], -1, value[1], value[1] < 0)
 
 
-func _on_animation_player_animation_started(anim_name):
+func _on_animation_player_animation_started(_anim_name):
 	last_animation = $AnimationPlayer.current_animation
 	last_animation_speed = $AnimationPlayer.get_playing_speed()

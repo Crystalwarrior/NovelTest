@@ -33,29 +33,23 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("HUD/MainView/DialogBox")
 
-[sub_resource type="Resource" id="Resource_i4nse"]
+[sub_resource type="Resource" id="Resource_4270n"]
 resource_local_to_scene = true
-script = ExtResource("2_rvkqb")
-animation = "fade"
-custom_blend = -1.0
-custom_speed = 2.0
-play_backwards = true
-wait_until_finished = true
+script = ExtResource("1_rg0e0")
+method = "fadein"
+args = []
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette/AnimationPlayer")
+target = NodePath("Godette")
 
-[sub_resource type="Resource" id="Resource_rcaj6"]
+[sub_resource type="Resource" id="Resource_y1ash"]
 resource_local_to_scene = true
-script = ExtResource("2_rvkqb")
-animation = "zoom"
-custom_blend = -1.0
-custom_speed = 1.0
-play_backwards = false
-wait_until_finished = false
+script = ExtResource("1_rg0e0")
+method = "zoom_to"
+args = [Vector2(635, 800), Vector2(2, 2), 1.0]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette/AnimationPlayer")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_mun2r"]
 resource_local_to_scene = true
@@ -149,7 +143,7 @@ use_bookmark = true
 command_bookmark = "end"
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_dpc07"]
 resource_local_to_scene = true
@@ -225,29 +219,23 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
 
-[sub_resource type="Resource" id="Resource_uv0ts"]
+[sub_resource type="Resource" id="Resource_rgh4m"]
 resource_local_to_scene = true
-script = ExtResource("2_rvkqb")
-animation = "zoom"
-custom_blend = -1.0
-custom_speed = 1.0
-play_backwards = true
-wait_until_finished = true
+script = ExtResource("1_rg0e0")
+method = "zoom_to"
+args = [Vector2(635, 496), Vector2(1, 1), 1.0]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette/AnimationPlayer")
+target = NodePath("Godette")
 
-[sub_resource type="Resource" id="Resource_8g28f"]
+[sub_resource type="Resource" id="Resource_exy7u"]
 resource_local_to_scene = true
-script = ExtResource("2_rvkqb")
-animation = "fade"
-custom_blend = -1.0
-custom_speed = 2.0
-play_backwards = false
-wait_until_finished = false
+script = ExtResource("1_rg0e0")
+method = "fadeout"
+args = []
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette/AnimationPlayer")
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_vklgs"]
 resource_local_to_scene = true
@@ -264,7 +252,7 @@ method = "set_flag"
 args = ["passed", true]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_xns57"]
 resource_local_to_scene = true
@@ -279,4 +267,4 @@ target = NodePath("")
 [resource]
 resource_name = "test.tres"
 script = ExtResource("5_i110d")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_dy1jx"), SubResource("Resource_asyjr"), SubResource("Resource_i4nse"), SubResource("Resource_rcaj6"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_v4w3b"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_oxj6d"), SubResource("Resource_5vorc"), SubResource("Resource_crlk6"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_vpf8p"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_u36g2"), SubResource("Resource_t52ta"), SubResource("Resource_ahdl1"), SubResource("Resource_ryf8x"), SubResource("Resource_uv0ts"), SubResource("Resource_8g28f"), SubResource("Resource_vklgs"), SubResource("Resource_r2n13"), SubResource("Resource_xns57")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_dy1jx"), SubResource("Resource_asyjr"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_v4w3b"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_oxj6d"), SubResource("Resource_5vorc"), SubResource("Resource_crlk6"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_vpf8p"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_u36g2"), SubResource("Resource_t52ta"), SubResource("Resource_ahdl1"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_vklgs"), SubResource("Resource_r2n13"), SubResource("Resource_xns57")])

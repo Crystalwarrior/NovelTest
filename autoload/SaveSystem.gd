@@ -7,7 +7,7 @@ extends Node
 # Go through everything in the persist category and ask them to return a
 # dict of relevant variables.
 func save_game():
-	var save_game = FileAccess.open(savefile_path, FileAccess.WRITE)
+	var save_file = FileAccess.open(savefile_path, FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("save")
 	for node in save_nodes:
 		# Check the node has a save function.
@@ -22,7 +22,7 @@ func save_game():
 		node_data["nodepath"] = node.get_path()
 
 		# Store the save dictionary as a new line in the save file.
-		save_game.store_var(node_data)
+		save_file.store_var(node_data)
 
 
 func load_game():
@@ -30,9 +30,9 @@ func load_game():
 		assert(false)
 		return # Error! We don't have a save to load.
 
-	var save_game = FileAccess.open(savefile_path, FileAccess.READ)
-	while save_game.get_position() < save_game.get_length():
-		var data = save_game.get_var()
+	var save_file = FileAccess.open(savefile_path, FileAccess.READ)
+	while save_file.get_position() < save_file.get_length():
+		var data = save_file.get_var()
 		if not data.has("nodepath"):
 			print("load data '%s' no nodepath found, skipped" % data)
 			continue

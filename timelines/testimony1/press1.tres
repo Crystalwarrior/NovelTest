@@ -13,7 +13,7 @@ letter_delay = 0.02
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [resource]
 script = ExtResource("1_icyr7")

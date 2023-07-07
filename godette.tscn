@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bumex5xpd0j6f"]
+[gd_scene load_steps=29 format=3 uid="uid://bumex5xpd0j6f"]
 
 [ext_resource type="Texture2D" uid="uid://n8xr2c3va6pv" path="res://Godette/body.png" id="1_4evmc"]
 [ext_resource type="Script" path="res://godette.gd" id="1_x23ug"]
@@ -210,53 +210,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteGroup:self_modulate:a")
+tracks/0/path = NodePath("SpriteGroup:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [Vector2(0.2, 0.2)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteGroup:scale")
+tracks/1/path = NodePath("SpriteGroup:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.2, 0.2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteGroup:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1bxh5"]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteGroup:self_modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_02qr6"]
@@ -289,7 +262,6 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57mbe"]
 _data = {
 "RESET": SubResource("Animation_daahl"),
-"fade": SubResource("Animation_1bxh5"),
 "zoom": SubResource("Animation_02qr6")
 }
 

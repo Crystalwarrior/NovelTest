@@ -7,11 +7,11 @@ extends OptionButton
 func _ready():
 	var state = character.emote_switcher
 	var animation_list = state.get_animation_list()
-	var default_index = 0
+#	var default_index = 0
 	for anim_index in animation_list.size():
 		var anim = animation_list[anim_index]
-		if state.autoplay == anim:
-			default_index = anim_index
+#		if state.autoplay == anim:
+#			default_index = anim_index
 		add_item(anim)
 
 

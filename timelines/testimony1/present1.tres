@@ -16,7 +16,7 @@ use_bookmark = true
 command_bookmark = "correct"
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_6lucd"]
 resource_local_to_scene = true
@@ -28,7 +28,7 @@ letter_delay = 0.02
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_4w8ct"]
 resource_local_to_scene = true
@@ -52,7 +52,7 @@ method = "stop_testimony"
 args = []
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_fwoaj"]
 resource_local_to_scene = true
@@ -64,7 +64,7 @@ letter_delay = 0.02
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_b3oaa"]
 resource_local_to_scene = true

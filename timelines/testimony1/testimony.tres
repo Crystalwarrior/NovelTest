@@ -22,7 +22,7 @@ method = "start_testimony"
 args = [PackedStringArray("st1", "st2", "st3", "st4")]
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_nc42f"]
 resource_local_to_scene = true
@@ -39,7 +39,7 @@ method = "set_press"
 args = [ExtResource("5_nqp0g")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_vqcyn"]
 resource_local_to_scene = true
@@ -48,7 +48,7 @@ method = "set_present"
 args = [ExtResource("4_7j3y8")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_b7vup"]
 resource_local_to_scene = true
@@ -69,7 +69,7 @@ letter_delay = 0.0
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_rympe"]
 resource_local_to_scene = true
@@ -86,7 +86,7 @@ method = "set_press"
 args = [ExtResource("5_nqp0g")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_881ay"]
 resource_local_to_scene = true
@@ -95,7 +95,7 @@ method = "set_present"
 args = [ExtResource("4_7j3y8")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_0fja7"]
 resource_local_to_scene = true
@@ -116,7 +116,7 @@ letter_delay = 0.0
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_iwcqc"]
 resource_local_to_scene = true
@@ -133,7 +133,7 @@ method = "set_press"
 args = [ExtResource("5_nqp0g")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_dnoie"]
 resource_local_to_scene = true
@@ -142,7 +142,7 @@ method = "set_present"
 args = [ExtResource("4_7j3y8")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_pbmvn"]
 resource_local_to_scene = true
@@ -163,7 +163,7 @@ letter_delay = 0.0
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_635lm"]
 resource_local_to_scene = true
@@ -180,7 +180,7 @@ method = "set_press"
 args = [ExtResource("5_nqp0g")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_fbxit"]
 resource_local_to_scene = true
@@ -189,7 +189,7 @@ method = "set_present"
 args = [ExtResource("4_7j3y8")]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_rrg8v"]
 resource_local_to_scene = true
@@ -210,7 +210,7 @@ letter_delay = 0.0
 wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath(".")
+target = NodePath("")
 
 [resource]
 script = ExtResource("5_3bh32")

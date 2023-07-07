@@ -347,6 +347,7 @@ script = ExtResource("1_hisby")
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
 current_timeline = ExtResource("3_4tb1k")
+command_node_fallback_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_1nckb")
@@ -366,7 +367,6 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -235.0
-offset_bottom = 0.00012207
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -469,9 +469,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -22.5
-offset_top = -30.0001
+offset_top = -30.0
 offset_right = 22.5
-offset_bottom = -8.00012
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_q33wo")

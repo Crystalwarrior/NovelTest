@@ -21,7 +21,7 @@ method = "set_flag"
 args = ["passed", false]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_6fyhw"]
 resource_local_to_scene = true
@@ -30,7 +30,7 @@ method = "set_flag"
 args = ["gamer", true]
 bookmark = ""
 continue_at_end = true
-target = NodePath(".")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_gfklc"]
 resource_local_to_scene = true
