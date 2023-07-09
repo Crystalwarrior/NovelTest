@@ -5,6 +5,8 @@ extends OptionButton
 
 
 func _ready():
+	if not character:
+		return
 	var state = character.emote_switcher
 	var animation_list = state.get_animation_list()
 #	var default_index = 0

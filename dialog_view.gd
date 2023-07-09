@@ -3,7 +3,7 @@ extends Node
 @onready var dialogbox = $HUD/MainView/DialogBox
 @onready var command_manager: CommandManager = $CommandManager
 @onready var testimony_indicator = $HUD/MainView/DialogBox/TestimonyIndicator
-
+@onready var characters = $Characters
 
 var finished = false
 var waiting_on_input = true
@@ -28,6 +28,26 @@ signal wait_for_input(tog)
 signal flags_modified(flags)
 
 signal dialog_finished
+
+
+func add_character(res_path, charname = ""):
+	var chara = load(res_path).instantiate()
+	if not charname.is_empty():
+		chara.name = charname
+	characters.add_child(chara)
+
+
+func get_character(charname):
+	for chara in characters.get_children():
+		if chara.name == charname:
+			return chara
+	return null
+
+
+func remove_character(charname):
+	var chara = get_character(charname)
+	if chara:
+		chara.queue_free()
 
 
 func _unhandled_input(event):

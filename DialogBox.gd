@@ -9,11 +9,18 @@ signal message_end()
 @export var dialog_label: RichTextLabel
 @export var letter_delay: float = 0.02
 
+@export var blip_sound: AudioStream
+@export var blip_rate: int = 3
+
+@onready var blip_player: AudioStreamPlayer = $BlipPlayer
+
 var process_charcters: bool = false
 var process_counter: float = 0.0
 
 var last_animation = ""
 var last_animation_speed = 1.0
+
+var blip_counter: int = 0
 
 func _process(delta):
 	if process_charcters:
@@ -24,6 +31,16 @@ func _process(delta):
 				next_letter()
 				count -= 1
 			process_counter = 0
+			var letter = dialog_label.text[dialog_label.visible_characters-1] if dialog_label.text != "" else ""
+			if blip_counter == 0 and letter != "":
+				blip()
+			blip_counter = (blip_counter + 1) % blip_rate
+
+
+func blip():
+	if blip_player.stream != blip_sound:
+		blip_player.stream = blip_sound
+	blip_player.play()
 
 
 func next_letter():
@@ -34,6 +51,7 @@ func next_letter():
 
 
 func start_processing():
+	blip_counter = 0
 	process_charcters = true
 
 

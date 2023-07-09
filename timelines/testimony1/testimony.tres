@@ -57,7 +57,7 @@ method = "zoom_to"
 args = [Vector2(635, 496), Vector2(1, 1), 0.5]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_b7vup"]
 resource_local_to_scene = true
@@ -66,7 +66,7 @@ method = "set_emote"
 args = ["surprised"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_0iffn"]
 resource_local_to_scene = true
@@ -113,7 +113,7 @@ method = "zoom_to"
 args = [Vector2(750, 496), Vector2(1, 1), 0.5]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_0fja7"]
 resource_local_to_scene = true
@@ -122,7 +122,7 @@ method = "set_emote"
 args = ["sleepy"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_phpuj"]
 resource_local_to_scene = true
@@ -169,7 +169,7 @@ method = "zoom_to"
 args = [Vector2(600, 496), Vector2(-1, 1), 0.25]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_pbmvn"]
 resource_local_to_scene = true
@@ -178,7 +178,7 @@ method = "set_emote"
 args = ["surprised"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_6li51"]
 resource_local_to_scene = true
@@ -225,7 +225,7 @@ method = "zoom_to"
 args = [Vector2(635, 549), Vector2(1.2, 1.2), 0.5]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_rrg8v"]
 resource_local_to_scene = true
@@ -234,7 +234,7 @@ method = "set_emote"
 args = ["anger"]
 bookmark = ""
 continue_at_end = true
-target = NodePath("Godette")
+target = NodePath("Characters/Godette")
 
 [sub_resource type="Resource" id="Resource_b5jqf"]
 resource_local_to_scene = true
