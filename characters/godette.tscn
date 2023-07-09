@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bumex5xpd0j6f"]
+[gd_scene load_steps=30 format=3 uid="uid://bumex5xpd0j6f"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_e6hp4"]
 [ext_resource type="Texture2D" uid="uid://n8xr2c3va6pv" path="res://characters/Godette/body.png" id="2_q35fb"]
@@ -13,6 +13,66 @@
 [ext_resource type="Texture2D" uid="uid://caa0viyuy26ac" path="res://characters/Godette/Sleepy.png" id="11_d8ytx"]
 [ext_resource type="Texture2D" uid="uid://guifhnq774s5" path="res://characters/Godette/Smug.png" id="12_83qpx"]
 [ext_resource type="Texture2D" uid="uid://cttbreejw2dcf" path="res://characters/Godette/Surprised.png" id="13_le64m"]
+
+[sub_resource type="Animation" id="Animation_xo487"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-262, -1430)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Face:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hbvpg"]
+resource_name = "weird"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-262, -1430), Vector2(275, -1125), Vector2(-262, -1430)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Face:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hucj7"]
+_data = {
+"RESET": SubResource("Animation_xo487"),
+"weird": SubResource("Animation_hbvpg")
+}
 
 [sub_resource type="Animation" id="Animation_hi6yq"]
 resource_name = "anger"
@@ -190,6 +250,36 @@ tracks/0/keys = {
 "values": [ExtResource("13_le64m")]
 }
 
+[sub_resource type="Animation" id="Animation_47ceg"]
+resource_name = "weird"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Face:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ry6ss")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["weird", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6l4x7"]
 _data = {
 "anger": SubResource("Animation_hi6yq"),
@@ -202,7 +292,8 @@ _data = {
 "sleepy": SubResource("Animation_jbxqk"),
 "smile": SubResource("Animation_i4wnl"),
 "smug": SubResource("Animation_jomsv"),
-"surprised": SubResource("Animation_81l3b")
+"surprised": SubResource("Animation_81l3b"),
+"weird": SubResource("Animation_47ceg")
 }
 
 [node name="Godette" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
@@ -220,8 +311,14 @@ centered = false
 
 [node name="Face" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-262, -1430)
-texture = ExtResource("3_f4plt")
+texture = ExtResource("10_ry6ss")
 centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SpriteGroup")
+libraries = {
+"": SubResource("AnimationLibrary_hucj7")
+}
 
 [node name="EmoteSwitcher" type="AnimationPlayer" parent="."]
 autoplay = "smile"

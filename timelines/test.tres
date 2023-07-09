@@ -16,24 +16,6 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
 
-[sub_resource type="Resource" id="Resource_dy1jx"]
-resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "set_showname"
-args = ["Godette"]
-bookmark = ""
-continue_at_end = true
-target = NodePath("HUD/MainView/DialogBox")
-
-[sub_resource type="Resource" id="Resource_asyjr"]
-resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "set_msg"
-args = [""]
-bookmark = ""
-continue_at_end = true
-target = NodePath("HUD/MainView/DialogBox")
-
 [sub_resource type="Resource" id="Resource_4270n"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
@@ -81,14 +63,17 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
 
-[sub_resource type="Resource" id="Resource_v4w3b"]
+[sub_resource type="Resource" id="Resource_626ib"]
 resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "set_msg"
-args = ["Hello there! This is a test."]
+script = ExtResource("5_6pb2j")
+showname = "Godette"
+dialog = "Hello there! This is a test."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/MainView/DialogBox")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_73bfc"]
 resource_local_to_scene = true
@@ -109,14 +94,25 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
 
-[sub_resource type="Resource" id="Resource_oxj6d"]
+[sub_resource type="Resource" id="Resource_i6dog"]
 resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "set_msg"
-args = ["Oh, this is not your first time here! "]
+script = ExtResource("5_6pb2j")
+showname = "Godette"
+dialog = "Oh, this is not your first time here! "
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
 bookmark = ""
-continue_at_end = false
-target = NodePath("HUD/MainView/DialogBox")
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_tsqyb"]
+resource_local_to_scene = true
+script = ExtResource("3_11mdn")
+wait_time = 0.25
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_5vorc"]
 resource_local_to_scene = true
@@ -127,14 +123,17 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
 
-[sub_resource type="Resource" id="Resource_crlk6"]
+[sub_resource type="Resource" id="Resource_s2fj3"]
 resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "add_msg"
-args = ["Guess I'll be brief."]
+script = ExtResource("5_6pb2j")
+showname = "Godette"
+dialog = "Guess I'll be brief."
+additive = true
+letter_delay = 0.02
+wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/MainView/DialogBox")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_yu1hv"]
 resource_local_to_scene = true
@@ -164,19 +163,22 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("")
 
-[sub_resource type="Resource" id="Resource_vpf8p"]
+[sub_resource type="Resource" id="Resource_17flj"]
 resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "set_msg"
-args = ["I am speaking to you... "]
+script = ExtResource("5_6pb2j")
+showname = "Godette"
+dialog = "I am speaking to you... "
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/MainView/DialogBox")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_dbgip"]
 resource_local_to_scene = true
 script = ExtResource("3_11mdn")
-wait_time = 1.0
+wait_time = 0.25
 bookmark = ""
 continue_at_end = true
 target = NodePath("")
@@ -190,14 +192,17 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
 
-[sub_resource type="Resource" id="Resource_u36g2"]
+[sub_resource type="Resource" id="Resource_bqglp"]
 resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "add_msg"
-args = ["Right now."]
+script = ExtResource("5_6pb2j")
+showname = "Godette"
+dialog = "Right now."
+additive = true
+letter_delay = 0.02
+wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/MainView/DialogBox")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_t52ta"]
 resource_local_to_scene = true
@@ -213,6 +218,15 @@ resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "zoom_to"
 args = [Vector2(435, 800), Vector2(2, 2), 1.0]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Characters/Godette")
+
+[sub_resource type="Resource" id="Resource_wgh2c"]
+resource_local_to_scene = true
+script = ExtResource("1_rg0e0")
+method = "set_emote"
+args = ["weird"]
 bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
@@ -253,7 +267,7 @@ additive = false
 letter_delay = 0.02
 wait_until_finished = true
 bookmark = ""
-continue_at_end = false
+continue_at_end = true
 target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_uldv6"]
@@ -279,17 +293,20 @@ script = ExtResource("1_rg0e0")
 method = "remove_character"
 args = ["Dale"]
 bookmark = ""
-continue_at_end = true
+continue_at_end = false
 target = NodePath("")
 
-[sub_resource type="Resource" id="Resource_ahdl1"]
+[sub_resource type="Resource" id="Resource_1pknx"]
 resource_local_to_scene = true
-script = ExtResource("1_rg0e0")
-method = "set_msg"
-args = ["Anyway, bye!"]
+script = ExtResource("5_6pb2j")
+showname = "Godette"
+dialog = "Anyway, bye!"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
 bookmark = ""
 continue_at_end = false
-target = NodePath("HUD/MainView/DialogBox")
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_ryf8x"]
 resource_local_to_scene = true
@@ -342,4 +359,4 @@ target = NodePath("")
 [resource]
 resource_name = "test.tres"
 script = ExtResource("5_i110d")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_dy1jx"), SubResource("Resource_asyjr"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_v4w3b"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_oxj6d"), SubResource("Resource_5vorc"), SubResource("Resource_crlk6"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_vpf8p"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_u36g2"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_ahdl1"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")])
