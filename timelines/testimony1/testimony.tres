@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=29 format=3 uid="uid://dvf52xqp8wb2m"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=33 format=3 uid="uid://dvf52xqp8wb2m"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
@@ -50,6 +50,15 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_33see"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "zoom_to"
+args = [Vector2(635, 496), Vector2(1, 1), 0.5]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Godette")
+
 [sub_resource type="Resource" id="Resource_b7vup"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
@@ -96,6 +105,15 @@ args = [ExtResource("4_7j3y8")]
 bookmark = ""
 continue_at_end = true
 target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_ve5qi"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "zoom_to"
+args = [Vector2(750, 496), Vector2(1, 1), 0.5]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Godette")
 
 [sub_resource type="Resource" id="Resource_0fja7"]
 resource_local_to_scene = true
@@ -144,6 +162,15 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_4ga5r"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "zoom_to"
+args = [Vector2(600, 496), Vector2(-1, 1), 0.25]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Godette")
+
 [sub_resource type="Resource" id="Resource_pbmvn"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
@@ -191,6 +218,15 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_kg8oj"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "zoom_to"
+args = [Vector2(635, 549), Vector2(1.2, 1.2), 0.5]
+bookmark = ""
+continue_at_end = true
+target = NodePath("Godette")
+
 [sub_resource type="Resource" id="Resource_rrg8v"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
@@ -214,4 +250,4 @@ target = NodePath("")
 
 [resource]
 script = ExtResource("5_3bh32")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])

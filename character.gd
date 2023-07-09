@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var emote_switcher: AnimationPlayer
+@export var emote_switcher: AnimationPlayer = get_node_or_null("EmoteSwitcher")
 @onready var sprite_group: CanvasGroup = $SpriteGroup
 
 var last_animation = ""
@@ -19,6 +19,7 @@ func _ready():
 
 func zoom_to(target_pos: Vector2, target_scale: Vector2 = Vector2(1, 1), duration: float = 1.0):
 	if zoomtween:
+		zoomtween.custom_step(9999)
 		zoomtween.kill()
 	zoomtween = create_tween()
 	zoomtween.tween_property(self, "position", target_pos, duration).set_trans(Tween.TRANS_CUBIC)
@@ -52,7 +53,6 @@ func get_savedict() -> Dictionary:
 		"rotation": rotation,
 		"scale": scale,
 		"self_modulate": self_modulate,
-		"animation": [$AnimationPlayer.current_animation, $AnimationPlayer.get_playing_speed()],
 	}
 	print(last_emote)
 	return save_dict
@@ -68,13 +68,3 @@ func load_savedict(save_dict: Dictionary):
 		if key == "position" or key == "rotation" or key == "scale" \
 		or key == "self_modulate":
 			call_deferred("set", key, value)
-		if key == "animation":
-			if save_dict[key][0] == "":
-				$AnimationPlayer.stop()
-			else:
-				$AnimationPlayer.play(value[0], -1, value[1], value[1] < 0)
-
-
-func _on_animation_player_animation_started(_anim_name):
-	last_animation = $AnimationPlayer.current_animation
-	last_animation_speed = $AnimationPlayer.get_playing_speed()

@@ -1,0 +1,588 @@
+[gd_scene load_steps=34 format=3 uid="uid://b570mbdy4k5t4"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_gipa0"]
+[ext_resource type="Texture2D" uid="uid://dchmovi4a2xol" path="res://Dale/base.png" id="2_7hvpn"]
+[ext_resource type="Texture2D" uid="uid://ccbu3najtfm4u" path="res://Dale/Eyes/neutral.png" id="3_mb272"]
+[ext_resource type="Texture2D" uid="uid://dgoim1dwy3r51" path="res://Dale/Eyebrows/neutral.png" id="4_mx7py"]
+[ext_resource type="Texture2D" uid="uid://b05uc6fe7r05l" path="res://Dale/Mouths/smile.png" id="5_fl0un"]
+[ext_resource type="Texture2D" uid="uid://c6wggenq15ros" path="res://Dale/Mouths/neutral.png" id="6_bkj5v"]
+[ext_resource type="Texture2D" uid="uid://bkt78g287rqqf" path="res://Dale/Eyes/angry.png" id="7_762de"]
+[ext_resource type="Texture2D" uid="uid://b2yo5jg7qvo5" path="res://Dale/Eyebrows/angry.png" id="8_ydixq"]
+[ext_resource type="Texture2D" uid="uid://dq5qypwsj6dqc" path="res://Dale/Mouths/shout.png" id="9_r60il"]
+[ext_resource type="Texture2D" uid="uid://wm672jivue35" path="res://Dale/Mouths/grin.png" id="10_6e06w"]
+[ext_resource type="Texture2D" uid="uid://cwo8u2qcey3g8" path="res://Dale/Mouths/grimace.png" id="11_odhlq"]
+[ext_resource type="Texture2D" uid="uid://h3fj8fqrnxb" path="res://Dale/Mouths/frown.png" id="12_vvrpw"]
+[ext_resource type="Texture2D" uid="uid://4kvbu7hav62q" path="res://Dale/Eyes/sad.png" id="13_2hhy4"]
+[ext_resource type="Texture2D" uid="uid://bbcxj8ux53vk5" path="res://Dale/Eyebrows/sad.png" id="14_ukgqj"]
+[ext_resource type="Texture2D" uid="uid://cwe5rmdjqwjwm" path="res://Dale/Eyes/shocked.png" id="15_de0h6"]
+[ext_resource type="Texture2D" uid="uid://vxrupugc6hoi" path="res://Dale/Eyebrows/shocked.png" id="16_l2gus"]
+[ext_resource type="Texture2D" uid="uid://cy3wop2j8khxf" path="res://Dale/Mouths/oval.png" id="17_febqv"]
+[ext_resource type="Texture2D" uid="uid://clneytqofwovg" path="res://Dale/Mouths/open.png" id="18_yphfj"]
+[ext_resource type="Texture2D" uid="uid://iupq2oolfo0h" path="res://Dale/Eyes/closed.png" id="19_d6m73"]
+
+[sub_resource type="Animation" id="Animation_6sort"]
+resource_name = "neutral"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mb272")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_mx7py")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_bkj5v")]
+}
+
+[sub_resource type="Animation" id="Animation_7bni2"]
+resource_name = "smile"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mb272")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_mx7py")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_fl0un")]
+}
+
+[sub_resource type="Animation" id="Animation_f2fvp"]
+resource_name = "shout"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_762de")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ydixq")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_r60il")]
+}
+
+[sub_resource type="Animation" id="Animation_fc70v"]
+resource_name = "grin"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mb272")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ydixq")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_6e06w")]
+}
+
+[sub_resource type="Animation" id="Animation_no5cb"]
+resource_name = "mad"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_762de")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ydixq")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_odhlq")]
+}
+
+[sub_resource type="Animation" id="Animation_vcpu8"]
+resource_name = "angry"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_762de")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ydixq")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_vvrpw")]
+}
+
+[sub_resource type="Animation" id="Animation_vhycy"]
+resource_name = "sad"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_2hhy4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_ukgqj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_vvrpw")]
+}
+
+[sub_resource type="Animation" id="Animation_6hjef"]
+resource_name = "shocked"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_de0h6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_l2gus")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_febqv")]
+}
+
+[sub_resource type="Animation" id="Animation_f4iwe"]
+resource_name = "concern"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mb272")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_ukgqj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_yphfj")]
+}
+
+[sub_resource type="Animation" id="Animation_swdln"]
+resource_name = "sigh"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_d6m73")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_ukgqj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_yphfj")]
+}
+
+[sub_resource type="Animation" id="Animation_8yoxq"]
+resource_name = "surprised"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_2hhy4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_l2gus")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_febqv")]
+}
+
+[sub_resource type="Animation" id="Animation_r1l3g"]
+resource_name = "unsure"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mb272")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_ukgqj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_bkj5v")]
+}
+
+[sub_resource type="Animation" id="Animation_k12ns"]
+resource_name = "grimace"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_d6m73")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/Eyebrows:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_ydixq")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/Mouths:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_odhlq")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jx33b"]
+_data = {
+"angry": SubResource("Animation_vcpu8"),
+"concern": SubResource("Animation_f4iwe"),
+"grimace": SubResource("Animation_k12ns"),
+"grin": SubResource("Animation_fc70v"),
+"mad": SubResource("Animation_no5cb"),
+"neutral": SubResource("Animation_6sort"),
+"sad": SubResource("Animation_vhycy"),
+"shocked": SubResource("Animation_6hjef"),
+"shout": SubResource("Animation_f2fvp"),
+"sigh": SubResource("Animation_swdln"),
+"smile": SubResource("Animation_7bni2"),
+"surprised": SubResource("Animation_8yoxq"),
+"unsure": SubResource("Animation_r1l3g")
+}
+
+[node name="Dale" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
+script = ExtResource("1_gipa0")
+emote_switcher = NodePath("EmoteSwitcher")
+
+[node name="SpriteGroup" type="CanvasGroup" parent="."]
+position = Vector2(-249, -752)
+metadata/_edit_group_ = true
+
+[node name="Body" type="Sprite2D" parent="SpriteGroup"]
+texture = ExtResource("2_7hvpn")
+centered = false
+
+[node name="Eyes" type="Sprite2D" parent="SpriteGroup"]
+texture = ExtResource("3_mb272")
+centered = false
+
+[node name="Eyebrows" type="Sprite2D" parent="SpriteGroup"]
+texture = ExtResource("4_mx7py")
+centered = false
+
+[node name="Mouths" type="Sprite2D" parent="SpriteGroup"]
+texture = ExtResource("6_bkj5v")
+centered = false
+
+[node name="EmoteSwitcher" type="AnimationPlayer" parent="."]
+autoplay = "neutral"
+libraries = {
+"": SubResource("AnimationLibrary_jx33b")
+}
