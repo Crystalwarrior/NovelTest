@@ -31,6 +31,13 @@ signal dialog_finished
 
 
 func add_character(res_path, charname = ""):
+# multithreaded character loading, thi	s is WIP and will probably need 
+# its own command node to handle more efficiently
+#	ResourceLoader.load_threaded_request(res_path)
+#	while(ResourceLoader.load_threaded_get_status(res_path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS):
+#		await get_tree().process_frame
+#	var chara = ResourceLoader.load_threaded_get(res_path).instantiate()
+
 	var chara = load(res_path).instantiate()
 	if not charname.is_empty():
 		chara.name = charname
