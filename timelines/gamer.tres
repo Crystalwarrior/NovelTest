@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=12 format=3 uid="uid://n2a4eflanj3d"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=13 format=3 uid="uid://n2a4eflanj3d"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_j1rd4"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_r8p3y"]
@@ -50,6 +50,15 @@ bookmark = ""
 continue_at_end = true
 target = NodePath("Characters/Godette")
 
+[sub_resource type="Resource" id="Resource_cheuy"]
+resource_local_to_scene = true
+script = ExtResource("4_pj4wa")
+method = "set_background"
+args = ["res://backgrounds/hill.jpg"]
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
 [sub_resource type="Resource" id="Resource_gfklc"]
 resource_local_to_scene = true
 script = ExtResource("2_olgfs")
@@ -63,4 +72,4 @@ target = NodePath("")
 
 [resource]
 script = ExtResource("1_r8p3y")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vt2mm"), SubResource("Resource_27hu2"), SubResource("Resource_6fyhw"), SubResource("Resource_rsvq5"), SubResource("Resource_buqfi"), SubResource("Resource_gfklc")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vt2mm"), SubResource("Resource_27hu2"), SubResource("Resource_6fyhw"), SubResource("Resource_rsvq5"), SubResource("Resource_buqfi"), SubResource("Resource_cheuy"), SubResource("Resource_gfklc")])

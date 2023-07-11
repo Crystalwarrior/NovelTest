@@ -4,6 +4,7 @@ extends Node
 @onready var command_manager: CommandManager = $CommandManager
 @onready var testimony_indicator = $HUD/MainView/DialogBox/TestimonyIndicator
 @onready var characters = $Characters
+@onready var backgrounds = $Background
 
 var finished = false
 var waiting_on_input = true
@@ -55,6 +56,28 @@ func remove_character(charname):
 	var chara = get_character(charname)
 	if chara:
 		chara.queue_free()
+
+
+func set_background(res_path):
+	clear_background()
+
+	var bg = load(res_path)
+	if bg is PackedScene:
+		bg = bg.instantiate()
+	elif bg is Texture2D:
+		var sprite: TextureRect = TextureRect.new()
+		sprite.anchors_preset = sprite.PRESET_FULL_RECT
+		sprite.texture = bg
+		bg = sprite
+	else:
+		assert(false)
+		return
+	backgrounds.add_child(bg)
+
+
+func clear_background():
+	for child in backgrounds.get_children():
+		child.queue_free()
 
 
 func _unhandled_input(event):

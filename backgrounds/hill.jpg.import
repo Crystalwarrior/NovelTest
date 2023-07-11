@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfd1q5mjsyc1r"
-path="res://.godot/imported/bus stop evening.jpg-96f4384317abb221f1d969a9bc828e06.ctex"
+uid="uid://curv6ewdap2uf"
+path="res://.godot/imported/hill.jpg-58d643a3b93bace42ea2d39114487f0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bus stop evening.jpg"
-dest_files=["res://.godot/imported/bus stop evening.jpg-96f4384317abb221f1d969a9bc828e06.ctex"]
+source_file="res://backgrounds/hill.jpg"
+dest_files=["res://.godot/imported/hill.jpg-58d643a3b93bace42ea2d39114487f0e.ctex"]
 
 [params]
 
