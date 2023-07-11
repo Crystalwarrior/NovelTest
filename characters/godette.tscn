@@ -43,44 +43,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [6.28319]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Mouth:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("18_xy2ht")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Eyes:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_ko66t")]
-}
 
-[sub_resource type="Animation" id="Animation_hbvpg"]
-resource_name = "weird"
+[sub_resource type="Animation" id="Animation_jdcip"]
+resource_name = "blink_test"
+length = 3.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("Eyes:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
+"times": PackedFloat32Array(0, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_mt5gt"), ExtResource("15_mt5gt"), ExtResource("13_ko66t"), ExtResource("15_mt5gt")]
 }
 
 [sub_resource type="Animation" id="Animation_oa3v6"]
@@ -100,21 +78,19 @@ tracks/0/keys = {
 "values": [ExtResource("18_xy2ht"), ExtResource("23_1ks5f")]
 }
 
-[sub_resource type="Animation" id="Animation_jdcip"]
-resource_name = "blink_test"
-length = 3.0
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_hbvpg"]
+resource_name = "weird"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Eyes:texture")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.8, 2.9, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("15_mt5gt"), ExtResource("15_mt5gt"), ExtResource("13_ko66t"), ExtResource("15_mt5gt")]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hucj7"]
@@ -805,12 +781,12 @@ centered = false
 
 [node name="Eyes" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-476, -1817)
-texture = ExtResource("13_ko66t")
+texture = ExtResource("15_mt5gt")
 centered = false
 
 [node name="Mouth" type="Sprite2D" parent="SpriteGroup"]
 position = Vector2(-476, -1817)
-texture = ExtResource("18_xy2ht")
+texture = ExtResource("23_1ks5f")
 centered = false
 
 [node name="Effect" type="Sprite2D" parent="SpriteGroup"]
