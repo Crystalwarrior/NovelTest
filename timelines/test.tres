@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=43 format=3 uid="uid://cyf63rc3uolon"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=44 format=3 uid="uid://cyf63rc3uolon"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_rg0e0"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="2_rvkqb"]
@@ -6,6 +6,18 @@
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="4_e13oh"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="5_6pb2j"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_i110d"]
+
+[sub_resource type="Resource" id="Resource_dufn6"]
+resource_local_to_scene = true
+script = ExtResource("5_6pb2j")
+showname = ""
+dialog = ""
+additive = false
+letter_delay = 0.02
+wait_until_finished = false
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_vquty"]
 resource_local_to_scene = true
@@ -359,4 +371,4 @@ target = NodePath("")
 [resource]
 resource_name = "test.tres"
 script = ExtResource("5_i110d")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_dufn6"), SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")])
