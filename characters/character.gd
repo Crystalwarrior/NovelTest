@@ -49,24 +49,33 @@ func set_emote(emote):
 
 
 func get_savedict() -> Dictionary:
+	if zoomtween:
+		zoomtween.custom_step(9999)
+		zoomtween.kill()
+	if fadetween:
+		fadetween.custom_step(9999)
+		fadetween.kill()
 	var save_dict = {
+		"scene_file_path": scene_file_path,
 		"emote": last_emote,
 		"position": position,
 		"rotation": rotation,
 		"scale": scale,
-		"self_modulate": self_modulate,
+		"self_modulate": sprite_group.self_modulate,
 	}
-	print(last_emote)
 	return save_dict
 
 
 func load_savedict(save_dict: Dictionary):
+	if zoomtween:
+		zoomtween.kill()
+	if fadetween:
+		fadetween.kill()
 	for key in save_dict.keys():
 		var value = save_dict[key]
-		print(key)
 		if key == "emote":
 			set_emote(value)
-			print("emote: ", value)
-		if key == "position" or key == "rotation" or key == "scale" \
-		or key == "self_modulate":
+		if key == "position" or key == "rotation" or key == "scale":
 			call_deferred("set", key, value)
+		if key == "self_modulate":
+			sprite_group.self_modulate = value

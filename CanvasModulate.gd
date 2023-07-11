@@ -16,3 +16,21 @@ func fadeout(duration: float = 1.0):
 
 func fadein(duration: float = 1.0):
 	fade(false, duration)
+
+
+func get_savedict() -> Dictionary:
+	if fadetween:
+		fadetween.custom_step(9999)
+		fadetween.kill()
+	var save_dict = {
+		"color": color,
+	}
+	return save_dict
+
+
+func load_savedict(save_dict: Dictionary):
+	if fadetween:
+		fadetween.kill()
+	for key in save_dict.keys():
+		if key == "color":
+			color = save_dict[key]

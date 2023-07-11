@@ -21,6 +21,9 @@ func save_game():
 		# Save the node path, always.
 		node_data["nodepath"] = node.get_path()
 
+		# Save the parent path too!
+		node_data["parent"] = node.get_parent().get_path()
+
 		# Store the save dictionary as a new line in the save file.
 		save_file.store_var(node_data)
 
@@ -39,8 +42,12 @@ func load_game():
 
 		var node = get_tree().get_current_scene().get_node_or_null(data["nodepath"])
 		if not node:
-			print("load node '%s' is not an instanced scene, skipped" % node.name)
-			continue
+			if not data.has("scene_file_path") or not data.has("parent"):
+				print("load node '%s' is not an instanced scene, skipped" % node.name)
+				continue
+			node = load(data["scene_file_path"]).instantiate()
+			get_node(data["parent"]).add_child(node)
+			node.add_to_group("save")
 		if not node.has_method("load_savedict"):
 			print("load node '%s' is missing a load_savedict() function, skipped" % node.name)
 			continue

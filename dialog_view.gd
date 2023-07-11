@@ -21,6 +21,8 @@ var current_present: Timeline
 
 var last_presented_evidence: int = -1
 
+var current_background: String
+
 var flags = {}:
 	set(value):
 		flags = value
@@ -55,6 +57,7 @@ func add_character(res_path, charname = ""):
 	var chara = load(res_path).instantiate()
 	if not charname.is_empty():
 		chara.name = charname
+	chara.add_to_group("save")
 	characters.add_child(chara)
 
 
@@ -77,20 +80,19 @@ func set_background(res_path):
 	var bg = load(res_path)
 	if bg is PackedScene:
 		bg = bg.instantiate()
-	elif bg is Texture2D:
+	else:
 		var sprite: TextureRect = TextureRect.new()
 		sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		sprite.texture = bg
 		sprite.layout_mode = 1
 		sprite.anchors_preset = sprite.PRESET_FULL_RECT
 		bg = sprite
-	else:
-		assert(false)
-		return
+	current_background = res_path
 	backgrounds.add_child(bg)
 
 
 func clear_background():
+	current_background = ""
 	for child in backgrounds.get_children():
 		child.queue_free()
 
@@ -198,6 +200,9 @@ func get_savedict() -> Dictionary:
 		"timeline": command_manager.current_timeline.get_path(),
 		"current_command_idx": command_manager.current_command_idx,
 		"flags": flags,
+		"history": command_manager._history,
+		"jump_history": command_manager._jump_history,
+		"background": current_background,
 	}
 	return save_dict
 
@@ -212,6 +217,12 @@ func load_savedict(save_dict: Dictionary):
 			command_manager.current_command_idx = save_dict[key]
 		if key == "flags":
 			flags = save_dict[key]
+		if key == "history":
+			command_manager._history = save_dict[key]
+		if key == "jump_history":
+			command_manager._jump_history = save_dict[key]
+		if key == "background":
+			set_background(save_dict[key])
 	command_manager.start_timeline(null, command_manager.current_command_idx)
 
 
