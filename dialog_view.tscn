@@ -96,7 +96,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(617.5, 205)]
+"values": [Vector2(1242, 206)]
 }
 
 [sub_resource type="Animation" id="Animation_yy5st"]
@@ -113,7 +113,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(617.5, 205), Vector2(618, 213)]
+"values": [Vector2(1242, 206), Vector2(1258, 206)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xh4b"]
@@ -387,15 +387,15 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
 
 [node name="ReferenceRect" type="ReferenceRect" parent="HUD/MainView/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/MainView/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
-text = "Press \"Enter\" to progress a test timeline."
+text = "Press \"Enter\" to progress a test timeline. Lorem Ipsum...... Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .....Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
 scroll_active = false
 visible_characters_behavior = 1
 
@@ -452,18 +452,18 @@ grow_vertical = 2
 border_width = 2.0
 
 [node name="NextIcon" type="TextureRect" parent="HUD/MainView/DialogBox"]
-custom_minimum_size = Vector2(45, 22)
+custom_minimum_size = Vector2(22, 22)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -29.9999
-offset_right = 22.5
-offset_bottom = -7.99994
-grow_horizontal = 2
+offset_left = -38.0
+offset_top = -29.0
+offset_right = -16.0
+offset_bottom = -7.0
+grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
 expand_mode = 1
