@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
 [ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
 [ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://diamond.png" id="2_rvjnl"]
+[ext_resource type="Script" path="res://CanvasModulate.gd" id="2_ugp0u"]
 [ext_resource type="Script" path="res://EmotePicker.gd" id="3_1hrje"]
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
@@ -22,7 +23,6 @@
 [ext_resource type="Script" path="res://TestimonyIndicator.gd" id="17_eyo7d"]
 [ext_resource type="Texture2D" uid="uid://bkf7pkua0wedg" path="res://hollowcircle.png" id="17_sqa68"]
 [ext_resource type="Script" path="res://EvidenceList.gd" id="18_af1i4"]
-[ext_resource type="Texture2D" uid="uid://bfd1q5mjsyc1r" path="res://backgrounds/bus stop evening.jpg" id="22_5labn"]
 
 [sub_resource type="Animation" id="Animation_i8uyt"]
 length = 0.001
@@ -343,6 +343,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_hisby")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_ugp0u")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
@@ -770,11 +774,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BusStopEvening" type="Sprite2D" parent="Background"]
-scale = Vector2(0.666667, 0.666667)
-texture = ExtResource("22_5labn")
-centered = false
 
 [node name="Characters" type="Node2D" parent="."]
 

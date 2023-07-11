@@ -5,6 +5,7 @@ extends Node
 @onready var testimony_indicator = $HUD/MainView/DialogBox/TestimonyIndicator
 @onready var characters = $Characters
 @onready var backgrounds = $Background
+@onready var canvas_modulate = $CanvasModulate
 
 var finished = false
 var waiting_on_input = true
@@ -29,6 +30,18 @@ signal wait_for_input(tog)
 signal flags_modified(flags)
 
 signal dialog_finished
+
+
+func canvas_fade(out: bool = false, duration: float = 1.0):
+	canvas_modulate.fade(out, duration)
+
+
+func canvas_fadeout(duration: float = 1.0):
+	canvas_fade(true, duration)
+
+
+func canvas_fadein(duration: float = 1.0):
+	canvas_fade(false, duration)
 
 
 func add_character(res_path, charname = ""):
@@ -66,8 +79,10 @@ func set_background(res_path):
 		bg = bg.instantiate()
 	elif bg is Texture2D:
 		var sprite: TextureRect = TextureRect.new()
-		sprite.anchors_preset = sprite.PRESET_FULL_RECT
+		sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		sprite.texture = bg
+		sprite.layout_mode = 1
+		sprite.anchors_preset = sprite.PRESET_FULL_RECT
 		bg = sprite
 	else:
 		assert(false)

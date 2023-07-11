@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=33 format=3 uid="uid://dvf52xqp8wb2m"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=34 format=3 uid="uid://dvf52xqp8wb2m"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
@@ -6,6 +6,15 @@
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="4_i05au"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_3bh32"]
 [ext_resource type="Resource" uid="uid://rw30rmmxowxo" path="res://timelines/testimony1/press1.tres" id="5_nqp0g"]
+
+[sub_resource type="Resource" id="Resource_3w3fg"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "canvas_fadein"
+args = []
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
 
 [sub_resource type="Resource" id="Resource_kbedy"]
 resource_local_to_scene = true
@@ -250,4 +259,4 @@ target = NodePath("")
 
 [resource]
 script = ExtResource("5_3bh32")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3w3fg"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])
