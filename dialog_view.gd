@@ -124,6 +124,7 @@ func go_to_previous_statement():
 
 
 func go_to_statement(index: int):
+	command_manager._disconnect_command_signals(command_manager.current_command)
 	current_testimony_index = index
 	testimony_indicator.select_statement(current_testimony_index)
 	var command_bookmark = testimony[current_testimony_index]
@@ -178,6 +179,7 @@ func set_present(timeline: Timeline):
 func press():
 	pause_testimony = true
 	next_statement_on_pause = true
+	command_manager._disconnect_command_signals(command_manager.current_command)
 	command_manager.start_timeline(current_press)
 
 
@@ -257,4 +259,5 @@ func _on_present_evidence(index):
 	last_presented_evidence = index
 	pause_testimony = true
 	next_statement_on_pause = false
+	command_manager._disconnect_command_signals(command_manager.current_command)
 	command_manager.start_timeline(current_present)
