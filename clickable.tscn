@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj4uie1822sxe"]
+
+[ext_resource type="Script" path="res://clickable.gd" id="1_ujcu1"]
+[ext_resource type="Texture2D" uid="uid://dhdhupve4m12t" path="res://check.png" id="2_7of2l"]
+
+[node name="Clickable" type="Sprite2D"]
+centered = false
+script = ExtResource("1_ujcu1")
+
+[node name="Check" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_7of2l")
+centered = false

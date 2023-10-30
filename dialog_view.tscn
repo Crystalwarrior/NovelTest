@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=46 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
@@ -8,11 +8,11 @@
 [ext_resource type="Script" path="res://EmotePicker.gd" id="3_1hrje"]
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
-[ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="3_4tb1k"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
-[ext_resource type="AudioStream" uid="uid://yk8rowww05ww" path="res://blip.wav" id="6_dflbt"]
 [ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
+[ext_resource type="Script" path="res://MainView.gd" id="8_p4ugj"]
+[ext_resource type="AudioStream" uid="uid://yk8rowww05ww" path="res://blip.wav" id="9_dv5ci"]
 [ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://choices_theme.tres" id="9_n6w1j"]
 [ext_resource type="Script" path="res://NameIcon.gd" id="10_nh0wb"]
 [ext_resource type="Script" path="res://NextIcon.gd" id="11_ll6jk"]
@@ -21,8 +21,44 @@
 [ext_resource type="Texture2D" uid="uid://cenohrxheffb2" path="res://raintex.png" id="14_htxqg"]
 [ext_resource type="Script" path="res://FlagLabel.gd" id="16_mahkt"]
 [ext_resource type="Script" path="res://TestimonyIndicator.gd" id="17_eyo7d"]
-[ext_resource type="Texture2D" uid="uid://bkf7pkua0wedg" path="res://hollowcircle.png" id="17_sqa68"]
 [ext_resource type="Script" path="res://EvidenceList.gd" id="18_af1i4"]
+[ext_resource type="PackedScene" uid="uid://3jjcuk3xs3ad" path="res://evidence_menu.tscn" id="18_d4oiw"]
+[ext_resource type="Script" path="res://ChoiceList.gd" id="18_v38wv"]
+[ext_resource type="Script" path="res://MainCamera.gd" id="25_gbf3s"]
+
+[sub_resource type="Gradient" id="Gradient_28cra"]
+offsets = PackedFloat32Array(0, 0.497143, 1)
+colors = PackedColorArray(0.517647, 0.419608, 1, 0.501961, 0, 0, 0, 0, 0.517647, 0.419608, 1, 0.501961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5cbb8"]
+gradient = SubResource("Gradient_28cra")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
+shader = ExtResource("12_nrdjh")
+shader_parameter/screen_height = 720.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 0.01
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(1, 1)
+shader_parameter/scrolling_speed = 0.01
+shader_parameter/enable_palette_cycling = true
+shader_parameter/enable_scan_lines = false
+shader_parameter/palette_speed = 0.025
+shader_parameter/palette = SubResource("GradientTexture1D_5cbb8")
+
+[sub_resource type="Gradient" id="Gradient_dl165"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h0e2a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hdkkn"]
+width = 1280
+height = 720
+seamless = true
+color_ramp = SubResource("Gradient_dl165")
+noise = SubResource("FastNoiseLite_h0e2a")
 
 [sub_resource type="Animation" id="Animation_i8uyt"]
 length = 0.001
@@ -152,6 +188,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_sx2iy"]
 resource_name = "fade"
 length = 0.5
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -244,40 +281,6 @@ _data = {
 "fade": SubResource("Animation_ajusi")
 }
 
-[sub_resource type="Gradient" id="Gradient_28cra"]
-offsets = PackedFloat32Array(0, 0.497143, 1)
-colors = PackedColorArray(1, 0, 0.117647, 1, 0, 0, 0, 1, 1, 0, 0.117647, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5cbb8"]
-gradient = SubResource("Gradient_28cra")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
-shader = ExtResource("12_nrdjh")
-shader_parameter/screen_height = 720.0
-shader_parameter/amplitude = 0.075
-shader_parameter/frequency = 5.0
-shader_parameter/speed = 0.01
-shader_parameter/amplitude_vertical = 0.0
-shader_parameter/frequency_vertical = 0.0
-shader_parameter/speed_vertical = 0.0
-shader_parameter/scroll_direction = Vector2(1, 1)
-shader_parameter/scrolling_speed = 0.01
-shader_parameter/enable_palette_cycling = true
-shader_parameter/enable_scan_lines = false
-shader_parameter/palette_speed = 0.025
-shader_parameter/palette = SubResource("GradientTexture1D_5cbb8")
-
-[sub_resource type="Gradient" id="Gradient_dl165"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_h0e2a"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hdkkn"]
-width = 1280
-height = 720
-seamless = true
-color_ramp = SubResource("Gradient_dl165")
-noise = SubResource("FastNoiseLite_h0e2a")
-
 [sub_resource type="Shader" id="Shader_gibmv"]
 code = "/* 
 Earthbound battle backgrounds shader with scrolling effect and palette cycling like in the original game.
@@ -343,29 +346,49 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_hisby")
+metadata/_edit_horizontal_guides_ = [-54.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." groups=["save"]]
-color = Color(0, 0, 0, 1)
 script = ExtResource("2_ugp0u")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
-current_timeline = ExtResource("3_4tb1k")
 command_node_fallback_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_1nckb")
 
-[node name="MainView" type="Control" parent="HUD"]
+[node name="CG" type="TextureRect" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="noise" type="TextureRect" parent="HUD"]
+visible = false
+material = SubResource("ShaderMaterial_l8tgr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_hdkkn")
+stretch_mode = 1
+
+[node name="MainView" type="Control" parent="HUD" node_paths=PackedStringArray("dialog_view")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+script = ExtResource("8_p4ugj")
+dialog_view = NodePath("../..")
 
 [node name="DialogBox" type="Control" parent="HUD/MainView" node_paths=PackedStringArray("showname_label", "dialog_label") groups=["save"]]
+layout_mode = 1
 anchors_preset = 0
 offset_top = 485.0
 offset_right = 1280.0
@@ -374,18 +397,18 @@ mouse_filter = 1
 script = ExtResource("5_kwgg7")
 showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
 dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
-blip_sound = ExtResource("6_dflbt")
+blip_sound = ExtResource("9_dv5ci")
 
 [node name="Dialog" type="PanelContainer" parent="HUD/MainView/DialogBox"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 58.0
-grow_horizontal = 2
+offset_top = -177.0
+offset_right = 1280.0
 grow_vertical = 0
+mouse_filter = 1
 theme = ExtResource("1_oupsu")
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/Dialog"]
 layout_mode = 2
@@ -396,18 +419,27 @@ theme_override_constants/margin_bottom = 20
 
 [node name="ReferenceRect" type="ReferenceRect" parent="HUD/MainView/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/MainView/DialogBox/Dialog/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
 text = "Press \"Enter\" to progress a test timeline. Lorem Ipsum...... Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .....Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
 scroll_active = false
 visible_characters_behavior = 1
 
 [node name="Showname" type="PanelContainer" parent="HUD/MainView/DialogBox"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 12.0
+offset_top = 236.0
 offset_right = 363.0
-offset_bottom = 57.0
+offset_bottom = 293.0
+grow_vertical = 0
+mouse_filter = 1
 theme = ExtResource("1_oupsu")
 script = ExtResource("7_2g07e")
 showname = "Showname is Here"
@@ -422,6 +454,7 @@ layout_mode = 2
 [node name="Control" type="Control" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="NameIcon" type="TextureRect" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control"]
 custom_minimum_size = Vector2(45, 45)
@@ -442,6 +475,7 @@ libraries = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 text = "Showname is Here"
 fit_content = true
 autowrap_mode = 0
@@ -453,21 +487,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 border_width = 2.0
 
 [node name="NextIcon" type="TextureRect" parent="HUD/MainView/DialogBox"]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -38.0
-offset_top = -29.0
-offset_right = -16.0
-offset_bottom = -6.99998
-grow_horizontal = 0
+offset_left = 1242.0
+offset_top = 206.0
+offset_right = 1264.0
+offset_bottom = 228.0
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
 expand_mode = 1
@@ -517,20 +549,20 @@ theme_override_constants/separation = 8
 max_polyphony = 3
 
 [node name="ChoiceList" type="Control" parent="HUD/MainView"]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -404.0
-offset_top = -181.0
-offset_right = -32.0
-offset_bottom = 183.0
+offset_left = 876.0
+offset_top = 179.0
+offset_right = 1248.0
+offset_bottom = 543.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("18_v38wv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/MainView/ChoiceList"]
 layout_mode = 1
@@ -542,54 +574,17 @@ grow_vertical = 2
 theme = ExtResource("9_n6w1j")
 alignment = 1
 
-[node name="Option1" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-text = "Text Option 1"
-alignment = 0
-
-[node name="Option2" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-text = "Text Option 2"
-alignment = 0
-
-[node name="Option3" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-text = "Text Option 3"
-alignment = 0
-
-[node name="Option4" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.454902, 0.454902, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.454902, 0.454902, 1, 1)
-theme_override_colors/font_hover_color = Color(0.454902, 0.454902, 1, 1)
-theme_override_colors/font_focus_color = Color(0.454902, 0.454902, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.454902, 0.454902, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.454902, 0.454902, 1, 0.501961)
-text = "Text Option 4 (Memory)"
-alignment = 0
-
-[node name="Option5" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-text = "Text Option 5"
-alignment = 0
-
-[node name="Option6" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-disabled = true
-text = "Text Option 6"
-alignment = 0
-
-[node name="Option7" type="Button" parent="HUD/MainView/ChoiceList/VBoxContainer"]
-layout_mode = 2
-text = "Text Option 7"
-alignment = 0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/ChoiceList"]
 libraries = {
 "": SubResource("AnimationLibrary_w67ud")
 }
 
+[node name="EvidenceMenu" parent="HUD" instance=ExtResource("18_d4oiw")]
+visible = false
+mouse_filter = 2
+
 [node name="DebugStuff" type="Control" parent="HUD"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -743,29 +738,25 @@ script = ExtResource("16_mahkt")
 layout_mode = 0
 offset_left = 328.0
 offset_top = 48.0
-offset_right = 555.0
+offset_right = 591.0
 offset_bottom = 282.0
 item_count = 3
 fixed_icon_size = Vector2i(20, 20)
-item_0/text = "Evidence 1"
-item_0/icon = ExtResource("17_sqa68")
-item_1/text = "Evidence 2"
-item_1/icon = ExtResource("17_sqa68")
-item_2/text = "The Right Evidence™"
-item_2/icon = ExtResource("2_rvjnl")
+item_0/text = "Coin on a String"
+item_1/text = "Super Sandwich Rewards Card"
+item_2/text = "Case Summary"
 script = ExtResource("18_af1i4")
 
-[node name="rednoise" type="TextureRect" parent="."]
+[node name="interjection" type="TextureRect" parent="HUD"]
 visible = false
-material = SubResource("ShaderMaterial_l8tgr")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("NoiseTexture2D_hdkkn")
-stretch_mode = 1
+mouse_filter = 2
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 1
@@ -789,15 +780,22 @@ grow_vertical = 2
 texture = ExtResource("14_htxqg")
 stretch_mode = 1
 
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+script = ExtResource("25_gbf3s")
+
 [connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
 [connection signal="wait_for_input" from="." to="HUD/MainView/DialogBox/NextIcon" method="_on_dialog_view_wait_for_input"]
 [connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
 [connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
 [connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
+[connection signal="timeline_started" from="CommandManager" to="." method="_on_command_manager_timeline_started"]
 [connection signal="message_end" from="HUD/MainView/DialogBox" to="." method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/MainView/DialogBox" to="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/MainView/DialogBox/Showname" method="_on_rich_text_label_finished"]
 [connection signal="animation_started" from="HUD/MainView/DialogBox/AnimationPlayer" to="HUD/MainView/DialogBox" method="_on_animation_player_animation_started"]
+[connection signal="choice_selected" from="HUD/MainView/ChoiceList" to="." method="_on_choice_list_choice_selected"]
+[connection signal="show_evidence" from="HUD/EvidenceMenu" to="." method="_on_evidence_menu_show_evidence"]
 [connection signal="item_selected" from="HUD/DebugStuff/EmotePicker" to="HUD/DebugStuff/EmotePicker" method="_on_item_selected"]
 [connection signal="toggled" from="HUD/DebugStuff/ZoomButton" to="HUD/DebugStuff/ZoomButton" method="_on_toggled"]
 [connection signal="toggled" from="HUD/DebugStuff/FadeButton" to="HUD/DebugStuff/FadeButton" method="_on_toggled"]
@@ -808,4 +806,5 @@ stretch_mode = 1
 [connection signal="pressed" from="HUD/DebugStuff/SaveButton" to="HUD/DebugStuff" method="_on_save_button_pressed"]
 [connection signal="pressed" from="HUD/DebugStuff/LoadButton" to="HUD/DebugStuff" method="_on_load_button_pressed"]
 [connection signal="item_activated" from="HUD/DebugStuff/EvidenceList" to="HUD/DebugStuff/EvidenceList" method="_on_item_activated"]
-[connection signal="present_evidence" from="HUD/DebugStuff/EvidenceList" to="." method="_on_present_evidence"]
+
+[editable path="HUD/EvidenceMenu"]

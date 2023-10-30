@@ -6,6 +6,7 @@ extends Node
 @onready var characters = $Characters
 @onready var backgrounds = $Background
 @onready var canvas_modulate = $CanvasModulate
+@onready var choice_list = $HUD/MainView/ChoiceList
 
 var finished = false
 var waiting_on_input = true
@@ -17,9 +18,11 @@ var current_testimony_index: int = 0
 var pause_testimony: bool = false
 var next_statement_on_pause: bool = false
 var current_press: Timeline
-var current_present: Timeline
+var current_show: Timeline
 
-var last_presented_evidence: int = -1
+var last_shown_evidence: int = -1
+
+var last_picked_choice: int = -1
 
 var current_background: String
 
@@ -34,36 +37,74 @@ signal flags_modified(flags)
 signal dialog_finished
 
 
-func canvas_fade(out: bool = false, duration: float = 1.0):
-	canvas_modulate.fade(out, duration)
+func _process_testimony(event):
+	if event.is_action_pressed("next"):
+		get_window().gui_release_focus()
+		if not waiting_on_input:
+			dialogbox.skip()
+		else:
+			go_to_next_statement()
+	elif event.is_action_pressed("previous"):
+		get_window().gui_release_focus()
+		if not waiting_on_input:
+			dialogbox.skip()
+		else:
+			go_to_previous_statement()
+	elif event.is_action_pressed("press") and current_press:
+		get_window().gui_release_focus()
+		press()
+
+
+func _process_timeline(event):
+	if event.is_action_pressed("next"):
+		get_window().gui_release_focus()
+		if not waiting_on_input:
+			dialogbox.skip()
+		elif not finished:
+			command_manager.go_to_next_command()
+
+
+func canvas_fade(to_color: Color = Color.WHITE, duration: float = 1.0):
+	canvas_modulate.fade(to_color, duration)
 
 
 func canvas_fadeout(duration: float = 1.0):
-	canvas_fade(true, duration)
+	canvas_fade(Color.BLACK, duration)
 
 
 func canvas_fadein(duration: float = 1.0):
-	canvas_fade(false, duration)
+	canvas_fade(Color.WHITE, duration)
 
 
-func add_character(res_path, charname = ""):
-# multithreaded character loading, thi	s is WIP and will probably need 
+func add_character(res_path, starter_pos: Vector2 = Vector2(0, 0), flipped: bool = false):
+# multithreaded character loading, this is WIP and will probably need 
 # its own command node to handle more efficiently
 #	ResourceLoader.load_threaded_request(res_path)
 #	while(ResourceLoader.load_threaded_get_status(res_path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS):
 #		await get_tree().process_frame
 #	var chara = ResourceLoader.load_threaded_get(res_path).instantiate()
-
-	var chara = load(res_path).instantiate()
-	if not charname.is_empty():
-		chara.name = charname
+	var chara
+	if res_path is PackedScene:
+		chara = res_path.instantiate()
+	elif res_path is String:
+		chara = load(res_path).instantiate()
+	else:
+		push_error("add_character: 'res_path' not String or PackedScene")
+		return null
 	chara.add_to_group("save")
+	var found = characters.get_node_or_null(NodePath(chara.name))
+	if found:
+		found.free()
 	characters.add_child(chara)
+	chara.position = starter_pos
+	if flipped:
+		chara.flip_h(0)
+	return chara
 
 
 func get_character(charname):
 	for chara in characters.get_children():
-		if chara.name == charname:
+		if chara.name.to_lower() == charname.to_lower():
 			return chara
 	return null
 
@@ -80,11 +121,13 @@ func set_background(res_path):
 	var bg = load(res_path)
 	if bg is PackedScene:
 		bg = bg.instantiate()
+		if bg.has_signal("object_clicked"):
+			bg.object_clicked.connect(_on_object_clicked)
 	else:
-		var sprite: TextureRect = TextureRect.new()
+		var sprite := TextureRect.new()
 		sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		sprite.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		sprite.texture = bg
-		sprite.layout_mode = 1
 		sprite.anchors_preset = sprite.PRESET_FULL_RECT
 		bg = sprite
 	current_background = res_path
@@ -97,20 +140,13 @@ func clear_background():
 		child.queue_free()
 
 
-func _unhandled_input(event):
-	if pause_testimony or testimony.is_empty():
-		_process_timeline(event)
-	else:
-		_process_testimony(event)
-
-
-func _process_testimony(event):
-	if event.is_action_pressed("next"):
-		go_to_next_statement()
-	elif event.is_action_pressed("previous"):
-		go_to_previous_statement()
-	elif event.is_action_pressed("press") and current_press:
-		press()
+func play_sound(res_path):
+	var sfx = load(res_path)
+	var audio := AudioStreamPlayer.new()
+	add_child(audio)
+	audio.stream = sfx
+	audio.play()
+	audio.finished.connect(audio.queue_free, CONNECT_ONE_SHOT)
 
 
 func go_to_next_statement():
@@ -133,17 +169,6 @@ func go_to_statement(index: int):
 	command_manager.go_to_command(command_index, testimony_timeline)
 
 
-func _process_timeline(event):
-	if not waiting_on_input:
-		return
-	if event.is_action_pressed("next"):
-		if finished:
-			finished = false
-			command_manager.start_timeline()
-		else:
-			command_manager.go_to_next_command()
-
-
 func set_statements(statements: PackedStringArray):
 	testimony_timeline = command_manager.current_timeline
 	testimony = statements
@@ -163,20 +188,23 @@ func stop_testimony():
 	testimony_timeline = null
 	testimony.clear()
 	current_press = null
-	current_present = null
+	current_show = null
 	current_testimony_index = 0
 	testimony_indicator.set_statements(0)
 
 
-func set_press(timeline: Timeline):
+func set_press(timeline: Timeline = null):
 	current_press = timeline
 
 
-func set_present(timeline: Timeline):
-	current_present = timeline
+func set_show(timeline: Timeline = null):
+	current_show = timeline
+	$HUD/EvidenceMenu/EvidenceViewer/ShowButton.visible = current_show != null
 
 
 func press():
+	dialogbox.process_charcters = false
+	dialog_finished.emit()
 	pause_testimony = true
 	next_statement_on_pause = true
 	command_manager._disconnect_command_signals(command_manager.current_command)
@@ -228,8 +256,33 @@ func load_savedict(save_dict: Dictionary):
 	command_manager.start_timeline(null, command_manager.current_command_idx)
 
 
+func evidence_exists(evidence_name: String):
+	var evidence_list = $HUD/EvidenceMenu.evidence_list
+	for evi in evidence_list:
+		if evi["name"] == evidence_name:
+			return true
+	return false
+
+
+func get_evidence_name(index: int = -1):
+	var evidence_name = ""
+	var evidence_list = $HUD/EvidenceMenu.evidence_list
+	if index < evidence_list.size():
+		return evidence_list[index]["name"]
+	return evidence_name
+
+
+func _character_stop_talking(speaker):
+	speaker.stop_talking()
+	dialog_finished.disconnect(_character_stop_talking)
+
+
+func _on_command_manager_timeline_started(_timeline_resource):
+	finished = false
+
+
 func _on_command_manager_timeline_finished():
-	if pause_testimony:
+	if testimony and pause_testimony:
 		pause_testimony = false
 		if next_statement_on_pause:
 			go_to_next_statement()
@@ -253,11 +306,55 @@ func _on_dialog_box_message_end():
 	dialog_finished.emit()
 
 
-func _on_present_evidence(index):
-	if pause_testimony or current_present == null:
+func _on_show_evidence(index):
+	if current_show == null:
 		return
-	last_presented_evidence = index
+	dialogbox.process_charcters = false
+	dialog_finished.emit()
+	$HUD/EvidenceMenu/EvidenceToggle.button_pressed = false
+	last_shown_evidence = index
 	pause_testimony = true
 	next_statement_on_pause = false
 	command_manager._disconnect_command_signals(command_manager.current_command)
-	command_manager.start_timeline(current_present)
+	command_manager.start_timeline(current_show)
+
+
+func _on_soul_sweep_connection_path(path):
+	var timeline: Timeline
+	if ResourceLoader.exists(path):
+		timeline = load(path)
+
+	if not timeline and $HUD/SoulSweep.failsafe:
+		push_warning("SoulSweep: timeline not found, using the failsafe timeline.")
+		timeline = $HUD/SoulSweep.failsafe
+
+	if not timeline:
+		push_error("SoulSweep: timeline not found and failsafe failed! (path: %s)" % path)
+		return
+
+	command_manager.start_timeline(timeline)
+
+
+func _on_evidence_menu_show_evidence(index):
+	_on_show_evidence(index)
+
+
+func _on_object_clicked(obj, target_timeline: Timeline):
+	if not obj or obj.is_queued_for_deletion():
+		return
+	print(obj, " - ", target_timeline)
+	if not target_timeline:
+		return
+	command_manager.start_timeline(target_timeline)
+	
+	# TODO: don't use await lol
+	await command_manager.timeline_finished
+	if not obj or obj.is_queued_for_deletion():
+		return
+	obj.checked = true
+
+
+func _on_choice_list_choice_selected(title, timeline_path, index):
+	print(title)
+	last_picked_choice = index
+	command_manager.go_to_command(0, load(timeline_path))

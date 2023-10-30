@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://3jjcuk3xs3ad"]
+
+[ext_resource type="Script" path="res://EvidenceBox.gd" id="1_eg3r0"]
+[ext_resource type="PackedScene" uid="uid://dr1qnak8qv6r8" path="res://evidence_scroll.tscn" id="1_rqq8k"]
+[ext_resource type="Script" path="res://evidence_menu.gd" id="1_s4bv1"]
+[ext_resource type="Texture2D" uid="uid://c0enrfxgyccp2" path="res://icon.svg" id="3_yilke"]
+
+[sub_resource type="Theme" id="Theme_5p707"]
+default_font_size = 32
+
+[node name="EvidenceMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_s4bv1")
+
+[node name="GrayOut" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 0.247059)
+
+[node name="EvidenceViewer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EvidenceBox" type="PanelContainer" parent="EvidenceViewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -159.0
+offset_right = 462.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5p707")
+script = ExtResource("1_eg3r0")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="EvidenceViewer/EvidenceBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EvidenceViewer/EvidenceBox/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EvidenceViewer/EvidenceBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="Label" type="Label" parent="EvidenceViewer/EvidenceBox/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 48
+text = "Lorem Ipsum Dolor The Sequel"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EvidenceViewer/EvidenceBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EvidenceViewer/EvidenceBox/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "The first Lorem Ipsum Dolor sucked"
+
+[node name="Icon" type="TextureRect" parent="EvidenceViewer/EvidenceBox/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_yilke")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ShowButton" type="Button" parent="EvidenceViewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 128.5
+offset_right = 68.0
+offset_bottom = 181.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Show!"
+
+[node name="EvidenceScroller" parent="." instance=ExtResource("1_rqq8k")]
+visible = false
+layout_mode = 1
+
+[node name="EvidenceToggle" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -639.0
+offset_top = 1.0
+offset_right = -463.0
+offset_bottom = 192.0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 38
+toggle_mode = true
+text = "Evidence"
+
+[connection signal="pressed" from="EvidenceViewer/ShowButton" to="." method="_on_show_button_pressed"]
+[connection signal="selected_evidence" from="EvidenceScroller" to="." method="_on_evidence_scroller_selected_evidence"]
+[connection signal="toggled" from="EvidenceToggle" to="." method="_on_evidence_toggled"]

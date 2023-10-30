@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=11 format=3 uid="uid://68apvnt0y6n0"]
+
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_uuu18"]
+[ext_resource type="Texture2D" uid="uid://c2p3d47kudf2p" path="res://shouts/wtf.png" id="2_owbhf"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="3_0q7hb"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_return.gd" id="4_flyro"]
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_ayxj5"]
+
+[sub_resource type="Resource" id="Resource_gujm7"]
+resource_local_to_scene = true
+script = ExtResource("1_uuu18")
+method = "set_visible"
+args = [true]
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/interjection")
+
+[sub_resource type="Resource" id="Resource_5i4md"]
+resource_local_to_scene = true
+script = ExtResource("1_uuu18")
+method = "set_texture"
+args = [ExtResource("2_owbhf")]
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/interjection")
+
+[sub_resource type="Resource" id="Resource_ddjsh"]
+resource_local_to_scene = true
+script = ExtResource("3_0q7hb")
+wait_time = 0.5
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_3twnv"]
+resource_local_to_scene = true
+script = ExtResource("1_uuu18")
+method = "set_visible"
+args = [false]
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/interjection")
+
+[sub_resource type="Resource" id="Resource_c1m05"]
+resource_local_to_scene = true
+script = ExtResource("4_flyro")
+behavior = 1
+to_last_timeline = true
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[resource]
+script = ExtResource("5_ayxj5")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_gujm7"), SubResource("Resource_5i4md"), SubResource("Resource_ddjsh"), SubResource("Resource_3twnv"), SubResource("Resource_c1m05")])

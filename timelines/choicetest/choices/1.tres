@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=9 format=3 uid="uid://dscx4ljmitfcl"]
+
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_edbpj"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_lwl7b"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_wfcod"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_lp7g6"]
+[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_w2r1d"]
+
+[sub_resource type="Resource" id="Resource_3kc2n"]
+resource_local_to_scene = true
+script = ExtResource("1_lwl7b")
+animation = "fade"
+custom_blend = -1.0
+custom_speed = 1.0
+play_backwards = false
+wait_until_finished = false
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_bpd8b"]
+resource_local_to_scene = true
+script = ExtResource("2_wfcod")
+showname = ""
+dialog = "Bye!"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_up5j2"]
+resource_local_to_scene = true
+script = ExtResource("3_lp7g6")
+condition = ""
+use_bookmark = false
+command_index = 0
+timeline = ExtResource("4_w2r1d")
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
+[resource]
+script = ExtResource("1_edbpj")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_up5j2")])

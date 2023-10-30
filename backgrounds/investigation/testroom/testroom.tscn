@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=3 uid="uid://p1aymndssbgd"]
+
+[ext_resource type="Script" path="res://investigation.gd" id="1_jhrnf"]
+[ext_resource type="Texture2D" uid="uid://co26vk5okpiaa" path="res://backgrounds/investigation/testroom/pampublikong_kubeta.jpg" id="2_2ho1g"]
+[ext_resource type="Texture2D" uid="uid://df56i5x84k21k" path="res://backgrounds/investigation/testroom/female.png" id="3_dgy7u"]
+[ext_resource type="PackedScene" uid="uid://bj4uie1822sxe" path="res://clickable.tscn" id="3_l0ihh"]
+[ext_resource type="Texture2D" uid="uid://ci0iyic3sf5y3" path="res://backgrounds/investigation/testroom/femaledoor.png" id="4_ixtlh"]
+[ext_resource type="Texture2D" uid="uid://bblr2a41b6ssp" path="res://backgrounds/investigation/testroom/fence.png" id="5_nf2tr"]
+[ext_resource type="Texture2D" uid="uid://bp0dd45p77hug" path="res://backgrounds/investigation/testroom/vendin.png" id="5_su6ue"]
+[ext_resource type="Texture2D" uid="uid://dr1rx2mxa4e5r" path="res://backgrounds/investigation/testroom/lamps.png" id="6_3ruy4"]
+[ext_resource type="Texture2D" uid="uid://57s0e1n8gkb4" path="res://backgrounds/investigation/testroom/male.png" id="7_dkt0i"]
+[ext_resource type="Texture2D" uid="uid://c6or02x1nq2xf" path="res://backgrounds/investigation/testroom/maledoor.png" id="8_kvto0"]
+[ext_resource type="Texture2D" uid="uid://dl42dm4f3q36h" path="res://backgrounds/investigation/testroom/park.png" id="9_ha0sg"]
+[ext_resource type="Script" path="res://MainCamera.gd" id="11_3wrao"]
+[ext_resource type="Script" path="res://backgrounds/investigation/testroom/Polygon2D.gd" id="13_ny46n"]
+
+[node name="TestroomInvestigation" type="Node2D" node_paths=PackedStringArray("object_list")]
+script = ExtResource("1_jhrnf")
+object_list = NodePath("park_bathroom")
+
+[node name="park_bathroom" type="Sprite2D" parent="."]
+texture = ExtResource("2_2ho1g")
+centered = false
+
+[node name="park" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+texture = ExtResource("9_ha0sg")
+set_campos = true
+
+[node name="Check" parent="park_bathroom/park" index="0"]
+position = Vector2(139, 132)
+scale = Vector2(0.943708, 0.943708)
+
+[node name="fence" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("5_nf2tr")
+set_campos = true
+
+[node name="Check" parent="park_bathroom/fence" index="0"]
+position = Vector2(149, 684)
+scale = Vector2(0.519868, 0.519868)
+
+[node name="male" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("7_dkt0i")
+set_campos = true
+campoint = 1
+
+[node name="Check" parent="park_bathroom/male" index="0"]
+position = Vector2(911, 671)
+scale = Vector2(0.519868, 0.519868)
+
+[node name="female" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("3_dgy7u")
+set_campos = true
+campoint = 1
+
+[node name="Check" parent="park_bathroom/female" index="0"]
+position = Vector2(1584, 655)
+scale = Vector2(0.519868, 0.519868)
+
+[node name="maledoor" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("8_kvto0")
+set_campos = true
+campoint = 1
+
+[node name="Check" parent="park_bathroom/maledoor" index="0"]
+position = Vector2(748, 756)
+scale = Vector2(0.519868, 0.519868)
+
+[node name="femaledoor" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("4_ixtlh")
+set_campos = true
+campoint = 1
+
+[node name="Check" parent="park_bathroom/femaledoor" index="0"]
+position = Vector2(1396, 772)
+scale = Vector2(0.519868, 0.519868)
+
+[node name="vendin" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("5_su6ue")
+set_campos = true
+
+[node name="Check" parent="park_bathroom/vendin" index="0"]
+position = Vector2(540, 774)
+scale = Vector2(0.44702, 0.44702)
+
+[node name="lamps" parent="park_bathroom" instance=ExtResource("3_l0ihh")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("6_3ruy4")
+set_campos = true
+
+[node name="Check" parent="park_bathroom/lamps" index="0"]
+position = Vector2(80, 389)
+scale = Vector2(0.377483, 0.377483)
+
+[node name="PointCollection" type="Node2D" parent="."]
+visible = false
+scale = Vector2(0.666667, 0.666667)
+
+[node name="0" type="Marker2D" parent="PointCollection"]
+position = Vector2(966, 1002)
+metadata/_edit_group_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PointCollection/0"]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+border_color = Color(0.913725, 0, 0.713726, 1)
+border_width = 4.0
+
+[node name="1" type="Marker2D" parent="PointCollection"]
+position = Vector2(1848, 1245)
+metadata/_edit_group_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PointCollection/1"]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+border_width = 4.0
+
+[node name="2" type="Marker2D" parent="PointCollection"]
+position = Vector2(1831.5, 1153.5)
+scale = Vector2(1.89999, 1.89999)
+metadata/_edit_group_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="PointCollection/2"]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+border_color = Color(0, 0.615686, 0.6, 1)
+border_width = 4.0
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("point_collection")]
+visible = false
+position = Vector2(1244, 806)
+zoom = Vector2(0.526, 0.526)
+script = ExtResource("11_3wrao")
+point_collection = NodePath("../PointCollection")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+script = ExtResource("13_ny46n")
+
+[editable path="park_bathroom/park"]
+[editable path="park_bathroom/fence"]
+[editable path="park_bathroom/male"]
+[editable path="park_bathroom/female"]
+[editable path="park_bathroom/maledoor"]
+[editable path="park_bathroom/femaledoor"]
+[editable path="park_bathroom/vendin"]
+[editable path="park_bathroom/lamps"]

@@ -32,7 +32,7 @@ void fragment()
 	
 	if (enable_palette_cycling)
 	{
-		COLOR = vec4(texture(palette, vec2(palette_swap, 0)).rgb, tex.a);
+		COLOR = vec4(texture(palette, vec2(palette_swap, 0)).rgba);
 	}
 	else COLOR = tex;
 	if (enable_scan_lines) COLOR = mix(vec4(0.0), COLOR, float(int(UV.y * screen_height) % 2));

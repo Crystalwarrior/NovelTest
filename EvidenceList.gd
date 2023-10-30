@@ -1,7 +1,7 @@
 extends ItemList
 
-signal present_evidence(index)
+signal show_evidence(index)
 
 
 func _on_item_activated(index):
-	present_evidence.emit(index)
+	show_evidence.emit(index)

@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=9 format=3 uid="uid://b83gv7a4wpc2m"]
+
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_h4cjp"]
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_jsqs7"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_1qiec"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_mlmuu"]
+[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_blfre"]
+
+[sub_resource type="Resource" id="Resource_3kc2n"]
+resource_local_to_scene = true
+script = ExtResource("1_h4cjp")
+animation = "fade"
+custom_blend = -1.0
+custom_speed = 1.0
+play_backwards = false
+wait_until_finished = false
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
+
+[sub_resource type="Resource" id="Resource_bpd8b"]
+resource_local_to_scene = true
+script = ExtResource("2_1qiec")
+showname = ""
+dialog = "Huh?"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_sesv6"]
+resource_local_to_scene = true
+script = ExtResource("3_mlmuu")
+condition = ""
+use_bookmark = false
+command_index = 0
+timeline = ExtResource("4_blfre")
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
+[resource]
+script = ExtResource("1_jsqs7")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_sesv6")])
