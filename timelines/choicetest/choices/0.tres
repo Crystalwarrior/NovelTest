@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=9 format=3 uid="uid://2xk5f15htigd"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=11 format=3 uid="uid://2xk5f15htigd"]
 
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_6vwpg"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_a4a4k"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_eixfw"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_lfklt"]
-[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_7ri56"]
+[ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="4_8s6fr"]
+[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="4_cu6gg"]
 
 [sub_resource type="Resource" id="Resource_3kc2n"]
 resource_local_to_scene = true
@@ -22,7 +23,7 @@ target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
 resource_local_to_scene = true
 script = ExtResource("2_eixfw")
 showname = ""
-dialog = "Hi!"
+dialog = "You will now enter \"Basic Dialogue\" timeline."
 additive = false
 letter_delay = 0.02
 wait_until_finished = true
@@ -34,17 +35,28 @@ bookmark = ""
 continue_at_end = false
 target = NodePath("")
 
+[sub_resource type="Resource" id="Resource_dsra4"]
+resource_local_to_scene = true
+script = ExtResource("3_lfklt")
+condition = ""
+use_bookmark = false
+command_index = 0
+timeline = ExtResource("4_8s6fr")
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
 [sub_resource type="Resource" id="Resource_qnjlm"]
 resource_local_to_scene = true
 script = ExtResource("3_lfklt")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("4_7ri56")
+timeline = ExtResource("4_cu6gg")
 bookmark = ""
 continue_at_end = true
 target = NodePath("")
 
 [resource]
 script = ExtResource("1_6vwpg")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_qnjlm")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_dsra4"), SubResource("Resource_qnjlm")])

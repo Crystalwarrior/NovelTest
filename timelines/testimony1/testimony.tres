@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=38 format=3 uid="uid://dvf52xqp8wb2m"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=36 format=3 uid="uid://dvf52xqp8wb2m"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
@@ -6,7 +6,24 @@
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="4_i05au"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_3bh32"]
 [ext_resource type="Resource" uid="uid://rw30rmmxowxo" path="res://timelines/testimony1/press1.tres" id="5_nqp0g"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="6_246mw"]
+
+[sub_resource type="Resource" id="Resource_262dq"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "add_evidence"
+args = ["the right evidence", "Present this to break this testimony wide open!", "res://evidence/keycard.png"]
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/EvidenceMenu")
+
+[sub_resource type="Resource" id="Resource_mgwoy"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "add_evidence"
+args = ["funny evidence", "this is wrong clearly", "res://check.png"]
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/EvidenceMenu")
 
 [sub_resource type="Resource" id="Resource_3w3fg"]
 resource_local_to_scene = true
@@ -63,7 +80,7 @@ target = NodePath("")
 [sub_resource type="Resource" id="Resource_33see"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
-method = "zoom_to"
+method = "move_to"
 args = [Vector2(635, 496), Vector2(1, 1), 0.5]
 bookmark = ""
 continue_at_end = true
@@ -82,42 +99,9 @@ target = NodePath("Characters/Godette")
 resource_local_to_scene = true
 script = ExtResource("4_i05au")
 showname = "Godette"
-dialog = "When I arrived at the scene, "
+dialog = "[color=lime]When I arrived at the scene, there Tim was, laying face-first in the pool of his own blood!"
 additive = false
-letter_delay = 0.01
-wait_until_finished = true
-speaking_character = ""
-bump_speaker = false
-highlight_speaker = false
-set_z_index = 0
-bookmark = ""
-continue_at_end = true
-target = NodePath("")
-
-[sub_resource type="Resource" id="Resource_tcoid"]
-resource_local_to_scene = true
-script = ExtResource("6_246mw")
-wait_time = 0.5
-bookmark = ""
-continue_at_end = true
-target = NodePath("")
-
-[sub_resource type="Resource" id="Resource_okr87"]
-resource_local_to_scene = true
-script = ExtResource("2_pvprn")
-method = "set_emote"
-args = ["shocked"]
-bookmark = ""
-continue_at_end = true
-target = NodePath("Characters/Godette")
-
-[sub_resource type="Resource" id="Resource_0pt0m"]
-resource_local_to_scene = true
-script = ExtResource("4_i05au")
-showname = "Godette"
-dialog = "there Tim was, laying face-first in the pool of his own blood!"
-additive = true
-letter_delay = 0.01
+letter_delay = 0.0
 wait_until_finished = true
 speaking_character = ""
 bump_speaker = false
@@ -156,7 +140,7 @@ target = NodePath("")
 [sub_resource type="Resource" id="Resource_ve5qi"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
-method = "zoom_to"
+method = "move_to"
 args = [Vector2(750, 496), Vector2(1, 1), 0.5]
 bookmark = ""
 continue_at_end = true
@@ -175,7 +159,7 @@ target = NodePath("Characters/Godette")
 resource_local_to_scene = true
 script = ExtResource("4_i05au")
 showname = "Godette"
-dialog = "I was horrified and didn't know what to do! I ran towards Tim, but I slipped on his blood and fell right on top of him..."
+dialog = "[color=lime]I was horrified and didn't know what to do! I ran towards Tim, but I slipped on his blood and fell right on top of him..."
 additive = false
 letter_delay = 0.0
 wait_until_finished = true
@@ -216,7 +200,7 @@ target = NodePath("")
 [sub_resource type="Resource" id="Resource_4ga5r"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
-method = "zoom_to"
+method = "move_to"
 args = [Vector2(600, 496), Vector2(-1, 1), 0.25]
 bookmark = ""
 continue_at_end = true
@@ -235,7 +219,7 @@ target = NodePath("Characters/Godette")
 resource_local_to_scene = true
 script = ExtResource("4_i05au")
 showname = "Godette"
-dialog = "I screamed out, all of a sudden I heard footsteps from behind the door fading away!"
+dialog = "[color=lime]I screamed out, all of a sudden I heard footsteps from behind the door fading away!"
 additive = false
 letter_delay = 0.0
 wait_until_finished = true
@@ -276,7 +260,7 @@ target = NodePath("")
 [sub_resource type="Resource" id="Resource_kg8oj"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
-method = "zoom_to"
+method = "move_to"
 args = [Vector2(635, 549), Vector2(1.2, 1.2), 0.5]
 bookmark = ""
 continue_at_end = true
@@ -295,7 +279,7 @@ target = NodePath("Characters/Godette")
 resource_local_to_scene = true
 script = ExtResource("4_i05au")
 showname = "Godette"
-dialog = "At this point, everyone else rushed in behind me, and pinned me down as the culprit... But I didn't do it!"
+dialog = "[color=lime]At this point, everyone else rushed in behind me, and pinned me down as the culprit... But I didn't do it!"
 additive = false
 letter_delay = 0.0
 wait_until_finished = true
@@ -309,4 +293,4 @@ target = NodePath("")
 
 [resource]
 script = ExtResource("5_3bh32")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3w3fg"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_tcoid"), SubResource("Resource_okr87"), SubResource("Resource_0pt0m"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_262dq"), SubResource("Resource_mgwoy"), SubResource("Resource_3w3fg"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])

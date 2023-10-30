@@ -18,7 +18,7 @@ var current_testimony_index: int = 0
 var pause_testimony: bool = false
 var next_statement_on_pause: bool = false
 var current_press: Timeline
-var current_show: Timeline
+var current_present: Timeline
 
 var last_shown_evidence: int = -1
 
@@ -136,7 +136,7 @@ func set_background(res_path):
 		sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		sprite.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		sprite.texture = bg
-		sprite.anchors_preset = sprite.PRESET_FULL_RECT
+		sprite.set_anchors_preset(sprite.PRESET_FULL_RECT)
 		bg = sprite
 	current_background = res_path
 	backgrounds.add_child(bg)
@@ -196,7 +196,7 @@ func stop_testimony():
 	testimony_timeline = null
 	testimony.clear()
 	current_press = null
-	current_show = null
+	current_present = null
 	current_testimony_index = 0
 	testimony_indicator.set_statements(0)
 
@@ -205,9 +205,9 @@ func set_press(timeline: Timeline = null):
 	current_press = timeline
 
 
-func set_show(timeline: Timeline = null):
-	current_show = timeline
-	$HUD/EvidenceMenu/EvidenceViewer/ShowButton.visible = current_show != null
+func set_present(timeline: Timeline = null):
+	current_present = timeline
+	$HUD/EvidenceMenu/EvidenceViewer/ShowButton.visible = current_present != null
 
 
 func press():
@@ -315,7 +315,7 @@ func _on_dialog_box_message_end():
 
 
 func _on_show_evidence(index):
-	if current_show == null:
+	if current_present == null:
 		return
 	dialogbox.process_charcters = false
 	dialog_finished.emit()
@@ -324,7 +324,7 @@ func _on_show_evidence(index):
 	pause_testimony = true
 	next_statement_on_pause = false
 	command_manager._disconnect_command_signals(command_manager.current_command)
-	command_manager.start_timeline(current_show)
+	command_manager.start_timeline(current_present)
 
 
 func _on_soul_sweep_connection_path(path):

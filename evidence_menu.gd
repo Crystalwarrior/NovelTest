@@ -36,6 +36,8 @@ func find_name(evidence_name):
 
 
 func add_evidence(_name, _desc, _icon):
+	if _icon is String:
+		_icon = load(_icon)
 	var evidence = {
 		"name": _name,
 		"desc": _desc,

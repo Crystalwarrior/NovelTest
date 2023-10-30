@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_jsqs7"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_1qiec"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_mlmuu"]
-[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_blfre"]
+[ext_resource type="Resource" uid="uid://um0mtcepmhuh" path="res://timelines/investigation.tres" id="4_c0u8p"]
 
 [sub_resource type="Resource" id="Resource_3kc2n"]
 resource_local_to_scene = true
@@ -22,7 +22,7 @@ target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
 resource_local_to_scene = true
 script = ExtResource("2_1qiec")
 showname = ""
-dialog = "Huh?"
+dialog = "You will now enter \"Investigation Test\""
 additive = false
 letter_delay = 0.02
 wait_until_finished = true
@@ -40,7 +40,7 @@ script = ExtResource("3_mlmuu")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("4_blfre")
+timeline = ExtResource("4_c0u8p")
 bookmark = ""
 continue_at_end = true
 target = NodePath("")

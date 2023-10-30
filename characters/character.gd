@@ -97,7 +97,7 @@ func stop_talking():
 		talk_animationplayer.play(talk_prefix + "_silent")
 
 
-func move_to(target_pos: Vector2, duration: float = 1.0, additive: bool = false):
+func move_to(target_pos: Vector2, target_scale: Vector2 = Vector2(1, 1), duration: float = 1.0, additive: bool = false):
 	if zoomtween:
 		zoomtween.custom_step(10000)
 		zoomtween.kill()
@@ -108,6 +108,7 @@ func move_to(target_pos: Vector2, duration: float = 1.0, additive: bool = false)
 		return
 	zoomtween = create_tween()
 	zoomtween.tween_property(self, "position", target_pos, duration).set_trans(Tween.TRANS_CUBIC)
+	zoomtween.parallel().tween_property(self, "scale", target_scale, duration).set_trans(Tween.TRANS_CUBIC)
 	zoomtween.finished.connect(_tween_finished, CONNECT_ONE_SHOT)
 
 

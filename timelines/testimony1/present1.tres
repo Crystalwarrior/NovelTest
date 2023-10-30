@@ -12,7 +12,7 @@
 [sub_resource type="Resource" id="Resource_83an4"]
 resource_local_to_scene = true
 script = ExtResource("1_ebt7i")
-condition = "last_presented_evidence == 2"
+condition = "get_evidence_name(last_shown_evidence) == \"the right evidence\""
 use_bookmark = true
 command_bookmark = "correct"
 bookmark = ""
@@ -23,7 +23,7 @@ target = NodePath("")
 resource_local_to_scene = true
 script = ExtResource("1_dnfd8")
 showname = "Godette"
-dialog = "wtf are you presenting this for"
+dialog = "What is this? Huh?"
 additive = false
 letter_delay = 0.02
 wait_until_finished = true
