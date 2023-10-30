@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=8 format=3 uid="uid://csg2jq6eqmq8r"]
+
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="1_n2b0v"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_skxcj"]
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="4_i2jkp"]
+
+[sub_resource type="Resource" id="Resource_tly7q"]
+resource_local_to_scene = true
+script = ExtResource("1_n2b0v")
+showname = ""
+dialog = ""
+additive = false
+letter_delay = 0.02
+wait_until_finished = false
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_acdso"]
+resource_local_to_scene = true
+script = ExtResource("2_skxcj")
+method = "fadein"
+args = []
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/MainView")
+
+[sub_resource type="Resource" id="Resource_u3vx3"]
+resource_local_to_scene = true
+script = ExtResource("1_n2b0v")
+showname = ""
+dialog = "No."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_med3r"]
+resource_local_to_scene = true
+script = ExtResource("2_skxcj")
+method = "fadeout"
+args = []
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/MainView")
+
+[resource]
+script = ExtResource("4_i2jkp")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_tly7q"), SubResource("Resource_acdso"), SubResource("Resource_u3vx3"), SubResource("Resource_med3r")])

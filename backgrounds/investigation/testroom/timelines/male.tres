@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="Timeline" load_steps=9 format=3 uid="uid://4162l4ulue55"]
+
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="1_j8m8m"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_dm0io"]
+[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="4_t7fu4"]
+
+[sub_resource type="Resource" id="Resource_tly7q"]
+resource_local_to_scene = true
+script = ExtResource("1_j8m8m")
+showname = ""
+dialog = ""
+additive = false
+letter_delay = 0.02
+wait_until_finished = false
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = true
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_acdso"]
+resource_local_to_scene = true
+script = ExtResource("2_dm0io")
+method = "fadein"
+args = []
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/MainView")
+
+[sub_resource type="Resource" id="Resource_u3vx3"]
+resource_local_to_scene = true
+script = ExtResource("1_j8m8m")
+showname = ""
+dialog = "This sign indicates that this is the 'male' bathroom."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_18smj"]
+resource_local_to_scene = true
+script = ExtResource("1_j8m8m")
+showname = ""
+dialog = "Hmm..."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = ""
+continue_at_end = false
+target = NodePath("")
+
+[sub_resource type="Resource" id="Resource_med3r"]
+resource_local_to_scene = true
+script = ExtResource("2_dm0io")
+method = "fadeout"
+args = []
+bookmark = ""
+continue_at_end = true
+target = NodePath("HUD/MainView")
+
+[resource]
+script = ExtResource("4_t7fu4")
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_tly7q"), SubResource("Resource_acdso"), SubResource("Resource_u3vx3"), SubResource("Resource_18smj"), SubResource("Resource_med3r")])

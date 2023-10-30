@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=47 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
 [ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
+[ext_resource type="Resource" uid="uid://um0mtcepmhuh" path="res://timelines/investigation.tres" id="4_ndwlq"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
 [ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
 [ext_resource type="Script" path="res://MainView.gd" id="8_p4ugj"]
@@ -353,6 +354,7 @@ script = ExtResource("2_ugp0u")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("1_msqdo")
+current_timeline = ExtResource("4_ndwlq")
 command_node_fallback_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -435,9 +437,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
-offset_top = 236.0
+offset_top = -236.0
 offset_right = 363.0
-offset_bottom = 293.0
+offset_bottom = -179.0
 grow_vertical = 0
 mouse_filter = 1
 theme = ExtResource("1_oupsu")
@@ -497,9 +499,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 1242.0
-offset_top = 206.0
+offset_top = -29.0
 offset_right = 1264.0
-offset_bottom = 228.0
+offset_bottom = -7.0
 grow_vertical = 0
 texture = ExtResource("3_q33wo")
 expand_mode = 1
@@ -555,10 +557,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 876.0
-offset_top = 179.0
-offset_right = 1248.0
-offset_bottom = 543.0
+offset_left = -404.0
+offset_top = -181.0
+offset_right = -32.0
+offset_bottom = 183.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 1
@@ -765,6 +767,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -783,6 +786,7 @@ stretch_mode = 1
 [node name="MainCamera" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 script = ExtResource("25_gbf3s")
+target = NodePath("../HUD/MainView")
 
 [connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
 [connection signal="wait_for_input" from="." to="HUD/MainView/DialogBox/NextIcon" method="_on_dialog_view_wait_for_input"]

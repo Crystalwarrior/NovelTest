@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=8 format=3 uid="uid://um0mtcepmhuh"]
+[gd_resource type="Resource" script_class="Timeline" load_steps=7 format=3 uid="uid://um0mtcepmhuh"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_i768e"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_ychjd"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_yh0lv"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="3_y56vn"]
 
 [sub_resource type="Resource" id="Resource_kmrys"]
 resource_local_to_scene = true
 script = ExtResource("1_i768e")
 method = "set_background"
-args = ["res://investigation_test.tscn"]
+args = ["res://backgrounds/investigation/testroom/testroom.tscn"]
 bookmark = ""
 continue_at_end = true
 target = NodePath("")
@@ -30,18 +29,15 @@ bookmark = ""
 continue_at_end = false
 target = NodePath("")
 
-[sub_resource type="Resource" id="Resource_gqw2a"]
+[sub_resource type="Resource" id="Resource_adjt6"]
 resource_local_to_scene = true
-script = ExtResource("3_y56vn")
-animation = "fade"
-custom_blend = -1.0
-custom_speed = 1.0
-play_backwards = false
-wait_until_finished = false
+script = ExtResource("1_i768e")
+method = "fadeout"
+args = []
 bookmark = ""
 continue_at_end = true
-target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
+target = NodePath("HUD/MainView")
 
 [resource]
 script = ExtResource("1_ychjd")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kmrys"), SubResource("Resource_j2f4b"), SubResource("Resource_gqw2a")])
+commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kmrys"), SubResource("Resource_j2f4b"), SubResource("Resource_adjt6")])

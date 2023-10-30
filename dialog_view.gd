@@ -40,24 +40,28 @@ signal dialog_finished
 func _process_testimony(event):
 	if event.is_action_pressed("next"):
 		get_window().gui_release_focus()
+		get_viewport().set_input_as_handled()
 		if not waiting_on_input:
 			dialogbox.skip()
 		else:
 			go_to_next_statement()
 	elif event.is_action_pressed("previous"):
 		get_window().gui_release_focus()
+		get_viewport().set_input_as_handled()
 		if not waiting_on_input:
 			dialogbox.skip()
 		else:
 			go_to_previous_statement()
 	elif event.is_action_pressed("press") and current_press:
 		get_window().gui_release_focus()
+		get_viewport().set_input_as_handled()
 		press()
 
 
 func _process_timeline(event):
 	if event.is_action_pressed("next"):
 		get_window().gui_release_focus()
+		get_viewport().set_input_as_handled()
 		if not waiting_on_input:
 			dialogbox.skip()
 		elif not finished:
@@ -74,6 +78,10 @@ func canvas_fadeout(duration: float = 1.0):
 
 func canvas_fadein(duration: float = 1.0):
 	canvas_fade(Color.WHITE, duration)
+
+
+func dialog_fade(speed: float = 1.0):
+	$HUD/MainView.fade(speed)
 
 
 func add_character(res_path, starter_pos: Vector2 = Vector2(0, 0), flipped: bool = false):
