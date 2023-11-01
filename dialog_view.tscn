@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
-[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_4fk3c"]
+[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/conditiontest.tres" id="4_4fk3c"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
 [ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
 [ext_resource type="Script" path="res://MainView.gd" id="8_p4ugj"]

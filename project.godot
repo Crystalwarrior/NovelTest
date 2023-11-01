@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SaveSystem="*res://autoload/SaveSystem.gd"
 
+[blockflow]
+
+settings/commands/custom_commands=PackedStringArray("res://commands/command_dialog.gd")
+
 [display]
 
 window/size/viewport_width=1280
