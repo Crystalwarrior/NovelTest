@@ -87,7 +87,7 @@ func tween_finished():
 	command_finished.emit()
 
 
-func _get_name() -> String:
+func _get_name() -> StringName:
 	return "Character"
 
 
