@@ -123,5 +123,5 @@ func _get_icon() -> Texture:
 		var path = character.resource_path.get_basename() + "/icons/" + _emote + ".png"
 		if ResourceLoader.exists(path):
 			return load(path)
-	return load("res://addons/blockflow/icons/character.svg")
+	return load("res://commands/icons/character.svg")
 
