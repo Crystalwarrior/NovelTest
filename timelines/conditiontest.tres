@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=2 format=3 uid="uid://dusifaa2yw6gd"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=2 format=3 uid="uid://dusifaa2yw6gd"]
 
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_26ylb"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="1_b4aat"]
 
 [resource]
-script = ExtResource("1_26ylb")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([])
+script = ExtResource("1_b4aat")
+collection = []

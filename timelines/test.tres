@@ -1,29 +1,31 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=47 format=3 uid="uid://cyf63rc3uolon"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=47 format=3 uid="uid://cyf63rc3uolon"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_rg0e0"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="2_rvkqb"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="3_11mdn"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="4_e13oh"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="5_6pb2j"]
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_i110d"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="5_6pb2j"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_mf23q"]
 
 [sub_resource type="Resource" id="Resource_2havs"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_background"
 args = ["res://backgrounds/bus stop evening.jpg"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_f1qbi"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "canvas_fadein"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_dufn6"]
 resource_local_to_scene = true
@@ -37,36 +39,40 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_vquty"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["smile"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_4270n"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "fadein"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_y1ash"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "move_to"
 args = [Vector2(635, 800), Vector2(2, 2), 1.0]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_mun2r"]
 resource_local_to_scene = true
@@ -76,26 +82,30 @@ custom_blend = -1.0
 custom_speed = 1.0
 play_backwards = true
 wait_until_finished = false
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
+collection = []
 
 [sub_resource type="Resource" id="Resource_0ehhs"]
 resource_local_to_scene = true
 script = ExtResource("3_11mdn")
+wait_for = 0
 wait_time = 0.5
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_paxdu"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["joy"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_626ib"]
 resource_local_to_scene = true
@@ -109,9 +119,10 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_73bfc"]
 resource_local_to_scene = true
@@ -119,18 +130,20 @@ script = ExtResource("4_e13oh")
 condition = "not flags[\"passed\"]"
 use_bookmark = true
 command_bookmark = "speaking"
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath(".")
+collection = []
 
 [sub_resource type="Resource" id="Resource_8jns8"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["surprised"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_i6dog"]
 resource_local_to_scene = true
@@ -144,26 +157,30 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_tsqyb"]
 resource_local_to_scene = true
 script = ExtResource("3_11mdn")
+wait_for = 0
 wait_time = 0.25
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_5vorc"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["smile"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_s2fj3"]
 resource_local_to_scene = true
@@ -177,9 +194,10 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_yu1hv"]
 resource_local_to_scene = true
@@ -187,27 +205,30 @@ script = ExtResource("4_e13oh")
 condition = "flags[\"passed\"]"
 use_bookmark = true
 command_bookmark = "end"
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_dpc07"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["annoyance"]
-bookmark = "speaking"
+bookmark = &"speaking"
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_r2n13"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_flag"
 args = ["passed", true]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_17flj"]
 resource_local_to_scene = true
@@ -221,26 +242,30 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_dbgip"]
 resource_local_to_scene = true
 script = ExtResource("3_11mdn")
+wait_for = 0
 wait_time = 0.25
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_wmf5x"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["smile"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_bqglp"]
 resource_local_to_scene = true
@@ -254,63 +279,70 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_t52ta"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["grin"]
-bookmark = "end"
+bookmark = &"end"
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_lbut0"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "move_to"
 args = [Vector2(435, 800), Vector2(2, 2), 1.0]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_wgh2c"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["weird"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_8fp6r"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "add_character"
 args = ["res://characters/dale.tscn"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_jc521"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_position"
 args = [Vector2(895, 714)]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Dale")
+collection = []
 
 [sub_resource type="Resource" id="Resource_adgxv"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "fadein"
 args = [0.25]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Dale")
+collection = []
 
 [sub_resource type="Resource" id="Resource_eic4k"]
 resource_local_to_scene = true
@@ -324,35 +356,40 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_uldv6"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "fadeout"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Dale")
+collection = []
 
 [sub_resource type="Resource" id="Resource_vqpa4"]
 resource_local_to_scene = true
 script = ExtResource("3_11mdn")
+wait_for = 0
 wait_time = 1.0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_wd60b"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "remove_character"
 args = ["Dale"]
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_1pknx"]
 resource_local_to_scene = true
@@ -366,9 +403,10 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_ryf8x"]
 resource_local_to_scene = true
@@ -378,44 +416,50 @@ custom_blend = -1.0
 custom_speed = 1.0
 play_backwards = false
 wait_until_finished = false
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
+collection = []
 
 [sub_resource type="Resource" id="Resource_rgh4m"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "move_to"
 args = [Vector2(635, 496), Vector2(1, 1), 1.0]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_exy7u"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "fadeout"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_6x6c0"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "canvas_fadeout"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_vklgs"]
 resource_local_to_scene = true
 script = ExtResource("3_11mdn")
+wait_for = 0
 wait_time = 1.0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_xns57"]
 resource_local_to_scene = true
@@ -423,11 +467,11 @@ script = ExtResource("4_e13oh")
 condition = ""
 use_bookmark = false
 command_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [resource]
-resource_name = "test.tres"
-script = ExtResource("5_i110d")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_2havs"), SubResource("Resource_f1qbi"), SubResource("Resource_dufn6"), SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_6x6c0"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")])
+script = ExtResource("6_mf23q")
+collection = [SubResource("Resource_2havs"), SubResource("Resource_f1qbi"), SubResource("Resource_dufn6"), SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_6x6c0"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")]

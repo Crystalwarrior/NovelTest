@@ -1,7 +1,7 @@
 extends Node
 
 @onready var dialogbox = $HUD/MainView/DialogBox
-@onready var command_manager: CommandManager = $CommandManager
+@onready var command_manager: CommandProcessor = $CommandManager
 @onready var testimony_indicator = $HUD/MainView/DialogBox/TestimonyIndicator
 @onready var characters = $Characters
 @onready var backgrounds = $Background
@@ -12,13 +12,13 @@ var finished = false
 var waiting_on_input = true
 
 var testimony: PackedStringArray = []
-var testimony_timeline: Timeline
+var testimony_timeline: CommandCollection
 var current_testimony_index: int = 0
 
 var pause_testimony: bool = false
 var next_statement_on_pause: bool = false
-var current_press: Timeline
-var current_present: Timeline
+var current_press: CommandCollection
+var current_present: CommandCollection
 
 var last_shown_evidence: int = -1
 
@@ -65,7 +65,10 @@ func _process_timeline(event):
 		if not waiting_on_input:
 			dialogbox.skip()
 		elif not finished:
-			command_manager.go_to_next_command()
+			if not command_manager.main_collection:
+				command_manager.start()
+			else:
+				command_manager.go_to_next_command()
 
 
 func canvas_fade(to_color: Color = Color.WHITE, duration: float = 1.0):
@@ -174,7 +177,7 @@ func go_to_statement(index: int):
 	var command_bookmark = testimony[current_testimony_index]
 	var target_command = testimony_timeline.get_command_by_bookmark(command_bookmark)
 	var command_index = testimony_timeline.get_command_idx(target_command)
-	command_manager.go_to_command(command_index, testimony_timeline)
+	command_manager.go_to_command_in_collection(command_index, testimony_timeline)
 
 
 func set_statements(statements: PackedStringArray):
@@ -201,11 +204,11 @@ func stop_testimony():
 	testimony_indicator.set_statements(0)
 
 
-func set_press(timeline: Timeline = null):
+func set_press(timeline: CommandCollection = null):
 	current_press = timeline
 
 
-func set_present(timeline: Timeline = null):
+func set_present(timeline: CommandCollection = null):
 	current_present = timeline
 	$HUD/EvidenceMenu/EvidenceViewer/ShowButton.visible = current_present != null
 
@@ -289,7 +292,7 @@ func _on_command_manager_timeline_started(_timeline_resource):
 	finished = false
 
 
-func _on_command_manager_timeline_finished():
+func _on_command_manager_timeline_finished(_timeline_resource):
 	if testimony and pause_testimony:
 		pause_testimony = false
 		if next_statement_on_pause:
@@ -365,4 +368,4 @@ func _on_object_clicked(obj, target_timeline: Timeline):
 func _on_choice_list_choice_selected(title, timeline_path, index):
 	print(title)
 	last_picked_choice = index
-	command_manager.go_to_command(0, load(timeline_path))
+	command_manager.go_to_command_in_collection(0, load(timeline_path))

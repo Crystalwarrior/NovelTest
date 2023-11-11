@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=11 format=3 uid="uid://dusifaa2yw6gd"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=11 format=3 uid="uid://dusifaa2yw6gd"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_177bq"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="3_dtlby"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="6_ow41s"]
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="6_s21ol"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="4_pwu81"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="6_ow41s"]
 
 [sub_resource type="Resource" id="Resource_w2dcs"]
 resource_local_to_scene = true
@@ -13,45 +13,50 @@ custom_blend = -1.0
 custom_speed = 1.0
 play_backwards = true
 wait_until_finished = false
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
+collection = []
 
 [sub_resource type="Resource" id="Resource_as5te"]
 resource_local_to_scene = true
 script = ExtResource("3_dtlby")
 method = "clear_choices"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/ChoiceList")
+collection = []
 
 [sub_resource type="Resource" id="Resource_rggq6"]
 resource_local_to_scene = true
 script = ExtResource("3_dtlby")
 method = "add_choice"
 args = ["Basic dialogue", "res://timelines/choicetest/choices/0.tres"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/ChoiceList")
+collection = []
 
 [sub_resource type="Resource" id="Resource_nidkc"]
 resource_local_to_scene = true
 script = ExtResource("3_dtlby")
 method = "add_choice"
 args = ["Testimony!", "res://timelines/choicetest/choices/1.tres"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/ChoiceList")
+collection = []
 
 [sub_resource type="Resource" id="Resource_qmer3"]
 resource_local_to_scene = true
 script = ExtResource("3_dtlby")
 method = "add_choice"
 args = ["Investigation!", "res://timelines/choicetest/choices/2.tres"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/ChoiceList")
+collection = []
 
 [sub_resource type="Resource" id="Resource_w3vwt"]
 resource_local_to_scene = true
@@ -65,10 +70,11 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [resource]
-script = ExtResource("6_s21ol")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_w2dcs"), SubResource("Resource_as5te"), SubResource("Resource_rggq6"), SubResource("Resource_nidkc"), SubResource("Resource_qmer3"), SubResource("Resource_w3vwt")])
+script = ExtResource("4_pwu81")
+collection = [SubResource("Resource_w2dcs"), SubResource("Resource_as5te"), SubResource("Resource_rggq6"), SubResource("Resource_nidkc"), SubResource("Resource_qmer3"), SubResource("Resource_w3vwt")]

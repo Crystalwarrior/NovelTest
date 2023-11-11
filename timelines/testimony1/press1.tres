@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=4 format=3 uid="uid://rw30rmmxowxo"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=4 format=3 uid="uid://rw30rmmxowxo"]
 
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="1_ffunr"]
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_icyr7"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="1_ffunr"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="2_xprc6"]
 
 [sub_resource type="Resource" id="Resource_6lucd"]
 resource_local_to_scene = true
@@ -15,10 +15,11 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [resource]
-script = ExtResource("1_icyr7")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_6lucd")])
+script = ExtResource("2_xprc6")
+collection = [SubResource("Resource_6lucd")]

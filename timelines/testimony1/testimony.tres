@@ -1,99 +1,241 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=36 format=3 uid="uid://dvf52xqp8wb2m"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=51 format=3 uid="uid://dvf52xqp8wb2m"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
-[ext_resource type="Resource" uid="uid://bfsqwnnetrdkk" path="res://timelines/testimony1/present1.tres" id="4_7j3y8"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="4_i05au"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="4_i05au"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_3bh32"]
-[ext_resource type="Resource" uid="uid://rw30rmmxowxo" path="res://timelines/testimony1/press1.tres" id="5_nqp0g"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="5_4ho6t"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_66xuj"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_end.gd" id="6_q8bac"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="7_e22u5"]
+[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="8_hcus6"]
 
 [sub_resource type="Resource" id="Resource_262dq"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "add_evidence"
 args = ["the right evidence", "Present this to break this testimony wide open!", "res://evidence/keycard.png"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/EvidenceMenu")
+collection = []
 
 [sub_resource type="Resource" id="Resource_mgwoy"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "add_evidence"
 args = ["funny evidence", "this is wrong clearly", "res://check.png"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/EvidenceMenu")
+collection = []
 
 [sub_resource type="Resource" id="Resource_3w3fg"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "canvas_fadein"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_kbedy"]
 resource_local_to_scene = true
 script = ExtResource("1_6ycm4")
 comment = "Initialize the testimony and provide the bookmarks to use for each statement."
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_f68tl"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "start_testimony"
 args = [PackedStringArray("st1", "st2", "st3", "st4")]
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_nc42f"]
 resource_local_to_scene = true
 script = ExtResource("1_6ycm4")
 comment = "Statement 1"
-bookmark = "st1"
+bookmark = &"st1"
 continue_at_end = true
 target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_6lucd"]
+resource_local_to_scene = true
+script = ExtResource("4_i05au")
+showname = "Godette"
+dialog = "what"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_yxltw"]
+script = ExtResource("5_3bh32")
+commands = [SubResource("Resource_6lucd")]
 
 [sub_resource type="Resource" id="Resource_gdpos"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_press"
-args = [ExtResource("5_nqp0g")]
-bookmark = ""
+args = [SubResource("Resource_yxltw")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_83an4"]
+resource_local_to_scene = true
+script = ExtResource("5_4ho6t")
+condition = "get_evidence_name(last_shown_evidence) == \"the right evidence\""
+use_bookmark = true
+command_bookmark = "correct"
+bookmark = &""
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_h4n3l"]
+resource_local_to_scene = true
+script = ExtResource("4_i05au")
+showname = "Godette"
+dialog = "What is this? Huh?"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_4w8ct"]
+resource_local_to_scene = true
+script = ExtResource("6_q8bac")
+bookmark = &""
+continue_at_end = false
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_x1fm6"]
+resource_local_to_scene = true
+script = ExtResource("1_6ycm4")
+comment = "if presented \"the right evidence\""
+bookmark = &"correct"
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_8x1ci"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "stop_testimony"
+args = []
+bookmark = &""
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_fwoaj"]
+resource_local_to_scene = true
+script = ExtResource("4_i05au")
+showname = "Godette"
+dialog = "oh shit you presented the right evidence, great job"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_yes7p"]
+resource_local_to_scene = true
+script = ExtResource("2_pvprn")
+method = "canvas_fadeout"
+args = []
+bookmark = &""
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_8e1ww"]
+resource_local_to_scene = true
+script = ExtResource("7_e22u5")
+wait_for = 0
+wait_time = 1.0
+bookmark = &""
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_b3oaa"]
+resource_local_to_scene = true
+script = ExtResource("5_4ho6t")
+condition = ""
+use_bookmark = false
+command_index = 0
+timeline = ExtResource("8_hcus6")
+bookmark = &""
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_wwqwh"]
+script = ExtResource("5_3bh32")
+commands = [SubResource("Resource_83an4"), SubResource("Resource_h4n3l"), SubResource("Resource_4w8ct"), SubResource("Resource_x1fm6"), SubResource("Resource_8x1ci"), SubResource("Resource_fwoaj"), SubResource("Resource_yes7p"), SubResource("Resource_8e1ww"), SubResource("Resource_b3oaa")]
 
 [sub_resource type="Resource" id="Resource_vqcyn"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_present"
-args = [ExtResource("4_7j3y8")]
-bookmark = ""
+args = [SubResource("Resource_wwqwh")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_33see"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "move_to"
 args = [Vector2(635, 496), Vector2(1, 1), 0.5]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_b7vup"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["surprised"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_0iffn"]
 resource_local_to_scene = true
@@ -107,53 +249,59 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_rympe"]
 resource_local_to_scene = true
 script = ExtResource("1_6ycm4")
 comment = "Statement 2"
-bookmark = "st2"
+bookmark = &"st2"
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_qfxjq"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_press"
-args = [ExtResource("5_nqp0g")]
-bookmark = ""
+args = [SubResource("Resource_yxltw")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_881ay"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_present"
-args = [ExtResource("4_7j3y8")]
-bookmark = ""
+args = [SubResource("Resource_wwqwh")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_ve5qi"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "move_to"
 args = [Vector2(750, 496), Vector2(1, 1), 0.5]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_0fja7"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["sleepy"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_phpuj"]
 resource_local_to_scene = true
@@ -167,53 +315,59 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_iwcqc"]
 resource_local_to_scene = true
 script = ExtResource("1_6ycm4")
 comment = "Statement 3"
-bookmark = "st3"
+bookmark = &"st3"
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_m5rlk"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_press"
-args = [ExtResource("5_nqp0g")]
-bookmark = ""
+args = [SubResource("Resource_yxltw")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_dnoie"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_present"
-args = [ExtResource("4_7j3y8")]
-bookmark = ""
+args = [SubResource("Resource_wwqwh")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_4ga5r"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "move_to"
 args = [Vector2(600, 496), Vector2(-1, 1), 0.25]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_pbmvn"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["surprised"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_6li51"]
 resource_local_to_scene = true
@@ -227,53 +381,59 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_635lm"]
 resource_local_to_scene = true
 script = ExtResource("1_6ycm4")
 comment = "Statement 4"
-bookmark = "st4"
+bookmark = &"st4"
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_gj7sm"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_press"
-args = [ExtResource("5_nqp0g")]
-bookmark = ""
+args = [SubResource("Resource_yxltw")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_fbxit"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_present"
-args = [ExtResource("4_7j3y8")]
-bookmark = ""
+args = [SubResource("Resource_wwqwh")]
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_kg8oj"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "move_to"
 args = [Vector2(635, 549), Vector2(1.2, 1.2), 0.5]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_rrg8v"]
 resource_local_to_scene = true
 script = ExtResource("2_pvprn")
 method = "set_emote"
 args = ["anger"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("Characters/Godette")
+collection = []
 
 [sub_resource type="Resource" id="Resource_b5jqf"]
 resource_local_to_scene = true
@@ -287,10 +447,11 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [resource]
-script = ExtResource("5_3bh32")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_262dq"), SubResource("Resource_mgwoy"), SubResource("Resource_3w3fg"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")])
+script = ExtResource("6_66xuj")
+collection = [SubResource("Resource_262dq"), SubResource("Resource_mgwoy"), SubResource("Resource_3w3fg"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_m5rlk"), SubResource("Resource_dnoie"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_gj7sm"), SubResource("Resource_fbxit"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")]
