@@ -36,13 +36,12 @@ continue_at_end = false
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_sesv6"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_3kbq5"]
 script = ExtResource("3_mlmuu")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("4_c0u8p")
+target_collection = ExtResource("4_c0u8p")
 bookmark = &""
 continue_at_end = true
 target = NodePath("")
@@ -50,4 +49,4 @@ collection = []
 
 [resource]
 script = ExtResource("5_dxfy0")
-collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_sesv6")]
+collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_3kbq5")]

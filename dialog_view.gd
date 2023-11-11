@@ -219,7 +219,7 @@ func press():
 	pause_testimony = true
 	next_statement_on_pause = true
 	command_manager._disconnect_command_signals(command_manager.current_command)
-	command_manager.start_timeline(current_press)
+	command_manager.start(current_press)
 
 
 func dialog(showname: String = "", text: String = "", additive: bool = false, letter_delay: float = 0.02) -> void:
@@ -264,7 +264,7 @@ func load_savedict(save_dict: Dictionary):
 			command_manager._jump_history = save_dict[key]
 		if key == "background":
 			set_background(save_dict[key])
-	command_manager.start_timeline(null, command_manager.current_command_idx)
+	command_manager.start(null, command_manager.current_command_idx)
 
 
 func evidence_exists(evidence_name: String):
@@ -327,11 +327,11 @@ func _on_show_evidence(index):
 	pause_testimony = true
 	next_statement_on_pause = false
 	command_manager._disconnect_command_signals(command_manager.current_command)
-	command_manager.start_timeline(current_present)
+	command_manager.start(current_present)
 
 
 func _on_soul_sweep_connection_path(path):
-	var timeline: Timeline
+	var timeline: CommandCollection
 	if ResourceLoader.exists(path):
 		timeline = load(path)
 
@@ -343,23 +343,23 @@ func _on_soul_sweep_connection_path(path):
 		push_error("SoulSweep: timeline not found and failsafe failed! (path: %s)" % path)
 		return
 
-	command_manager.start_timeline(timeline)
+	command_manager.start(timeline)
 
 
 func _on_evidence_menu_show_evidence(index):
 	_on_show_evidence(index)
 
 
-func _on_object_clicked(obj, target_timeline: Timeline):
+func _on_object_clicked(obj, target_timeline: CommandCollection):
 	if not obj or obj.is_queued_for_deletion():
 		return
 	print(obj, " - ", target_timeline)
 	if not target_timeline:
 		return
-	command_manager.start_timeline(target_timeline)
+	command_manager.start(target_timeline)
 	
 	# TODO: don't use await lol
-	await command_manager.timeline_finished
+	await command_manager.collection_finished
 	if not obj or obj.is_queued_for_deletion():
 		return
 	obj.checked = true

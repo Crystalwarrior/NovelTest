@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=9 format=3 uid="uid://2xk5f15htigd"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=11 format=3 uid="uid://2xk5f15htigd"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_a4a4k"]
 [ext_resource type="Script" path="res://commands/command_dialog.gd" id="2_eixfw"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_lfklt"]
 [ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="4_8s6fr"]
+[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="4_cu6gg"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_1i8uq"]
 
 [sub_resource type="Resource" id="Resource_3kc2n"]
@@ -36,13 +37,23 @@ continue_at_end = false
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_dsra4"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_cahwk"]
 script = ExtResource("3_lfklt")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("4_8s6fr")
+target_collection = ExtResource("4_8s6fr")
+bookmark = &""
+continue_at_end = true
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_us1qb"]
+script = ExtResource("3_lfklt")
+condition = ""
+use_bookmark = false
+command_index = 0
+target_collection = ExtResource("4_cu6gg")
 bookmark = &""
 continue_at_end = true
 target = NodePath("")
@@ -50,4 +61,4 @@ collection = []
 
 [resource]
 script = ExtResource("6_1i8uq")
-collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_dsra4")]
+collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_cahwk"), SubResource("Resource_us1qb")]
