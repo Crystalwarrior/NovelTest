@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=11 format=3 uid="uid://2xk5f15htigd"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=11 format=3 uid="uid://2xk5f15htigd"]
 
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_6vwpg"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_a4a4k"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_eixfw"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="2_eixfw"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_lfklt"]
 [ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="4_8s6fr"]
 [ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="4_cu6gg"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_1i8uq"]
 
 [sub_resource type="Resource" id="Resource_3kc2n"]
 resource_local_to_scene = true
@@ -15,9 +15,10 @@ custom_blend = -1.0
 custom_speed = 1.0
 play_backwards = false
 wait_until_finished = false
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
+collection = []
 
 [sub_resource type="Resource" id="Resource_bpd8b"]
 resource_local_to_scene = true
@@ -31,32 +32,33 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
-[sub_resource type="Resource" id="Resource_dsra4"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_cahwk"]
 script = ExtResource("3_lfklt")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("4_8s6fr")
-bookmark = ""
+target_collection = ExtResource("4_8s6fr")
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
-[sub_resource type="Resource" id="Resource_qnjlm"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_us1qb"]
 script = ExtResource("3_lfklt")
 condition = ""
 use_bookmark = false
 command_index = 0
-timeline = ExtResource("4_cu6gg")
-bookmark = ""
+target_collection = ExtResource("4_cu6gg")
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [resource]
-script = ExtResource("1_6vwpg")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_dsra4"), SubResource("Resource_qnjlm")])
+script = ExtResource("6_1i8uq")
+collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_cahwk"), SubResource("Resource_us1qb")]

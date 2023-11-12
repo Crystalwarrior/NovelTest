@@ -14,7 +14,7 @@ var outline_mat = preload("res://shaders/outline.tres")
 @export var set_campos: bool
 @export var campoint: int
 
-@export var timeline: Timeline
+@export var timeline: CommandCollection
 
 
 signal clicked(obj, timeline)

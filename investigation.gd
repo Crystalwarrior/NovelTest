@@ -2,7 +2,7 @@ extends Node2D
 
 @export var object_list:Node
 
-signal object_clicked(obj, timeline: Timeline)
+signal object_clicked(obj, timeline: CommandCollection)
 
 var current_hovered = -1
 
@@ -26,7 +26,7 @@ func on_object_hovered(obj, toggle):
 		obj.outline(false)
 
 
-func on_object_clicked(obj, target_timeline: Timeline):
+func on_object_clicked(obj, target_timeline: CommandCollection):
 	if current_hovered >= 0 and obj.get_index() != current_hovered:
 		return
 	obj.activate()

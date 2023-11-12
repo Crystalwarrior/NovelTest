@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=18 format=3 uid="uid://bfsqwnnetrdkk"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=16 format=3 uid="uid://bfsqwnnetrdkk"]
 
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="1_dnfd8"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="1_dnfd8"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="1_ebt7i"]
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="2_ft7a2"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_end.gd" id="3_tgtme"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="4_atjsy"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="4_cwyyc"]
-[ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="5_pye1k"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="6_ab8ho"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="8_wdbsw"]
 
 [sub_resource type="Resource" id="Resource_83an4"]
 resource_local_to_scene = true
@@ -15,9 +14,10 @@ script = ExtResource("1_ebt7i")
 condition = "get_evidence_name(last_shown_evidence) == \"the right evidence\""
 use_bookmark = true
 command_bookmark = "correct"
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_6lucd"]
 resource_local_to_scene = true
@@ -31,33 +31,37 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_4w8ct"]
 resource_local_to_scene = true
 script = ExtResource("3_tgtme")
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_x1fm6"]
 resource_local_to_scene = true
 script = ExtResource("4_cwyyc")
 comment = "if presented \"the right evidence\""
-bookmark = "correct"
+bookmark = &"correct"
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_8x1ci"]
 resource_local_to_scene = true
 script = ExtResource("4_atjsy")
 method = "stop_testimony"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_fwoaj"]
 resource_local_to_scene = true
@@ -71,38 +75,31 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_yes7p"]
 resource_local_to_scene = true
 script = ExtResource("4_atjsy")
 method = "canvas_fadeout"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_8e1ww"]
 resource_local_to_scene = true
 script = ExtResource("6_ab8ho")
+wait_for = 0
 wait_time = 1.0
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
-
-[sub_resource type="Resource" id="Resource_b3oaa"]
-resource_local_to_scene = true
-script = ExtResource("1_ebt7i")
-condition = ""
-use_bookmark = false
-command_index = 0
-timeline = ExtResource("5_pye1k")
-bookmark = ""
-continue_at_end = true
-target = NodePath("")
+collection = []
 
 [resource]
-script = ExtResource("2_ft7a2")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_83an4"), SubResource("Resource_6lucd"), SubResource("Resource_4w8ct"), SubResource("Resource_x1fm6"), SubResource("Resource_8x1ci"), SubResource("Resource_fwoaj"), SubResource("Resource_yes7p"), SubResource("Resource_8e1ww"), SubResource("Resource_b3oaa")])
+script = ExtResource("8_wdbsw")
+collection = [SubResource("Resource_83an4"), SubResource("Resource_6lucd"), SubResource("Resource_4w8ct"), SubResource("Resource_x1fm6"), SubResource("Resource_8x1ci"), SubResource("Resource_fwoaj"), SubResource("Resource_yes7p"), SubResource("Resource_8e1ww")]

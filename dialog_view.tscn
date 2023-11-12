@@ -1,7 +1,6 @@
 [gd_scene load_steps=47 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://dialog_view.gd" id="1_hisby"]
-[ext_resource type="Script" path="res://addons/blockflow/command_manager.gd" id="1_msqdo"]
 [ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://dialog_theme.tres" id="1_oupsu"]
 [ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://diamond.png" id="2_rvjnl"]
 [ext_resource type="Script" path="res://CanvasModulate.gd" id="2_ugp0u"]
@@ -9,7 +8,8 @@
 [ext_resource type="Script" path="res://HUD.gd" id="3_1nckb"]
 [ext_resource type="Script" path="res://ZoomButton.gd" id="3_2f4ou"]
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://arrow.png" id="3_q33wo"]
-[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_4fk3c"]
+[ext_resource type="Script" path="res://addons/blockflow/command_processor.gd" id="3_w4xtt"]
+[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_0w6ic"]
 [ext_resource type="Script" path="res://DialogBox.gd" id="5_kwgg7"]
 [ext_resource type="Script" path="res://Showname.gd" id="7_2g07e"]
 [ext_resource type="Script" path="res://MainView.gd" id="8_p4ugj"]
@@ -347,14 +347,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_hisby")
-metadata/_edit_horizontal_guides_ = [-54.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." groups=["save"]]
 script = ExtResource("2_ugp0u")
 
 [node name="CommandManager" type="Node" parent="."]
-script = ExtResource("1_msqdo")
-current_timeline = ExtResource("4_4fk3c")
+script = ExtResource("3_w4xtt")
+initial_collection = ExtResource("4_0w6ic")
 command_node_fallback_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -788,10 +787,10 @@ script = ExtResource("25_gbf3s")
 
 [connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
 [connection signal="wait_for_input" from="." to="HUD/MainView/DialogBox/NextIcon" method="_on_dialog_view_wait_for_input"]
+[connection signal="collection_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
+[connection signal="collection_started" from="CommandManager" to="." method="_on_command_manager_timeline_started"]
 [connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
 [connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
-[connection signal="timeline_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
-[connection signal="timeline_started" from="CommandManager" to="." method="_on_command_manager_timeline_started"]
 [connection signal="message_end" from="HUD/MainView/DialogBox" to="." method="_on_dialog_box_message_end"]
 [connection signal="message_set" from="HUD/MainView/DialogBox" to="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
 [connection signal="finished" from="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/MainView/DialogBox/Showname" method="_on_rich_text_label_finished"]

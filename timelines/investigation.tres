@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="Timeline" load_steps=7 format=3 uid="uid://um0mtcepmhuh"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=7 format=3 uid="uid://um0mtcepmhuh"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_i768e"]
-[ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="1_ychjd"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_dialog.gd" id="2_yh0lv"]
+[ext_resource type="Script" path="res://commands/command_dialog.gd" id="2_yh0lv"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="3_ijuh2"]
 
 [sub_resource type="Resource" id="Resource_kmrys"]
 resource_local_to_scene = true
 script = ExtResource("1_i768e")
 method = "set_background"
 args = ["res://backgrounds/investigation/testroom/testroom.tscn"]
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_j2f4b"]
 resource_local_to_scene = true
@@ -25,19 +26,21 @@ speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
-bookmark = ""
+bookmark = &""
 continue_at_end = false
 target = NodePath("")
+collection = []
 
 [sub_resource type="Resource" id="Resource_adjt6"]
 resource_local_to_scene = true
 script = ExtResource("1_i768e")
 method = "fadeout"
 args = []
-bookmark = ""
+bookmark = &""
 continue_at_end = true
 target = NodePath("HUD/MainView")
+collection = []
 
 [resource]
-script = ExtResource("1_ychjd")
-commands = Array[Resource("res://addons/blockflow/commands/command.gd")]([SubResource("Resource_kmrys"), SubResource("Resource_j2f4b"), SubResource("Resource_adjt6")])
+script = ExtResource("3_ijuh2")
+collection = [SubResource("Resource_kmrys"), SubResource("Resource_j2f4b"), SubResource("Resource_adjt6")]
