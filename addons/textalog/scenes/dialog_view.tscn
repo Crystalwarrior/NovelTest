@@ -1,31 +1,31 @@
 [gd_scene load_steps=47 format=3 uid="uid://cf117tt2n5op"]
 
-[ext_resource type="Script" path="res://addons/textalog/dialog_view.gd" id="1_hisby"]
-[ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://addons/textalog/dialog_theme.tres" id="1_oupsu"]
-[ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://addons/textalog/diamond.png" id="2_rvjnl"]
-[ext_resource type="Script" path="res://addons/textalog/CanvasModulate.gd" id="2_ugp0u"]
-[ext_resource type="Script" path="res://addons/textalog/EmotePicker.gd" id="3_1hrje"]
-[ext_resource type="Script" path="res://addons/textalog/HUD.gd" id="3_1nckb"]
-[ext_resource type="Script" path="res://addons/textalog/ZoomButton.gd" id="3_2f4ou"]
-[ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://addons/textalog/arrow.png" id="3_q33wo"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/dialog_view.gd" id="1_slus5"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/CanvasModulate.gd" id="2_c7ej6"]
 [ext_resource type="Script" path="res://addons/blockflow/command_processor.gd" id="3_w4xtt"]
-[ext_resource type="Resource" uid="uid://5vk3fklhanf1" path="res://timelines/collectiontest.tres" id="4_0idds"]
-[ext_resource type="Script" path="res://addons/textalog/DialogBox.gd" id="5_kwgg7"]
-[ext_resource type="Script" path="res://addons/textalog/Showname.gd" id="7_2g07e"]
-[ext_resource type="Script" path="res://addons/textalog/MainView.gd" id="8_p4ugj"]
+[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_gt4ab"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/HUD.gd" id="5_e63f1"]
+[ext_resource type="Shader" path="res://addons/textalog/shaders/ebg.gdshader" id="6_mcrrk"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/MainView.gd" id="7_f3kym"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/DialogBox.gd" id="8_xrbph"]
 [ext_resource type="AudioStream" uid="uid://yk8rowww05ww" path="res://addons/textalog/blip.wav" id="9_dv5ci"]
-[ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://addons/textalog/choices_theme.tres" id="9_n6w1j"]
-[ext_resource type="Script" path="res://addons/textalog/NameIcon.gd" id="10_nh0wb"]
-[ext_resource type="Script" path="res://addons/textalog/NextIcon.gd" id="11_ll6jk"]
-[ext_resource type="Shader" path="res://addons/textalog/ebg.gdshader" id="12_nrdjh"]
-[ext_resource type="Script" path="res://addons/textalog/DebugStuff.gd" id="13_k2m8m"]
+[ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://addons/textalog/ui/dialog_theme.tres" id="10_ubpi7"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/Showname.gd" id="11_1mr4u"]
+[ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://addons/textalog/ui/diamond.png" id="12_t0uc5"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/NameIcon.gd" id="13_8bwe1"]
+[ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://addons/textalog/ui/arrow.png" id="14_2bl5j"]
 [ext_resource type="Texture2D" uid="uid://cenohrxheffb2" path="res://addons/textalog/raintex.png" id="14_htxqg"]
-[ext_resource type="Script" path="res://addons/textalog/FlagLabel.gd" id="16_mahkt"]
-[ext_resource type="Script" path="res://addons/textalog/TestimonyIndicator.gd" id="17_eyo7d"]
-[ext_resource type="Script" path="res://addons/textalog/EvidenceList.gd" id="18_af1i4"]
-[ext_resource type="PackedScene" uid="uid://3jjcuk3xs3ad" path="res://addons/textalog/evidence_menu.tscn" id="18_d4oiw"]
-[ext_resource type="Script" path="res://addons/textalog/ChoiceList.gd" id="18_v38wv"]
-[ext_resource type="Script" path="res://addons/textalog/MainCamera.gd" id="25_gbf3s"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/NextIcon.gd" id="15_ukj1j"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/TestimonyIndicator.gd" id="16_2jxw0"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/ChoiceList.gd" id="17_j87dx"]
+[ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://addons/textalog/choices_theme.tres" id="18_aa1av"]
+[ext_resource type="PackedScene" uid="uid://3jjcuk3xs3ad" path="res://addons/textalog/scenes/evidence_menu.tscn" id="18_d4oiw"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/DebugStuff.gd" id="20_lmwtn"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/EmotePicker.gd" id="21_wvd87"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/ZoomButton.gd" id="22_cau3a"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/FlagLabel.gd" id="23_g06qo"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/EvidenceList.gd" id="24_f1sis"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/MainCamera.gd" id="26_ejp0b"]
 
 [sub_resource type="Gradient" id="Gradient_28cra"]
 offsets = PackedFloat32Array(0, 0.497143, 1)
@@ -35,7 +35,7 @@ colors = PackedColorArray(0.517647, 0.419608, 1, 0.501961, 0, 0, 0, 0, 0.517647,
 gradient = SubResource("Gradient_28cra")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l8tgr"]
-shader = ExtResource("12_nrdjh")
+shader = ExtResource("6_mcrrk")
 shader_parameter/screen_height = 720.0
 shader_parameter/amplitude = 0.075
 shader_parameter/frequency = 5.0
@@ -346,18 +346,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_hisby")
+script = ExtResource("1_slus5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." groups=["save"]]
-script = ExtResource("2_ugp0u")
+script = ExtResource("2_c7ej6")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("3_w4xtt")
-initial_collection = ExtResource("4_0idds")
+initial_collection = ExtResource("4_gt4ab")
 command_node_fallback_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("3_1nckb")
+script = ExtResource("5_e63f1")
 
 [node name="CG" type="TextureRect" parent="HUD"]
 visible = false
@@ -385,7 +385,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("8_p4ugj")
+script = ExtResource("7_f3kym")
 dialog_view = NodePath("../..")
 
 [node name="DialogBox" type="Control" parent="HUD/MainView" node_paths=PackedStringArray("showname_label", "dialog_label") groups=["save"]]
@@ -395,7 +395,7 @@ offset_top = 485.0
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 1
-script = ExtResource("5_kwgg7")
+script = ExtResource("8_xrbph")
 showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
 dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
 blip_sound = ExtResource("9_dv5ci")
@@ -409,7 +409,7 @@ offset_top = -177.0
 offset_right = 1280.0
 grow_vertical = 0
 mouse_filter = 1
-theme = ExtResource("1_oupsu")
+theme = ExtResource("10_ubpi7")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/Dialog"]
 layout_mode = 2
@@ -441,8 +441,8 @@ offset_right = 363.0
 offset_bottom = -177.0
 grow_vertical = 0
 mouse_filter = 1
-theme = ExtResource("1_oupsu")
-script = ExtResource("7_2g07e")
+theme = ExtResource("10_ubpi7")
+script = ExtResource("11_1mr4u")
 showname = "Showname is Here"
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/Showname"]
@@ -465,9 +465,9 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(22, 22)
-texture = ExtResource("2_rvjnl")
+texture = ExtResource("12_t0uc5")
 expand_mode = 1
-script = ExtResource("10_nh0wb")
+script = ExtResource("13_8bwe1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon"]
 libraries = {
@@ -502,9 +502,9 @@ offset_top = -29.0
 offset_right = 1264.0
 offset_bottom = -7.0
 grow_vertical = 0
-texture = ExtResource("3_q33wo")
+texture = ExtResource("14_2bl5j")
 expand_mode = 1
-script = ExtResource("11_ll6jk")
+script = ExtResource("15_ukj1j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/DialogBox/NextIcon"]
 root_node = NodePath("../..")
@@ -533,7 +533,7 @@ offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
-script = ExtResource("17_eyo7d")
+script = ExtResource("16_2jxw0")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/TestimonyIndicator"]
 layout_mode = 2
@@ -563,7 +563,7 @@ offset_bottom = 183.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("18_v38wv")
+script = ExtResource("17_j87dx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/MainView/ChoiceList"]
 layout_mode = 1
@@ -572,7 +572,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("9_n6w1j")
+theme = ExtResource("18_aa1av")
 alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/ChoiceList"]
@@ -592,7 +592,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("13_k2m8m")
+script = ExtResource("20_lmwtn")
 
 [node name="EmotePicker" type="OptionButton" parent="HUD/DebugStuff"]
 layout_mode = 0
@@ -600,7 +600,7 @@ offset_left = 24.0
 offset_top = 40.0
 offset_right = 133.0
 offset_bottom = 60.0
-script = ExtResource("3_1hrje")
+script = ExtResource("21_wvd87")
 
 [node name="ZoomButton" type="Button" parent="HUD/DebugStuff"]
 layout_mode = 0
@@ -610,7 +610,7 @@ offset_right = 323.0
 offset_bottom = 122.0
 toggle_mode = true
 text = "Zoom In/Out"
-script = ExtResource("3_2f4ou")
+script = ExtResource("22_cau3a")
 
 [node name="FadeButton" type="Button" parent="HUD/DebugStuff"]
 layout_mode = 0
@@ -620,7 +620,7 @@ offset_right = 323.0
 offset_bottom = 82.0
 toggle_mode = true
 text = "Fade In/Out"
-script = ExtResource("3_2f4ou")
+script = ExtResource("22_cau3a")
 animation_to_play = "fade"
 
 [node name="ChatFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
@@ -631,7 +631,7 @@ offset_right = 164.0
 offset_bottom = 282.0
 toggle_mode = true
 text = "Chat Fade In/Out"
-script = ExtResource("3_2f4ou")
+script = ExtResource("22_cau3a")
 zoom_animation = NodePath("../../MainView/DialogBox/AnimationPlayer")
 animation_to_play = "fade"
 
@@ -643,7 +643,7 @@ offset_right = 324.0
 offset_bottom = 282.0
 toggle_mode = true
 text = "Choice Fade In/Out"
-script = ExtResource("3_2f4ou")
+script = ExtResource("22_cau3a")
 zoom_animation = NodePath("../../MainView/ChoiceList/AnimationPlayer")
 animation_to_play = "fade"
 
@@ -732,7 +732,7 @@ horizontal_alignment = 1
 [node name="FlagLabel" type="RichTextLabel" parent="HUD/DebugStuff/FlagLabelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("16_mahkt")
+script = ExtResource("23_g06qo")
 
 [node name="EvidenceList" type="ItemList" parent="HUD/DebugStuff"]
 layout_mode = 0
@@ -745,7 +745,7 @@ fixed_icon_size = Vector2i(20, 20)
 item_0/text = "Coin on a String"
 item_1/text = "Super Sandwich Rewards Card"
 item_2/text = "Case Summary"
-script = ExtResource("18_af1i4")
+script = ExtResource("24_f1sis")
 
 [node name="interjection" type="TextureRect" parent="HUD"]
 visible = false
@@ -783,7 +783,7 @@ stretch_mode = 1
 
 [node name="MainCamera" type="Camera2D" parent="."]
 position = Vector2(640, 360)
-script = ExtResource("25_gbf3s")
+script = ExtResource("26_ejp0b")
 
 [connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
 [connection signal="wait_for_input" from="." to="HUD/MainView/DialogBox/NextIcon" method="_on_dialog_view_wait_for_input"]

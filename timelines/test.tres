@@ -14,6 +14,7 @@ method = "set_background"
 args = ["res://backgrounds/bus stop evening.jpg"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -24,6 +25,7 @@ method = "canvas_fadein"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -41,6 +43,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -51,6 +54,7 @@ method = "set_emote"
 args = ["smile"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -61,6 +65,7 @@ method = "fadein"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -71,6 +76,7 @@ method = "move_to"
 args = [Vector2(635, 800), Vector2(2, 2), 1.0]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -84,6 +90,7 @@ play_backwards = true
 wait_until_finished = false
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
 collection = []
 
@@ -94,6 +101,7 @@ wait_for = 0
 wait_time = 0.5
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -104,6 +112,7 @@ method = "set_emote"
 args = ["joy"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -121,6 +130,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -132,6 +142,7 @@ use_bookmark = true
 command_bookmark = "speaking"
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath(".")
 collection = []
 
@@ -142,6 +153,7 @@ method = "set_emote"
 args = ["surprised"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -159,6 +171,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -169,6 +182,7 @@ wait_for = 0
 wait_time = 0.25
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -179,6 +193,7 @@ method = "set_emote"
 args = ["smile"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -196,6 +211,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -207,6 +223,7 @@ use_bookmark = true
 command_bookmark = "end"
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -217,6 +234,7 @@ method = "set_emote"
 args = ["annoyance"]
 bookmark = &"speaking"
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -227,6 +245,7 @@ method = "set_flag"
 args = ["passed", true]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -244,6 +263,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -254,6 +274,7 @@ wait_for = 0
 wait_time = 0.25
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -264,6 +285,7 @@ method = "set_emote"
 args = ["smile"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -281,6 +303,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -291,6 +314,7 @@ method = "set_emote"
 args = ["grin"]
 bookmark = &"end"
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -301,6 +325,7 @@ method = "move_to"
 args = [Vector2(435, 800), Vector2(2, 2), 1.0]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -311,6 +336,7 @@ method = "set_emote"
 args = ["weird"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -321,6 +347,7 @@ method = "add_character"
 args = ["res://characters/dale.tscn"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -331,6 +358,7 @@ method = "set_position"
 args = [Vector2(895, 714)]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Dale")
 collection = []
 
@@ -341,6 +369,7 @@ method = "fadein"
 args = [0.25]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Dale")
 collection = []
 
@@ -358,6 +387,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -368,6 +398,7 @@ method = "fadeout"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Dale")
 collection = []
 
@@ -378,6 +409,7 @@ wait_for = 0
 wait_time = 1.0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -388,6 +420,7 @@ method = "remove_character"
 args = ["Dale"]
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -405,6 +438,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -418,6 +452,7 @@ play_backwards = false
 wait_until_finished = false
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("HUD/MainView/DialogBox/AnimationPlayer")
 collection = []
 
@@ -428,6 +463,7 @@ method = "move_to"
 args = [Vector2(635, 496), Vector2(1, 1), 1.0]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -438,6 +474,7 @@ method = "fadeout"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -448,6 +485,7 @@ method = "canvas_fadeout"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -458,6 +496,7 @@ wait_for = 0
 wait_time = 1.0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -469,6 +508,7 @@ use_bookmark = false
 command_index = 0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 

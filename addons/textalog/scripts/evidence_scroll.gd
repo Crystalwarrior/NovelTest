@@ -2,7 +2,7 @@ extends PanelContainer
 
 @onready var evidence_container = $ScrollContainer/HBoxContainer
 
-var evidence_piece: PackedScene = preload("res://addons/textalog/evidence_piece.tscn")
+var evidence_piece: PackedScene = preload("res://addons/textalog/scenes/evidence_piece.tscn")
 
 signal selected_evidence(index)
 

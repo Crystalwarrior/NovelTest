@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de4v8ab7gv4v5"
-path="res://.godot/imported/diamond.png-b41ee9aeaded074a58f40de61301ee40.ctex"
+uid="uid://bkf7pkua0wedg"
+path="res://.godot/imported/hollowcircle.png-9158c51e845616ace275a9c7389972c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/textalog/diamond.png"
-dest_files=["res://.godot/imported/diamond.png-b41ee9aeaded074a58f40de61301ee40.ctex"]
+source_file="res://addons/textalog/ui/hollowcircle.png"
+dest_files=["res://.godot/imported/hollowcircle.png-9158c51e845616ace275a9c7389972c1.ctex"]
 
 [params]
 

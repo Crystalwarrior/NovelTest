@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var outline_mat = preload("res://shaders/outline.tres")
+var outline_mat = preload("res://addons/textalog/shaders/outline.tres")
 @onready var checkmark = get_node_or_null("Check")
 
 @export var checked: bool:

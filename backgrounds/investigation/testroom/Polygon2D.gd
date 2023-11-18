@@ -1,1 +1,0 @@
-extends Polygon2D

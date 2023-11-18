@@ -1,8 +1,8 @@
 extends Control
 
 
-var hollow_tex = preload("res://addons/textalog/hollowcircle.png")
-var full_tex = preload("res://addons/textalog/fullcircle.png")
+var hollow_tex = preload("res://addons/textalog/ui/hollowcircle.png")
+var full_tex = preload("res://addons/textalog/ui/fullcircle.png")
 
 
 @onready var container = $MarginContainer/Container

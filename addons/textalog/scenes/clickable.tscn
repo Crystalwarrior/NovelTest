@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj4uie1822sxe"]
 
-[ext_resource type="Script" path="res://addons/textalog/clickable.gd" id="1_ujcu1"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/clickable.gd" id="1_ujcu1"]
 [ext_resource type="Texture2D" uid="uid://dhdhupve4m12t" path="res://addons/textalog/check.png" id="2_7of2l"]
 
 [node name="Clickable" type="Sprite2D"]

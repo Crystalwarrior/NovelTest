@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dr1qnak8qv6r8"]
 
-[ext_resource type="Script" path="res://addons/textalog/evidence_scroll.gd" id="1_3eriu"]
+[ext_resource type="Script" path="res://addons/textalog/scripts/evidence_scroll.gd" id="1_3eriu"]
 
 [node name="EvidenceScroller" type="PanelContainer"]
 anchors_preset = 5
