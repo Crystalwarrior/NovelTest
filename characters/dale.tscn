@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://b570mbdy4k5t4"]
 
-[ext_resource type="Script" path="res://characters/character.gd" id="1_gipa0"]
+[ext_resource type="Script" path="res://addons/textalog/character.gd" id="1_gipa0"]
 [ext_resource type="Texture2D" uid="uid://dchmovi4a2xol" path="res://characters/Dale/base.png" id="2_jiao2"]
 [ext_resource type="Texture2D" uid="uid://ccbu3najtfm4u" path="res://characters/Dale/Eyes/neutral.png" id="3_x7fv7"]
 [ext_resource type="Texture2D" uid="uid://dgoim1dwy3r51" path="res://characters/Dale/Eyebrows/neutral.png" id="4_horyb"]

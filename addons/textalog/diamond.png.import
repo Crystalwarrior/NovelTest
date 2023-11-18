@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cenohrxheffb2"
-path="res://.godot/imported/raintex.png-164a4f28e7bab482e8c100e69006d15e.ctex"
+uid="uid://de4v8ab7gv4v5"
+path="res://.godot/imported/diamond.png-b41ee9aeaded074a58f40de61301ee40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://raintex.png"
-dest_files=["res://.godot/imported/raintex.png-164a4f28e7bab482e8c100e69006d15e.ctex"]
+source_file="res://addons/textalog/diamond.png"
+dest_files=["res://.godot/imported/diamond.png-b41ee9aeaded074a58f40de61301ee40.ctex"]
 
 [params]
 

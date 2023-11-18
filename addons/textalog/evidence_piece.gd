@@ -5,8 +5,8 @@ extends PanelContainer
 @onready var title = $VBoxContainer/Label
 @onready var icon = $VBoxContainer/Bg/Icon
 
-var panel_deselected: StyleBox = preload("res://ui/evidence_piece.tres")
-var panel_selected: StyleBox = preload("res://ui/evidence_piece_selected.tres")
+var panel_deselected: StyleBox = preload("res://addons/textalog/ui/evidence_piece.tres")
+var panel_selected: StyleBox = preload("res://addons/textalog/ui/evidence_piece_selected.tres")
 
 signal select
 

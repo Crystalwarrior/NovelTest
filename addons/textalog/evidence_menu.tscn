@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://3jjcuk3xs3ad"]
 
-[ext_resource type="Script" path="res://EvidenceBox.gd" id="1_eg3r0"]
-[ext_resource type="PackedScene" uid="uid://dr1qnak8qv6r8" path="res://evidence_scroll.tscn" id="1_rqq8k"]
-[ext_resource type="Script" path="res://evidence_menu.gd" id="1_s4bv1"]
-[ext_resource type="Texture2D" uid="uid://c0enrfxgyccp2" path="res://icon.svg" id="3_yilke"]
+[ext_resource type="Script" path="res://addons/textalog/EvidenceBox.gd" id="1_eg3r0"]
+[ext_resource type="PackedScene" uid="uid://dr1qnak8qv6r8" path="res://addons/textalog/evidence_scroll.tscn" id="1_rqq8k"]
+[ext_resource type="Script" path="res://addons/textalog/evidence_menu.gd" id="1_s4bv1"]
+[ext_resource type="Texture2D" uid="uid://c0enrfxgyccp2" path="res://addons/textalog/icon.svg" id="3_yilke"]
 
 [sub_resource type="Theme" id="Theme_5p707"]
 default_font_size = 32

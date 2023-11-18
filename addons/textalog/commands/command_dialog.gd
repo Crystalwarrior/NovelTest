@@ -100,7 +100,7 @@ func _get_hint() -> String:
 
 
 func _get_icon() -> Texture:
-	return load("res://commands/icons/speech.svg")
+	return load("res://addons/textalog/commands/icons/speech.svg")
 
 
 # stop at end by default

@@ -1,45 +1,47 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=10 format=3 uid="uid://5vk3fklhanf1"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=24 format=3 uid="uid://5vk3fklhanf1"]
 
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_45i2y"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_3el60"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="1_soyc4"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="2_rs3kh"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="3_2yjc1"]
-[ext_resource type="Script" path="res://commands/command_dialog.gd" id="4_uebjf"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_set.gd" id="2_afpqv"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="4_dde8w"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="5_1kjsk"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/branch.gd" id="8_v6c80"]
 
-[sub_resource type="Resource" id="Resource_tqbiw"]
-resource_local_to_scene = true
-script = ExtResource("1_45i2y")
-method = ""
-args = []
+[sub_resource type="Resource" id="Resource_rrdin"]
+script = ExtResource("1_3el60")
+comment = "funny sussus amogusus"
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_kwkdq"]
-resource_local_to_scene = true
-script = ExtResource("2_rs3kh")
-comment = ""
+[sub_resource type="Resource" id="Resource_tocmb"]
+script = ExtResource("2_afpqv")
+property = "value"
+value_type = 2
+value = 1
+add_value = false
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_buliq"]
-resource_local_to_scene = true
-script = ExtResource("3_2yjc1")
-wait_for = 0
-wait_time = 0.0
+[sub_resource type="Resource" id="Resource_r71a3"]
+script = ExtResource("8_v6c80")
+condition = "value < 1"
+branch_name = &"Reset Value"
 bookmark = &""
 continue_at_end = true
+background_color = 5
 target = NodePath("")
-collection = []
+collection = [SubResource("Resource_tocmb")]
 
-[sub_resource type="Resource" id="Resource_7166o"]
-resource_local_to_scene = true
-script = ExtResource("4_uebjf")
-showname = "haha"
-dialog = "Funny"
+[sub_resource type="Resource" id="Resource_fh6pr"]
+script = ExtResource("4_dde8w")
+showname = ""
+dialog = "Why is the grass green?"
 additive = false
 letter_delay = 0.02
 wait_until_finished = true
@@ -49,10 +51,172 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_tr4rc"]
+script = ExtResource("2_afpqv")
+property = "value"
+value_type = 2
+value = 1
+add_value = true
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_6r8db"]
+script = ExtResource("5_1kjsk")
+condition = ""
+use_bookmark = false
+command_index = 15
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_n0hs0"]
+script = ExtResource("8_v6c80")
+condition = "value == 1"
+branch_name = &"First"
+bookmark = &""
+continue_at_end = true
+background_color = 4
+target = NodePath("")
+collection = [SubResource("Resource_fh6pr"), SubResource("Resource_tr4rc"), SubResource("Resource_6r8db")]
+
+[sub_resource type="Resource" id="Resource_h76ke"]
+script = ExtResource("4_dde8w")
+showname = ""
+dialog = "Why is the sky blue?"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_lw8em"]
+script = ExtResource("2_afpqv")
+property = "value"
+value_type = 2
+value = 1
+add_value = true
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_3d3i3"]
+script = ExtResource("5_1kjsk")
+condition = ""
+use_bookmark = false
+command_index = 15
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_8sv7r"]
+script = ExtResource("8_v6c80")
+condition = "value == 2"
+branch_name = &"Second"
+bookmark = &""
+continue_at_end = true
+background_color = 4
+target = NodePath("")
+collection = [SubResource("Resource_h76ke"), SubResource("Resource_lw8em"), SubResource("Resource_3d3i3")]
+
+[sub_resource type="Resource" id="Resource_kh4y8"]
+script = ExtResource("4_dde8w")
+showname = ""
+dialog = "How big is the universe really?"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_apuha"]
+script = ExtResource("2_afpqv")
+property = "value"
+value_type = 2
+value = 1
+add_value = false
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_ptjhc"]
+script = ExtResource("5_1kjsk")
+condition = ""
+use_bookmark = false
+command_index = 15
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_g3ssj"]
+script = ExtResource("8_v6c80")
+condition = "value == 3"
+branch_name = &"Third"
+bookmark = &""
+continue_at_end = true
+background_color = 4
+target = NodePath("")
+collection = [SubResource("Resource_kh4y8"), SubResource("Resource_apuha"), SubResource("Resource_ptjhc")]
+
+[sub_resource type="Resource" id="Resource_618hb"]
+script = ExtResource("4_dde8w")
+showname = ""
+dialog = "Oh, you're already going? Bye, then."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 3
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_bff33"]
+script = ExtResource("5_1kjsk")
+condition = ""
+use_bookmark = false
+command_index = 0
+bookmark = &""
+continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
 [resource]
 resource_name = "collectiontest.tres"
 script = ExtResource("1_soyc4")
-collection = [SubResource("Resource_tqbiw"), SubResource("Resource_kwkdq"), SubResource("Resource_buliq"), SubResource("Resource_7166o")]
+collection = [SubResource("Resource_rrdin"), SubResource("Resource_r71a3"), SubResource("Resource_n0hs0"), SubResource("Resource_8sv7r"), SubResource("Resource_g3ssj"), SubResource("Resource_618hb"), SubResource("Resource_bff33")]

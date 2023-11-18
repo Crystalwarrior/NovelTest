@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CommandCollection" load_steps=8 format=3 uid="uid://csg2jq6eqmq8r"]
 
-[ext_resource type="Script" path="res://commands/command_dialog.gd" id="1_n2b0v"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="1_n2b0v"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_skxcj"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="3_ynfse"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
-[ext_resource type="Script" path="res://commands/command_dialog.gd" id="4_i05au"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="4_i05au"]
 [ext_resource type="Script" path="res://addons/blockflow/timeline.gd" id="5_3bh32"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="5_4ho6t"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_66xuj"]

@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7y7eq1lww26h"
-path="res://.godot/imported/speech.svg-85b62fc6adf47ff10c315637f3471da9.ctex"
+uid="uid://c4pgt4fxcr2pl"
+path="res://.godot/imported/bg_1_1.png-69000c938ec56ee849bf6613c13751b8.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://commands/icons/speech.svg"
-dest_files=["res://.godot/imported/speech.svg-85b62fc6adf47ff10c315637f3471da9.ctex"]
+source_file="res://addons/textalog/bg_1_1.png"
+dest_files=["res://.godot/imported/bg_1_1.png-69000c938ec56ee849bf6613c13751b8.ctex"]
 
 [params]
 
@@ -33,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true

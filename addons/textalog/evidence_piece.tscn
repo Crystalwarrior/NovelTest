@@ -1,23 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://wo2c1tg8wplh"]
 
-[ext_resource type="StyleBox" uid="uid://cqse4r24samip" path="res://ui/evidence_piece.tres" id="1_8lafb"]
-[ext_resource type="Texture2D" uid="uid://chh77oerj3v34" path="res://bg.png" id="1_48ckj"]
-[ext_resource type="Script" path="res://evidence_piece.gd" id="1_wjf2x"]
-[ext_resource type="Texture2D" uid="uid://b06me0uqvw8g4" path="res://keycard.png" id="2_swu31"]
+[ext_resource type="StyleBox" uid="uid://cqse4r24samip" path="res://addons/textalog/ui/evidence_piece.tres" id="1_s7lml"]
+[ext_resource type="Script" path="res://addons/textalog/evidence_piece.gd" id="2_3cpsj"]
+[ext_resource type="Texture2D" uid="uid://chh77oerj3v34" path="res://addons/textalog/bg.png" id="3_0wyhv"]
+[ext_resource type="Texture2D" uid="uid://b06me0uqvw8g4" path="res://evidence/keycard.png" id="4_4d137"]
 
 [node name="EvidencePiece" type="PanelContainer"]
 custom_minimum_size = Vector2(150, 180)
 offset_right = 150.0
 offset_bottom = 180.0
-theme_override_styles/panel = ExtResource("1_8lafb")
-script = ExtResource("1_wjf2x")
+theme_override_styles/panel = ExtResource("1_s7lml")
+script = ExtResource("2_3cpsj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="Bg" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_48ckj")
+texture = ExtResource("3_0wyhv")
 expand_mode = 4
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Bg"]
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_swu31")
+texture = ExtResource("4_4d137")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]

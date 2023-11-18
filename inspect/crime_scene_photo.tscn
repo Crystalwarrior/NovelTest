@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cslmqf4qe5sc4"]
 
-[ext_resource type="Script" path="res://investigation.gd" id="1_jttbk"]
+[ext_resource type="Script" path="res://addons/textalog/investigation.gd" id="1_jttbk"]
 [ext_resource type="Texture2D" uid="uid://duibtmw0n6uri" path="res://inspect/correct spot.png" id="2_ecj35"]
 [ext_resource type="Texture2D" uid="uid://bmicoo7ri748p" path="res://inspect/inspect bg.png" id="2_yy588"]
-[ext_resource type="Script" path="res://clickable.gd" id="3_kddj1"]
+[ext_resource type="Script" path="res://addons/textalog/clickable.gd" id="3_kddj1"]
 [ext_resource type="Resource" uid="uid://68apvnt0y6n0" path="res://timelines/shout.tres" id="5_7ge1b"]
 
 [node name="CrimeScenePhoto" type="Node2D" node_paths=PackedStringArray("object_list")]

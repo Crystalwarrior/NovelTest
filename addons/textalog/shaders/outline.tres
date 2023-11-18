@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6dlxfdglin6u"]
 
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_q6pa6"]
+[ext_resource type="Shader" path="res://addons/textalog/shaders/outline.gdshader" id="1_14bu0"]
 
 [resource]
-shader = ExtResource("1_q6pa6")
+shader = ExtResource("1_14bu0")
 shader_parameter/color = Color(0, 1, 0.133333, 1)
 shader_parameter/width = 5.0
 shader_parameter/pattern = 0

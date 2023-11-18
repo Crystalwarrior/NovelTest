@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://bumex5xpd0j6f"]
 
-[ext_resource type="Script" path="res://characters/character.gd" id="1_e6hp4"]
+[ext_resource type="Script" path="res://addons/textalog/character.gd" id="1_e6hp4"]
 [ext_resource type="Texture2D" uid="uid://n8xr2c3va6pv" path="res://characters/Godette/body.png" id="2_q35fb"]
 [ext_resource type="Texture2D" uid="uid://cha3eob2hr04p" path="res://characters/Godette/eyebrows/down.PNG" id="3_06e4y"]
 [ext_resource type="Texture2D" uid="uid://c1vg66tsi6ed8" path="res://characters/Godette/eyes/tired.PNG" id="4_dg104"]

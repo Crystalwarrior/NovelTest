@@ -26,9 +26,11 @@ var last_picked_choice: int = -1
 
 var current_background: String
 
+var value: int = 0
+
 var flags = {}:
-	set(value):
-		flags = value
+	set(val):
+		flags = val
 		flags_modified.emit(flags)
 
 signal wait_for_input(tog)
@@ -231,8 +233,8 @@ func dialog(showname: String = "", text: String = "", additive: bool = false, le
 		dialogbox.set_msg(text)
 
 
-func set_flag(flag: String, value: Variant):
-	flags[flag] = value
+func set_flag(flag: String, val: Variant):
+	flags[flag] = val
 	flags_modified.emit(flags)
 
 

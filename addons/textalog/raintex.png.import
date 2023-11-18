@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj80nqml0gfh7"
-path="res://.godot/imported/arrow.png-9a52328c9c8f79a188b7fabb13b1f3fc.ctex"
+uid="uid://cenohrxheffb2"
+path="res://.godot/imported/raintex.png-84964b1612aa67bcae1140fb84096d8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arrow.png"
-dest_files=["res://.godot/imported/arrow.png-9a52328c9c8f79a188b7fabb13b1f3fc.ctex"]
+source_file="res://addons/textalog/raintex.png"
+dest_files=["res://.godot/imported/raintex.png-84964b1612aa67bcae1140fb84096d8f.ctex"]
 
 [params]
 

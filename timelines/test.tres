@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="2_rvkqb"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="3_11mdn"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="4_e13oh"]
-[ext_resource type="Script" path="res://commands/command_dialog.gd" id="5_6pb2j"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="5_6pb2j"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_mf23q"]
 
 [sub_resource type="Resource" id="Resource_2havs"]

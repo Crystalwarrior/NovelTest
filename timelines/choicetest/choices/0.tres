@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CommandCollection" load_steps=11 format=3 uid="uid://2xk5f15htigd"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_a4a4k"]
-[ext_resource type="Script" path="res://commands/command_dialog.gd" id="2_eixfw"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="2_eixfw"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_lfklt"]
 [ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="4_8s6fr"]
 [ext_resource type="Resource" uid="uid://cyf63rc3uolon" path="res://timelines/test.tres" id="4_cu6gg"]
