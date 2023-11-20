@@ -1,3 +1,6 @@
-[submodule "Godot-CommandTimeline"]
+[submodule "Blockflow"]
 	path = addons/blockflow
 	url = https://github.com/AnidemDex/blockflow.git
+[submodule "Textalog"]
+	path = addons/textalog
+	url = https://github.com/Crystalwarrior/textalog.git
