@@ -1,6 +1,6 @@
-[submodule "Blockflow"]
+[submodule "addons/blockflow"]
 	path = addons/blockflow
 	url = https://github.com/AnidemDex/blockflow.git
-[submodule "Textalog"]
+[submodule "addons/textalog"]
 	path = addons/textalog
 	url = https://github.com/Crystalwarrior/textalog.git
