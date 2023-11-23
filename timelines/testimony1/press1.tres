@@ -17,6 +17,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
