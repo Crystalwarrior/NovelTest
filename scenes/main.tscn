@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dju5ny5vsc3sh"]
+
+[ext_resource type="PackedScene" uid="uid://cf117tt2n5op" path="res://addons/textalog/scenes/dialog_view.tscn" id="1_yyv51"]
+[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="2_kb2sy"]
+
+[node name="Main" instance=ExtResource("1_yyv51")]
+
+[node name="CommandManager" parent="." index="1"]
+initial_collection = ExtResource("2_kb2sy")
+
+[editable path="HUD/EvidenceMenu"]

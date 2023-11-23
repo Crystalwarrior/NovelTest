@@ -17,6 +17,7 @@ play_backwards = false
 wait_until_finished = false
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
 collection = []
 
@@ -34,6 +35,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -45,6 +47,7 @@ command_index = 0
 target_collection = ExtResource("4_gd0p5")
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -56,6 +59,7 @@ command_index = 0
 target_collection = ExtResource("4_wo0l3")
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 

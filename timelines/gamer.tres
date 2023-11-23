@@ -11,6 +11,7 @@ script = ExtResource("1_j1rd4")
 comment = "initialize the game"
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -21,6 +22,7 @@ method = "set_flag"
 args = ["passed", false]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -31,6 +33,7 @@ method = "set_flag"
 args = ["gamer", true]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -41,6 +44,7 @@ method = "add_character"
 args = ["res://characters/godette.tscn"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -51,6 +55,7 @@ method = "set_position"
 args = [Vector2(635, 496)]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -61,15 +66,16 @@ method = "set_background"
 args = ["res://backgrounds/hill.jpg"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
 [sub_resource type="Resource" id="Resource_j3mog"]
 resource_local_to_scene = true
 script = ExtResource("3_ajmx0")
-behavior = 1
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 

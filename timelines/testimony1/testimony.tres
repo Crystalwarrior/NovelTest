@@ -17,6 +17,7 @@ method = "add_evidence"
 args = ["the right evidence", "Present this to break this testimony wide open!", "res://evidence/keycard.png"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("HUD/EvidenceMenu")
 collection = []
 
@@ -27,6 +28,7 @@ method = "add_evidence"
 args = ["funny evidence", "this is wrong clearly", "res://check.png"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("HUD/EvidenceMenu")
 collection = []
 
@@ -37,6 +39,7 @@ method = "canvas_fadein"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -46,6 +49,7 @@ script = ExtResource("1_6ycm4")
 comment = "Initialize the testimony and provide the bookmarks to use for each statement."
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -56,6 +60,7 @@ method = "start_testimony"
 args = [PackedStringArray("st1", "st2", "st3", "st4")]
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -65,6 +70,7 @@ script = ExtResource("1_6ycm4")
 comment = "Statement 1"
 bookmark = &"st1"
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -82,6 +88,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -96,6 +103,7 @@ method = "set_press"
 args = [SubResource("Resource_yxltw")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -107,6 +115,7 @@ use_bookmark = true
 command_bookmark = "correct"
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -124,6 +133,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -132,6 +142,7 @@ resource_local_to_scene = true
 script = ExtResource("6_q8bac")
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -141,6 +152,7 @@ script = ExtResource("1_6ycm4")
 comment = "if presented \"the right evidence\""
 bookmark = &"correct"
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -151,6 +163,7 @@ method = "stop_testimony"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -168,6 +181,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -178,6 +192,7 @@ method = "canvas_fadeout"
 args = []
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -188,6 +203,7 @@ wait_for = 0
 wait_time = 1.0
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -200,6 +216,7 @@ command_index = 0
 timeline = ExtResource("8_hcus6")
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -214,6 +231,7 @@ method = "set_present"
 args = [SubResource("Resource_wwqwh")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -224,6 +242,7 @@ method = "move_to"
 args = [Vector2(635, 496), Vector2(1, 1), 0.5]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -234,6 +253,7 @@ method = "set_emote"
 args = ["surprised"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -251,6 +271,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -260,6 +281,7 @@ script = ExtResource("1_6ycm4")
 comment = "Statement 2"
 bookmark = &"st2"
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -270,6 +292,7 @@ method = "set_press"
 args = [SubResource("Resource_yxltw")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -280,6 +303,7 @@ method = "set_present"
 args = [SubResource("Resource_wwqwh")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -290,6 +314,7 @@ method = "move_to"
 args = [Vector2(750, 496), Vector2(1, 1), 0.5]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -300,6 +325,7 @@ method = "set_emote"
 args = ["sleepy"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -317,6 +343,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -326,6 +353,7 @@ script = ExtResource("1_6ycm4")
 comment = "Statement 3"
 bookmark = &"st3"
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -336,6 +364,7 @@ method = "set_press"
 args = [SubResource("Resource_yxltw")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -346,6 +375,7 @@ method = "set_present"
 args = [SubResource("Resource_wwqwh")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -356,6 +386,7 @@ method = "move_to"
 args = [Vector2(600, 496), Vector2(-1, 1), 0.25]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -366,6 +397,7 @@ method = "set_emote"
 args = ["surprised"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -383,6 +415,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -392,6 +425,7 @@ script = ExtResource("1_6ycm4")
 comment = "Statement 4"
 bookmark = &"st4"
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -402,6 +436,7 @@ method = "set_press"
 args = [SubResource("Resource_yxltw")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -412,6 +447,7 @@ method = "set_present"
 args = [SubResource("Resource_wwqwh")]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("")
 collection = []
 
@@ -422,6 +458,7 @@ method = "move_to"
 args = [Vector2(635, 549), Vector2(1.2, 1.2), 0.5]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -432,6 +469,7 @@ method = "set_emote"
 args = ["anger"]
 bookmark = &""
 continue_at_end = true
+background_color = 0
 target = NodePath("Characters/Godette")
 collection = []
 
@@ -449,6 +487,7 @@ highlight_speaker = false
 set_z_index = 0
 bookmark = &""
 continue_at_end = false
+background_color = 0
 target = NodePath("")
 collection = []
 
