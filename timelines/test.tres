@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=47 format=3 uid="uid://cyf63rc3uolon"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=48 format=3 uid="uid://cyf63rc3uolon"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="1_rg0e0"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="2_rvkqb"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="3_11mdn"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="4_e13oh"]
 [ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="5_6pb2j"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/branch.gd" id="5_d0nj7"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_mf23q"]
 
 [sub_resource type="Resource" id="Resource_2havs"]
@@ -134,18 +135,6 @@ background_color = 0
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_73bfc"]
-resource_local_to_scene = true
-script = ExtResource("4_e13oh")
-condition = "not flags[\"passed\"]"
-use_bookmark = true
-command_bookmark = "speaking"
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath(".")
-collection = []
-
 [sub_resource type="Resource" id="Resource_8jns8"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
@@ -215,24 +204,22 @@ background_color = 0
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_yu1hv"]
-resource_local_to_scene = true
-script = ExtResource("4_e13oh")
+[sub_resource type="Resource" id="Resource_7m7ii"]
+script = ExtResource("5_d0nj7")
 condition = "flags[\"passed\"]"
-use_bookmark = true
-command_bookmark = "end"
+branch_name = &"Repeat"
 bookmark = &""
 continue_at_end = true
 background_color = 0
 target = NodePath("")
-collection = []
+collection = [SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3")]
 
 [sub_resource type="Resource" id="Resource_dpc07"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["annoyance"]
-bookmark = &"speaking"
+bookmark = &""
 continue_at_end = true
 background_color = 0
 target = NodePath("Characters/Godette")
@@ -307,12 +294,22 @@ background_color = 0
 target = NodePath("")
 collection = []
 
+[sub_resource type="Resource" id="Resource_c0lim"]
+script = ExtResource("5_d0nj7")
+condition = "not flags[\"passed\"]"
+branch_name = &"First Time"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp")]
+
 [sub_resource type="Resource" id="Resource_t52ta"]
 resource_local_to_scene = true
 script = ExtResource("1_rg0e0")
 method = "set_emote"
 args = ["grin"]
-bookmark = &"end"
+bookmark = &""
 continue_at_end = true
 background_color = 0
 target = NodePath("Characters/Godette")
@@ -514,4 +511,4 @@ collection = []
 
 [resource]
 script = ExtResource("6_mf23q")
-collection = [SubResource("Resource_2havs"), SubResource("Resource_f1qbi"), SubResource("Resource_dufn6"), SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_73bfc"), SubResource("Resource_8jns8"), SubResource("Resource_i6dog"), SubResource("Resource_tsqyb"), SubResource("Resource_5vorc"), SubResource("Resource_s2fj3"), SubResource("Resource_yu1hv"), SubResource("Resource_dpc07"), SubResource("Resource_r2n13"), SubResource("Resource_17flj"), SubResource("Resource_dbgip"), SubResource("Resource_wmf5x"), SubResource("Resource_bqglp"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_6x6c0"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")]
+collection = [SubResource("Resource_2havs"), SubResource("Resource_f1qbi"), SubResource("Resource_dufn6"), SubResource("Resource_vquty"), SubResource("Resource_4270n"), SubResource("Resource_y1ash"), SubResource("Resource_mun2r"), SubResource("Resource_0ehhs"), SubResource("Resource_paxdu"), SubResource("Resource_626ib"), SubResource("Resource_7m7ii"), SubResource("Resource_c0lim"), SubResource("Resource_t52ta"), SubResource("Resource_lbut0"), SubResource("Resource_wgh2c"), SubResource("Resource_8fp6r"), SubResource("Resource_jc521"), SubResource("Resource_adgxv"), SubResource("Resource_eic4k"), SubResource("Resource_uldv6"), SubResource("Resource_vqpa4"), SubResource("Resource_wd60b"), SubResource("Resource_1pknx"), SubResource("Resource_ryf8x"), SubResource("Resource_rgh4m"), SubResource("Resource_exy7u"), SubResource("Resource_6x6c0"), SubResource("Resource_vklgs"), SubResource("Resource_xns57")]
