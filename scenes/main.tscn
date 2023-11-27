@@ -8,4 +8,7 @@
 [node name="CommandManager" parent="." index="1"]
 initial_collection = ExtResource("2_kb2sy")
 
+[node name="DialogBox" parent="HUD/MainView" index="0"]
+layout_mode = 1
+
 [editable path="HUD/EvidenceMenu"]
