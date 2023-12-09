@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdo7s1dxoad46"]
+
+[ext_resource type="Script" path="res://addons/textalog/scripts/character.gd" id="1_avdfp"]
+[ext_resource type="Texture2D" uid="uid://bk4hc8eb8444w" path="res://characters/matthew/base Merged.PNG" id="2_4m2bo"]
+[ext_resource type="Texture2D" uid="uid://52817k7dmiou" path="res://characters/matthew/eyes/neutral Merged.PNG" id="3_q3dgu"]
+[ext_resource type="Texture2D" uid="uid://cw00ddieidln3" path="res://characters/matthew/eyebrows/neutral.PNG" id="4_4c0fq"]
+[ext_resource type="Texture2D" uid="uid://bp2bb6xultv36" path="res://characters/matthew/mouths/neutral.PNG" id="5_oxuwl"]
+[ext_resource type="Texture2D" uid="uid://brbkf7qtrf676" path="res://characters/matthew/mouths/frown.PNG" id="6_4n3ug"]
+[ext_resource type="Texture2D" uid="uid://o6lambgc6fi3" path="res://characters/matthew/eyebrows/angry.PNG" id="7_71mep"]
+[ext_resource type="Texture2D" uid="uid://bfh7ot8jc4a3a" path="res://characters/matthew/mouths/grimace Merged.PNG" id="8_1qkj0"]
+[ext_resource type="Texture2D" uid="uid://bhuwkhn4uhosp" path="res://characters/matthew/eyes/angry Merged.PNG" id="9_i4j4u"]
+
+[sub_resource type="Animation" id="Animation_3womd"]
+resource_name = "angry"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/pivot/Mouths:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_1qkj0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/pivot/Eyes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_i4j4u")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/pivot/Eyebrows:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_71mep")]
+}
+
+[sub_resource type="Animation" id="Animation_7dots"]
+resource_name = "frown"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/pivot/Mouths:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_4n3ug")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/pivot/Eyes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_q3dgu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/pivot/Eyebrows:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_71mep")]
+}
+
+[sub_resource type="Animation" id="Animation_6sort"]
+resource_name = "neutral"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup/pivot/Mouths:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_oxuwl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGroup/pivot/Eyes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_q3dgu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteGroup/pivot/Eyebrows:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4c0fq")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jx33b"]
+_data = {
+"angry": SubResource("Animation_3womd"),
+"frown": SubResource("Animation_7dots"),
+"neutral": SubResource("Animation_6sort")
+}
+
+[node name="matthew" type="Node2D"]
+script = ExtResource("1_avdfp")
+
+[node name="SpriteGroup" type="CanvasGroup" parent="."]
+
+[node name="pivot" type="Node2D" parent="SpriteGroup"]
+position = Vector2(-423, -661)
+
+[node name="Body" type="Sprite2D" parent="SpriteGroup/pivot"]
+texture = ExtResource("2_4m2bo")
+centered = false
+
+[node name="Eyes" type="Sprite2D" parent="SpriteGroup/pivot"]
+texture = ExtResource("3_q3dgu")
+centered = false
+
+[node name="Eyebrows" type="Sprite2D" parent="SpriteGroup/pivot"]
+texture = ExtResource("4_4c0fq")
+centered = false
+
+[node name="Mouths" type="Sprite2D" parent="SpriteGroup/pivot"]
+texture = ExtResource("5_oxuwl")
+centered = false
+
+[node name="EmoteSwitcher" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jx33b")
+}
+autoplay = "neutral"

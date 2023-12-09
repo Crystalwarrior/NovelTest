@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=11 format=3 uid="uid://dusifaa2yw6gd"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=19 format=3 uid="uid://dusifaa2yw6gd"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_177bq"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="3_dtlby"]
+[ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_j518f"]
+[ext_resource type="Resource" uid="uid://2xk5f15htigd" path="res://timelines/choicetest/choices/0.tres" id="4_ghbnl"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="4_pwu81"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_choice.gd" id="5_5vjvm"]
+[ext_resource type="Resource" uid="uid://dscx4ljmitfcl" path="res://timelines/choicetest/choices/1.tres" id="6_8n4c5"]
 [ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="6_ow41s"]
+[ext_resource type="Resource" uid="uid://b83gv7a4wpc2m" path="res://timelines/choicetest/choices/2.tres" id="6_qyh8i"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_choice_list.gd" id="7_2f7pm"]
 
 [sub_resource type="Resource" id="Resource_w2dcs"]
 resource_local_to_scene = true
@@ -19,50 +24,6 @@ background_color = 0
 target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
 collection = []
 
-[sub_resource type="Resource" id="Resource_as5te"]
-resource_local_to_scene = true
-script = ExtResource("3_dtlby")
-method = "clear_choices"
-args = []
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("HUD/MainView/ChoiceList")
-collection = []
-
-[sub_resource type="Resource" id="Resource_rggq6"]
-resource_local_to_scene = true
-script = ExtResource("3_dtlby")
-method = "add_choice"
-args = ["Basic dialogue", "res://timelines/choicetest/choices/0.tres"]
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("HUD/MainView/ChoiceList")
-collection = []
-
-[sub_resource type="Resource" id="Resource_nidkc"]
-resource_local_to_scene = true
-script = ExtResource("3_dtlby")
-method = "add_choice"
-args = ["Testimony!", "res://timelines/choicetest/choices/1.tres"]
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("HUD/MainView/ChoiceList")
-collection = []
-
-[sub_resource type="Resource" id="Resource_qmer3"]
-resource_local_to_scene = true
-script = ExtResource("3_dtlby")
-method = "add_choice"
-args = ["Investigation!", "res://timelines/choicetest/choices/2.tres"]
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("HUD/MainView/ChoiceList")
-collection = []
-
 [sub_resource type="Resource" id="Resource_w3vwt"]
 resource_local_to_scene = true
 script = ExtResource("6_ow41s")
@@ -76,11 +37,82 @@ bump_speaker = false
 highlight_speaker = false
 set_z_index = 0
 bookmark = &""
-continue_at_end = false
+continue_at_end = true
 background_color = 0
 target = NodePath("")
 collection = []
 
+[sub_resource type="Resource" id="Resource_1lvus"]
+script = ExtResource("3_j518f")
+condition = ""
+use_bookmark = false
+command_index = 0
+target_collection = ExtResource("4_ghbnl")
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_bhfji"]
+script = ExtResource("5_5vjvm")
+text = "Basic dialogue"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_1lvus")]
+
+[sub_resource type="Resource" id="Resource_v4wvg"]
+script = ExtResource("3_j518f")
+condition = ""
+use_bookmark = false
+command_index = 0
+target_collection = ExtResource("6_8n4c5")
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_rcj2o"]
+script = ExtResource("5_5vjvm")
+text = "Testimony!"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_v4wvg")]
+
+[sub_resource type="Resource" id="Resource_72d8i"]
+script = ExtResource("3_j518f")
+condition = ""
+use_bookmark = false
+command_index = 0
+target_collection = ExtResource("6_qyh8i")
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_vd0cb"]
+script = ExtResource("5_5vjvm")
+text = "Investigation!"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_72d8i")]
+
+[sub_resource type="Resource" id="Resource_krfeo"]
+script = ExtResource("7_2f7pm")
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_bhfji"), SubResource("Resource_rcj2o"), SubResource("Resource_vd0cb")]
+
 [resource]
 script = ExtResource("4_pwu81")
-collection = [SubResource("Resource_w2dcs"), SubResource("Resource_as5te"), SubResource("Resource_rggq6"), SubResource("Resource_nidkc"), SubResource("Resource_qmer3"), SubResource("Resource_w3vwt")]
+collection = [SubResource("Resource_w2dcs"), SubResource("Resource_w3vwt"), SubResource("Resource_krfeo")]

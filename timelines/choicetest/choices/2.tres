@@ -1,24 +1,9 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=9 format=3 uid="uid://b83gv7a4wpc2m"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=7 format=3 uid="uid://b83gv7a4wpc2m"]
 
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_h4cjp"]
 [ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="2_1qiec"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_mlmuu"]
 [ext_resource type="Resource" uid="uid://um0mtcepmhuh" path="res://timelines/investigation.tres" id="4_c0u8p"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="5_dxfy0"]
-
-[sub_resource type="Resource" id="Resource_3kc2n"]
-resource_local_to_scene = true
-script = ExtResource("1_h4cjp")
-animation = "fade"
-custom_blend = -1.0
-custom_speed = 1.0
-play_backwards = false
-wait_until_finished = false
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
-collection = []
 
 [sub_resource type="Resource" id="Resource_bpd8b"]
 resource_local_to_scene = true
@@ -52,4 +37,4 @@ collection = []
 
 [resource]
 script = ExtResource("5_dxfy0")
-collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_3kbq5")]
+collection = [SubResource("Resource_bpd8b"), SubResource("Resource_3kbq5")]

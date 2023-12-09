@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=18 format=3 uid="uid://bfsqwnnetrdkk"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=14 format=3 uid="uid://bfsqwnnetrdkk"]
 
 [ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="1_dnfd8"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="1_ebt7i"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_end.gd" id="3_tgtme"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="4_atjsy"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="4_cwyyc"]
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_wait.gd" id="6_ab8ho"]
-[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="7_3l2b1"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="8_wdbsw"]
 
 [sub_resource type="Resource" id="Resource_83an4"]
@@ -98,29 +96,6 @@ background_color = 0
 target = NodePath("")
 collection = []
 
-[sub_resource type="Resource" id="Resource_8e1ww"]
-resource_local_to_scene = true
-script = ExtResource("6_ab8ho")
-wait_for = 0
-wait_time = 1.0
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("")
-collection = []
-
-[sub_resource type="Resource" id="Resource_mqeeu"]
-script = ExtResource("1_ebt7i")
-condition = ""
-use_bookmark = false
-command_index = 0
-target_collection = ExtResource("7_3l2b1")
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("")
-collection = []
-
 [resource]
 script = ExtResource("8_wdbsw")
-collection = [SubResource("Resource_83an4"), SubResource("Resource_6lucd"), SubResource("Resource_4w8ct"), SubResource("Resource_x1fm6"), SubResource("Resource_8x1ci"), SubResource("Resource_fwoaj"), SubResource("Resource_yes7p"), SubResource("Resource_8e1ww"), SubResource("Resource_mqeeu")]
+collection = [SubResource("Resource_83an4"), SubResource("Resource_6lucd"), SubResource("Resource_4w8ct"), SubResource("Resource_x1fm6"), SubResource("Resource_8x1ci"), SubResource("Resource_fwoaj"), SubResource("Resource_yes7p")]

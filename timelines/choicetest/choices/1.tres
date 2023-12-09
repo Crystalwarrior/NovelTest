@@ -1,25 +1,10 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=11 format=3 uid="uid://dscx4ljmitfcl"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=9 format=3 uid="uid://dscx4ljmitfcl"]
 
-[ext_resource type="Script" path="res://addons/blockflow/commands/command_animate.gd" id="1_lwl7b"]
 [ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="2_wfcod"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_goto.gd" id="3_lp7g6"]
 [ext_resource type="Resource" uid="uid://n2a4eflanj3d" path="res://timelines/gamer.tres" id="4_gd0p5"]
 [ext_resource type="Resource" uid="uid://dvf52xqp8wb2m" path="res://timelines/testimony1/testimony.tres" id="4_wo0l3"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_4tgbm"]
-
-[sub_resource type="Resource" id="Resource_3kc2n"]
-resource_local_to_scene = true
-script = ExtResource("1_lwl7b")
-animation = "fade"
-custom_blend = -1.0
-custom_speed = 1.0
-play_backwards = false
-wait_until_finished = false
-bookmark = &""
-continue_at_end = true
-background_color = 0
-target = NodePath("HUD/MainView/ChoiceList/AnimationPlayer")
-collection = []
 
 [sub_resource type="Resource" id="Resource_bpd8b"]
 resource_local_to_scene = true
@@ -65,4 +50,4 @@ collection = []
 
 [resource]
 script = ExtResource("6_4tgbm")
-collection = [SubResource("Resource_3kc2n"), SubResource("Resource_bpd8b"), SubResource("Resource_scr3q"), SubResource("Resource_ao31l")]
+collection = [SubResource("Resource_bpd8b"), SubResource("Resource_scr3q"), SubResource("Resource_ao31l")]

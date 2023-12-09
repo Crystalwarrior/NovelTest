@@ -21,7 +21,7 @@ SaveSystem="*res://addons/textalog/autoload/SaveSystem.gd"
 
 [blockflow]
 
-settings/commands/custom_commands=PackedStringArray("res://addons/textalog/commands/command_character.gd", "res://addons/textalog/commands/command_dialog.gd")
+settings/commands/custom_commands=PackedStringArray("res://addons/textalog/commands/command_character.gd", "res://addons/textalog/commands/command_dialog.gd", "res://addons/textalog/commands/command_choice_list.gd", "res://addons/textalog/commands/command_choice.gd")
 
 [display]
 
