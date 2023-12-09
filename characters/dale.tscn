@@ -557,7 +557,7 @@ _data = {
 "unsure": SubResource("Animation_r1l3g")
 }
 
-[node name="dale" type="Node2D"]
+[node name="Dale" type="Node2D"]
 script = ExtResource("1_gipa0")
 
 [node name="SpriteGroup" type="CanvasGroup" parent="."]
@@ -567,22 +567,18 @@ scale = Vector2(0.95, 0.95)
 position = Vector2(-251, -727)
 
 [node name="Body" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("2_jiao2")
 centered = false
 
 [node name="Eyes" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("3_x7fv7")
 centered = false
 
 [node name="Eyebrows" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("4_horyb")
 centered = false
 
 [node name="Mouths" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("5_5tcvv")
 centered = false
 

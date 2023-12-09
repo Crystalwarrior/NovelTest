@@ -3,3 +3,6 @@
 
 # Exported exe's
 bin/
+
+# Big source files used in dev
+_src/
