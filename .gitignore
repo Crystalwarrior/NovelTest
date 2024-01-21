@@ -1,8 +1,14 @@
 # Godot 4+ specific ignores
 .godot/
 
+# VisualStudio Code
+.vscode/
+
 # Exported exe's
 bin/
 
 # Big source files used in dev
 _src/
+
+# movie maker stuff
+dev_footage/

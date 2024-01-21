@@ -557,8 +557,9 @@ _data = {
 "unsure": SubResource("Animation_r1l3g")
 }
 
-[node name="Dale" type="Node2D"]
+[node name="Dale" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
 script = ExtResource("1_gipa0")
+emote_switcher = NodePath("EmoteSwitcher")
 
 [node name="SpriteGroup" type="CanvasGroup" parent="."]
 scale = Vector2(0.95, 0.95)

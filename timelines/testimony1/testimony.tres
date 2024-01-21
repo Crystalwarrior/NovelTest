@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CommandCollection" load_steps=36 format=3 uid="uid://dvf52xqp8wb2m"]
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=47 format=3 uid="uid://dvf52xqp8wb2m"]
 
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_comment.gd" id="1_6ycm4"]
 [ext_resource type="Script" path="res://addons/blockflow/commands/command_call.gd" id="2_pvprn"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="4_i05au"]
 [ext_resource type="Resource" uid="uid://bfsqwnnetrdkk" path="res://timelines/testimony1/present1.tres" id="4_ywg7p"]
 [ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="6_66xuj"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_testimony_statement.gd" id="6_sy2ct"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_testimony.gd" id="7_evoco"]
 
 [sub_resource type="Resource" id="Resource_262dq"]
 resource_local_to_scene = true
@@ -40,6 +42,115 @@ continue_at_end = true
 background_color = 0
 target = NodePath("")
 collection = []
+
+[sub_resource type="Resource" id="Resource_rpran"]
+script = ExtResource("4_i05au")
+showname = ""
+dialog = "I arrived at the scene to witness a gruesome event!"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_lxsau"]
+script = ExtResource("6_sy2ct")
+title = "Flavortext"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_rpran")]
+
+[sub_resource type="Resource" id="Resource_lp5l0"]
+script = ExtResource("4_i05au")
+showname = ""
+dialog = "I don't know for how long I was unconscious, but I woke up in the parking lot."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_auaeu"]
+script = ExtResource("6_sy2ct")
+title = "Woke Up in Parking Lot"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_lp5l0")]
+
+[sub_resource type="Resource" id="Resource_qwif7"]
+script = ExtResource("4_i05au")
+showname = ""
+dialog = "The defendant plunged his knife into the victim's throat!!"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_ibcon"]
+script = ExtResource("6_sy2ct")
+title = "Moment of Murder"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_qwif7")]
+
+[sub_resource type="Resource" id="Resource_iqjy7"]
+script = ExtResource("4_i05au")
+showname = ""
+dialog = "Scared for my life, I turned around and ran, but slammed into the door..."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_3mdcr"]
+script = ExtResource("6_sy2ct")
+title = "Knocked Out"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_iqjy7")]
+
+[sub_resource type="Resource" id="Resource_r6nsp"]
+script = ExtResource("7_evoco")
+title = ""
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_lxsau"), SubResource("Resource_auaeu"), SubResource("Resource_ibcon"), SubResource("Resource_3mdcr")]
 
 [sub_resource type="Resource" id="Resource_kbedy"]
 resource_local_to_scene = true
@@ -129,7 +240,6 @@ wait_until_finished = true
 speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
-set_z_index = 0
 bookmark = &""
 continue_at_end = false
 background_color = 0
@@ -203,7 +313,6 @@ wait_until_finished = true
 speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
-set_z_index = 0
 bookmark = &""
 continue_at_end = false
 background_color = 0
@@ -277,7 +386,6 @@ wait_until_finished = true
 speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
-set_z_index = 0
 bookmark = &""
 continue_at_end = false
 background_color = 0
@@ -351,7 +459,6 @@ wait_until_finished = true
 speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
-set_z_index = 0
 bookmark = &""
 continue_at_end = false
 background_color = 0
@@ -360,4 +467,4 @@ collection = []
 
 [resource]
 script = ExtResource("6_66xuj")
-collection = [SubResource("Resource_262dq"), SubResource("Resource_mgwoy"), SubResource("Resource_3w3fg"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_arbrc"), SubResource("Resource_fh04o"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_jyo3m"), SubResource("Resource_ltq2k"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")]
+collection = [SubResource("Resource_262dq"), SubResource("Resource_mgwoy"), SubResource("Resource_3w3fg"), SubResource("Resource_r6nsp"), SubResource("Resource_kbedy"), SubResource("Resource_f68tl"), SubResource("Resource_nc42f"), SubResource("Resource_gdpos"), SubResource("Resource_vqcyn"), SubResource("Resource_33see"), SubResource("Resource_b7vup"), SubResource("Resource_0iffn"), SubResource("Resource_rympe"), SubResource("Resource_qfxjq"), SubResource("Resource_881ay"), SubResource("Resource_ve5qi"), SubResource("Resource_0fja7"), SubResource("Resource_phpuj"), SubResource("Resource_iwcqc"), SubResource("Resource_arbrc"), SubResource("Resource_fh04o"), SubResource("Resource_4ga5r"), SubResource("Resource_pbmvn"), SubResource("Resource_6li51"), SubResource("Resource_635lm"), SubResource("Resource_jyo3m"), SubResource("Resource_ltq2k"), SubResource("Resource_kg8oj"), SubResource("Resource_rrg8v"), SubResource("Resource_b5jqf")]

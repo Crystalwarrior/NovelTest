@@ -744,8 +744,9 @@ _data = {
 "weird": SubResource("Animation_47ceg")
 }
 
-[node name="Godette" type="Node2D"]
+[node name="Godette" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
 script = ExtResource("1_e6hp4")
+emote_switcher = NodePath("EmoteSwitcher")
 
 [node name="SpriteGroup" type="CanvasGroup" parent="."]
 rotation = 6.28319
@@ -754,30 +755,24 @@ metadata/_edit_group_ = true
 
 [node name="pivot" type="Node2D" parent="SpriteGroup"]
 position = Vector2(-476, -1817)
-scale = Vector2(1, 1)
 
 [node name="Body" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("2_q35fb")
 centered = false
 
 [node name="Eyebrows" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("14_wg0sv")
 centered = false
 
 [node name="Eyes" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("15_mt5gt")
 centered = false
 
 [node name="Mouth" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 texture = ExtResource("23_1ks5f")
 centered = false
 
 [node name="Effect" type="Sprite2D" parent="SpriteGroup/pivot"]
-scale = Vector2(1, 1)
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

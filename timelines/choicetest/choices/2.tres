@@ -16,7 +16,6 @@ wait_until_finished = true
 speaking_character = ""
 bump_speaker = false
 highlight_speaker = false
-set_z_index = 0
 bookmark = &""
 continue_at_end = false
 background_color = 0

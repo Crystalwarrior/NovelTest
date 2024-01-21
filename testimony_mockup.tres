@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="CommandCollection" load_steps=14 format=3 uid="uid://cymev3ymknkno"]
+
+[ext_resource type="Script" path="res://addons/textalog/commands/command_dialog.gd" id="1_b68hw"]
+[ext_resource type="Script" path="res://addons/blockflow/command_collection.gd" id="1_bprkm"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_testimony_statement.gd" id="2_6caux"]
+[ext_resource type="Script" path="res://addons/textalog/commands/command_testimony.gd" id="3_ntwg1"]
+
+[sub_resource type="Resource" id="Resource_jekxw"]
+script = ExtResource("1_b68hw")
+showname = ""
+dialog = "I arrived at the scene to witness a gruesome event!"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_ufp30"]
+script = ExtResource("2_6caux")
+title = "Flavortext"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_jekxw")]
+
+[sub_resource type="Resource" id="Resource_cusr8"]
+script = ExtResource("1_b68hw")
+showname = ""
+dialog = "I don't know for how long I was unconscious, but I woke up in the parking lot."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_igx61"]
+script = ExtResource("2_6caux")
+title = "Woke Up in Parking Lot"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_cusr8")]
+
+[sub_resource type="Resource" id="Resource_ygveu"]
+script = ExtResource("1_b68hw")
+showname = ""
+dialog = "The defendant plunged his knife into the victim's throat!!"
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_nxekm"]
+script = ExtResource("2_6caux")
+title = "Moment of Murder"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_ygveu")]
+
+[sub_resource type="Resource" id="Resource_4coah"]
+script = ExtResource("1_b68hw")
+showname = ""
+dialog = "Scared for my life, I turned around and ran, but slammed into the door..."
+additive = false
+letter_delay = 0.02
+wait_until_finished = true
+speaking_character = ""
+bump_speaker = false
+highlight_speaker = false
+set_z_index = 0
+bookmark = &""
+continue_at_end = false
+background_color = 0
+target = NodePath("")
+collection = []
+
+[sub_resource type="Resource" id="Resource_eghjb"]
+script = ExtResource("2_6caux")
+title = "Knocked Out"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_4coah")]
+
+[sub_resource type="Resource" id="Resource_grbdx"]
+script = ExtResource("3_ntwg1")
+title = "The Slam"
+bookmark = &""
+continue_at_end = true
+background_color = 0
+target = NodePath("")
+collection = [SubResource("Resource_ufp30"), SubResource("Resource_igx61"), SubResource("Resource_nxekm"), SubResource("Resource_eghjb")]
+
+[resource]
+resource_name = "testimony_mockup.tres"
+script = ExtResource("1_bprkm")
+collection = [SubResource("Resource_grbdx")]

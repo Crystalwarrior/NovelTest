@@ -137,8 +137,9 @@ _data = {
 "neutral": SubResource("Animation_6sort")
 }
 
-[node name="matthew" type="Node2D"]
+[node name="matthew" type="Node2D" node_paths=PackedStringArray("emote_switcher")]
 script = ExtResource("1_avdfp")
+emote_switcher = NodePath("EmoteSwitcher")
 
 [node name="SpriteGroup" type="CanvasGroup" parent="."]
 
